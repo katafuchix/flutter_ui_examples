@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
+import '../components/snack_bar.dart';
+import '../app.dart';
+import 'dialog_alert_example_screen.dart';
 
 class DialogMenuScreenResult {
   final String message;
@@ -9,12 +13,12 @@ class DialogMenuScreenResult {
 class DialogMenuScreen extends BaseStatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _DialogMenuScreenSate();
+    return _DialogMenuScreenState();
   }
 }
 
-class _DialogMenuScreenSate extends BaseState<DialogMenuScreen> {
-  _DialogMenuScreenSate() : super();
+class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
+  _DialogMenuScreenState() : super();
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +26,12 @@ class _DialogMenuScreenSate extends BaseState<DialogMenuScreen> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: const Text('Dialog examples'),
+        title: const Text('Alert Dialog examples'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: ListView(
-          //scrollDirection: Axis.horizontal, // 横
           padding: EdgeInsets.all(2.0),
-          //shrinkWrap: true,
           children: [
             Container(
                 margin: const EdgeInsets.all(20.0),
@@ -39,27 +41,21 @@ class _DialogMenuScreenSate extends BaseState<DialogMenuScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'title',
-                        //style: TextStyle(inherit: false),
+                        'dialog alert',
                       ),
                       Text(
-                        ' demos of extended_text_field',
-                        //page.description,
+                        ' ',
                         style: const TextStyle(color: Colors.grey),
                       )
                     ],
                   ),
-                  onTap: () {
-                    //showDataAlert(context);
-                    /*
-                  Navigator.pushNamed(
-                    context,
-                    Routes.fluttercandiesDemogrouppage,
-                    arguments: <String, dynamic>{
-                      'keyValue': routesGroup.entries.toList()[index],
-                    },
-                  );
-                  */
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                      context, Routes.dialog_alert_example,
+                      pageOpenType: PageOpenType.SLIDE);
+                    if (result is DialogAlertExampleScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    };
                   },
                 )
             )

@@ -56,6 +56,20 @@ Widget buildNormalText(String text,
         weight: TextWight.NORMAL,
         decoration: decoration);
 
+Widget buildNormalBoldText(String text,
+    {int maxLines = 5,
+      TextColors colors = TextColors.PRIMARY_TEXT,
+      TextAlign? textAlign,
+      TextHeight? height,
+      TextDecoration? decoration}) =>
+    _buildBaseText(text,
+        maxLines: maxLines,
+        colors: colors,
+        textAlign: textAlign,
+        fontSize: TextSize.LARGE,
+        weight: TextWight.LARGE,
+        decoration: decoration);
+
 // TODO 仮置き
 // 通常テキスト
 // 設定メニューのラベルなど、通常のテキストのうち、1行で表示すること想定としたテキスト

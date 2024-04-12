@@ -12,6 +12,7 @@ class _MyColors {
 
   static const Color grey1 = Color(0xFF757575);
   static const Color grey2 = Color(0xFFBDBDBD);
+  static const Color grey3 = Color(0xFFF5F5F5);
 
   static const Color brown1 = Color(0xFF795548);
   static const Color brown2 = Color(0xFFD7CCC8);
@@ -22,6 +23,9 @@ class _MyColors {
   static const Color pink3 = Color(0xFFC2185B);
   static const Color pink4 = Color(0xFFFF4081);
 
+  static const Color red1 = Color(0xFFE53935);
+  static const Color red2 = Color(0xFFF44336);
+
   static const Color orange1 = Color(0xFFFF5722);
 
   static const Color green1 = Color(0xFF8BC34A);
@@ -29,10 +33,12 @@ class _MyColors {
   static const Color green3 = Color(0xFF689F38);
 
   static const Color blue1 = Color(0xFF03A9F4);
+
+  static const Color button1 = Color(0xFFEA6C7F);
 }
 
 AppColors getAppColors() {
-  return MaleColors();
+  return MyColors();
 }
 
 abstract class AppColors {
@@ -46,10 +52,16 @@ abstract class AppColors {
   Color get divider;
   Color get primaryBg;
   Color get secondaryBg;
+  Color get button1Bg;
+  Color get button2Bg;
+  Color get white1;
+  Color get grey1;
+  Color get grey2;
+  Color get grey3;
 }
 
 // https://www.materialpalette.com/light-green/deep-orange
-class FemaleColors extends AppColors {
+class MyColors extends AppColors {
   @override
   Color get primary => _MyColors.green1;
 
@@ -79,37 +91,22 @@ class FemaleColors extends AppColors {
 
   @override
   Color get secondaryBg => Colors.white;
-}
-
-// https://www.materialpalette.com/light-green/deep-orange
-class MaleColors extends AppColors {
-  @override
-  Color get primary => _MyColors.green1;
 
   @override
-  Color get primaryLight => _MyColors.green2;
+  Color get button1Bg => _MyColors.button1;
 
   @override
-  Color get primaryDark => _MyColors.green3;
+  Color get button2Bg => Colors.white;
 
   @override
-  Color get accent => _MyColors.orange1;
+  Color get white1 => _MyColors.white1;
 
   @override
-  Color get primaryText => _MyColors.black2;
+  Color get grey1 => _MyColors.grey1;
 
   @override
-  Color get secondaryText => _MyColors.grey1;
+  Color get grey2 => _MyColors.grey2;
 
   @override
-  Color get textOrIcons => _MyColors.black2;
-
-  @override
-  Color get divider => _MyColors.grey2;
-
-  @override
-  Color get primaryBg => Colors.grey.shade200;
-
-  @override
-  Color get secondaryBg => Colors.white;
+  Color get grey3 => _MyColors.grey3;
 }

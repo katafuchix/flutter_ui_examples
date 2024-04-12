@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'config/colors.dart';
 import 'my_navigator.dart';
 import 'main_page.dart';
 import 'dialog/dialog_menu_screen.dart';
+import 'dialog/dialog_alert_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -14,11 +16,21 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    AppColors colors = MyColors();
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: colors.primary,
         useMaterial3: true,
+        dialogBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
+        /*colorScheme: ColorScheme.fromSwatch(
+          brightness: Brightness.light,
+          primarySwatch: Colors.purple,
+          accentColor: Colors.red,
+        ),*/
       ),
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
       home: MainPage(),
@@ -39,6 +51,7 @@ class _MyAppState extends State<MyApp> {
     return {
       Routes.home: () => MainPage(),
       Routes.dialog_menu: () => DialogMenuScreen(),
+      Routes.dialog_alert_example: () => DialogAlertExampleScreen(),
     };
   }
 }
@@ -46,6 +59,7 @@ class _MyAppState extends State<MyApp> {
 class Routes {
   static const String home = '/home';
   static const String dialog_menu = '/dialog_menu';
+  static const String dialog_alert_example = '/dialog_alert_example';
 }
 
 
