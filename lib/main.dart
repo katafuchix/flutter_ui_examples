@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
 import 'example_route.dart';
 import 'example_routes.dart';
+import 'app.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+*/
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 

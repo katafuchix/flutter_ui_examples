@@ -3,6 +3,9 @@ import './example_route.dart';
 import './example_routes.dart' as example_routes;
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
 import 'dialog/dialog_menu_screen.dart';
+import '../my_navigator.dart';
+import '../components/snack_bar.dart';
+import 'app.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -10,7 +13,7 @@ import 'dialog/dialog_menu_screen.dart';
 )
 
 class MainPage extends StatelessWidget {
-  MainPage() {}
+  MainPage({super.key}) {}
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +38,27 @@ class MainPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'title',
+                      'Dialog',
                       //style: TextStyle(inherit: false),
                     ),
                     Text(
-                      ' demos of extended_text_field',
+                      ' demos of dialog ui',
                       //page.description,
                       style: const TextStyle(color: Colors.grey),
                     )
                   ],
                 ),
-                onTap: () {
+                onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.dialog_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is DialogMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+
                   //showDataAlert(context);
-                  showAlert(context);
+                  //showAlert(context);
                   //Navigator.push(context, DialogMenuPage());
                   /*
                   Navigator.push(
@@ -68,7 +79,7 @@ class MainPage extends StatelessWidget {
                     },
                   );
                   */
-                },
+                //},
               )
             )
           ],

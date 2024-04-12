@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import '../base/base_stateful_widget.dart';
 
+class DialogMenuScreenResult {
+  final String message;
+  DialogMenuScreenResult(this.message);
+}
 
-class DialogMenuPage extends StatelessWidget {
-  DialogMenuPage() {}
+class DialogMenuScreen extends BaseStatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _DialogMenuScreenSate();
+  }
+}
+
+class _DialogMenuScreenSate extends BaseState<DialogMenuScreen> {
+  _DialogMenuScreenSate() : super();
 
   @override
   Widget build(BuildContext context) {
