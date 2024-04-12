@@ -47,7 +47,9 @@ class MainPage extends StatelessWidget {
                 ),
                 onTap: () {
                   //showDataAlert(context);
+                  showAlert(context);
                   //Navigator.push(context, DialogMenuPage());
+                  /*
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -56,6 +58,7 @@ class MainPage extends StatelessWidget {
                       },
                     ),
                   );
+                  */
                   /*
                   Navigator.pushNamed(
                     context,
@@ -72,6 +75,65 @@ class MainPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        Future.delayed(
+          Duration(seconds: 5),
+              () {
+            Navigator.of(context).pop(true);
+            print('aaa');
+          },
+        );
+
+        return  WillPopScope(
+          onWillPop: () async=> false,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(),
+                //Text(S.of(context)!.processing,style: regularWhite18,),
+              ],
+            ),
+          ),
+        );
+        /*
+        return AlertDialog(
+          title: Text('Title Here'),
+          content: Text('Data'),
+        );
+        */
+      },
+    );
+  }
+
+  Future <void> showLoadingDialog({
+    required BuildContext context,
+  }) async {
+    showGeneralDialog(
+        context: context,
+        barrierDismissible: false,
+        transitionDuration: const Duration(milliseconds: 250),
+        barrierColor: Colors.black.withOpacity(0.5), // 画面マスクの透明度
+        pageBuilder: (BuildContext context, Animation animation,
+            Animation secondaryAnimation) {
+          return  WillPopScope(
+            onWillPop: () async=> false,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CircularProgressIndicator(),
+                  //Text(S.of(context)!.processing,style: regularWhite18,),
+                ],
+              ),
+            ),
+          );
+        });
   }
 
   showDataAlert(BuildContext context) {
