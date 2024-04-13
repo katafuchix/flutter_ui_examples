@@ -50,7 +50,7 @@ class FullScreenDialogPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: const Center(
-        child: const Text('Full Screen Dialog Page'),
+        child: Text('Full Screen Dialog Page'),
       ),
     );
   }

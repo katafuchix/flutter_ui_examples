@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/texts.dart';
-import '../config/colors.dart';
 
 class VideoPlayerExampleScreenResult {
   final String message;
