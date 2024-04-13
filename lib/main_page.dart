@@ -8,6 +8,7 @@ import '../components/snack_bar.dart';
 import 'app.dart';
 import 'dialog/dialog_menu_screen.dart';
 import 'video/video_menu_screen.dart';
+import 'modal/modal_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -111,6 +112,34 @@ class MainPage extends StatelessWidget {
                         context, Routes.slide_menu,
                         pageOpenType: PageOpenType.SLIDE);
                     if (result is SlideMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'modal menu',
+                        //style: TextStyle(inherit: false),
+                      ),
+                      Text(
+                        ' demos of modal ui',
+                        //page.description,
+                        style: const TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.modal_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is ModalMenuScreenResult) {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },

@@ -9,6 +9,8 @@ import 'video/video_player_example_screen.dart';
 import 'slide_menu/slide_menu_screen.dart';
 import 'slide_menu/slide_menu_simple_example.dart';
 import 'slide_menu/slide_menu_drawer_esample.dart';
+import 'modal/modal_menu_screen.dart';
+import 'modal/modal_simple_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -62,6 +64,8 @@ class _MyAppState extends State<MyApp> {
       Routes.slide_menu: () => SlideMenuScreen(),
       Routes.slide_menu_simple_example: () => SlideMenuSimpleExampleScreen(),
       Routes.slide_menu_drawer_example: () => SlideMenuDrawerExampleScreen(),
+      Routes.modal_menu: () => ModalMenuScreen(),
+      Routes.modal_simple_example: () => ModalSimpleExampleScreen(),
     };
   }
 }
@@ -75,6 +79,8 @@ class Routes {
   static const String slide_menu = '/slide_menu';
   static const String slide_menu_simple_example = '/slide_menu_simple_example';
   static const String slide_menu_drawer_example = '/slide_menu_drawer_example';
+  static const String modal_menu = '/modal_menu';
+  static const String modal_simple_example = '/modal_simple_example';
 }
 
 
