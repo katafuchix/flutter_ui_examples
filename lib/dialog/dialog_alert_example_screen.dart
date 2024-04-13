@@ -29,7 +29,7 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
       ),
       body: Center(
           child: ElevatedButton(
-                    child: Text('アラートダイアログを表示'),
+                    child: const Text('アラートダイアログを表示'),
                     onPressed: () {
                       showPostDoneDialog(context);
                     },
@@ -47,14 +47,14 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
         {
           return AlertDialog(
             //backgroundColor: Colors.white, //MyColors().white1,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(
                   20.0,
                 ),
               ),
             ),
-            contentPadding: EdgeInsets.only(
+            contentPadding: const EdgeInsets.only(
               top: 0.0,
             ),
             content: Container(
@@ -70,34 +70,30 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
+                    SizedBox(
                       height: 20,
                       child:
                       Row(children: [
-                        Spacer(),
+                        const Spacer(),
                         IconButton(icon:Icon(Icons.close, color:MyColors().grey1, size: 16),
                             onPressed: () =>  {}),
                       ],
                       ),
                     ),
-                    SizedBox(height: 4,),
-                    Container(
-                      //color: Colors.black,
-                      child:
-                      Row(children: [
-                        Spacer(),
+                    const SizedBox(height: 4,),
+                    Row(children: [
+                      const Spacer(),
                         buildNormalBoldText("投稿が完了しました", maxLines: 1),
-                        Spacer(),
+                      const Spacer(),
                       ],
-                      ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     Container(
                         padding: const EdgeInsets.all(2.0),
                         child:
                         Column(
                           children: [
-                            Padding(padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
                               child:
                               TextButton(
                                   child: buildNormalBoldText("続けて投稿する", maxLines: 1, colors: TextColors.WHITE),
@@ -116,7 +112,7 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
                                   }),
                             ),
 
-                            Padding(padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 0),
+                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 0),
                               child:
                               TextButton(
                                   child: buildNormalBoldText("ルームへ戻る", maxLines: 1, colors: TextColors.SECONDARY_TEXT),

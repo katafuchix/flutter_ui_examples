@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/texts.dart';
-import '../config/colors.dart';
 
 class SlideMenuDrawerExampleScreenResult {
   final String message;
@@ -23,14 +20,14 @@ class _SlideMenuDrawerExampleScreenState extends BaseState<SlideMenuDrawerExampl
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer:
-      Container(
+      SizedBox(
         width: 200,
         child:
           Drawer(//①appbar:と同階層に配置
             child: ListView(//②child:としてListViewを配置
               padding: EdgeInsets.zero,
               children: const <Widget>[//③ListViewのchidrenにはHeaderをひとつ、子要素を複数個配置。
-              const SizedBox(
+              SizedBox(
                 height: 64.0,
                 child:
                   DrawerHeader( //　ここでのHeader：DrawerHeader()を入れて、
@@ -66,7 +63,7 @@ class _SlideMenuDrawerExampleScreenState extends BaseState<SlideMenuDrawerExampl
         title: const Text('Slide Menu Simple examples'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(
+      body: const Center(
         child: Text('Side Menu Tutorial'),
       ),
     );

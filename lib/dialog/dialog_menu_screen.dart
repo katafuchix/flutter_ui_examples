@@ -31,13 +31,13 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
       ),
       body: Center(
         child: ListView(
-          padding: EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(2.0),
           children: [
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
@@ -45,7 +45,7 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
                       ),
                       Text(
                         ' ',
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: Colors.grey),
                       )
                     ],
                   ),

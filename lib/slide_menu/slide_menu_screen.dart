@@ -32,13 +32,13 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
       ),
       body: Center(
         child: ListView(
-          padding: EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(2.0),
           children: [
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
@@ -46,7 +46,7 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
                       ),
                       Text(
                         ' ',
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: Colors.grey),
                       )
                     ],
                   ),
@@ -64,7 +64,7 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
@@ -72,7 +72,7 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
                       ),
                       Text(
                         ' ',
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: Colors.grey),
                       )
                     ],
                   ),

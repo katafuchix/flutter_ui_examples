@@ -25,7 +25,7 @@ class _ModalSimpleExampleScreenState extends BaseState<ModalSimpleExampleScreen>
       ),
       body: Center(
           child: ElevatedButton(
-            child: Text('フルスクリーンダイアログを表示'),
+            child: const Text('フルスクリーンダイアログを表示'),
             onPressed: () {
               Navigator.push(
                 context,
@@ -49,7 +49,7 @@ class FullScreenDialogPage extends StatelessWidget {
         title: const Text('Full Screen Dialog Page'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(
+      body: const Center(
         child: const Text('Full Screen Dialog Page'),
       ),
     );
