@@ -27,7 +27,8 @@ class _VideoPlayerExampleScreenState extends BaseState<VideoPlayerExampleScreen>
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/movies/IMG_5946.MOV');
+    //_controller = VideoPlayerController.asset('assets/movies/IMG_5946.MOV');
+    _controller = VideoPlayerController.asset('assets/movies/cats.MOV');
     _controller.initialize().then((_) {
 
       setState(() {});
@@ -76,6 +77,39 @@ class _VideoPlayerExampleScreenState extends BaseState<VideoPlayerExampleScreen>
                */
               VideoPlayer(_controller),
 
+          Container(
+            alignment: Alignment.bottomCenter,
+            child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      // 動画を最初から再生
+                      _controller
+                          .seekTo(Duration.zero)
+                          .then((_) => _controller.play());
+                    },
+                    icon: Icon(Icons.refresh, color: Colors.white,),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      // 動画を再生
+                      _controller.play();
+                    },
+                    icon: Icon(Icons.play_arrow, color: Colors.white,),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      // 動画を一時停止
+                      _controller.pause();
+                    },
+                    icon: Icon(Icons.pause, color: Colors.white,),
+                  ),
+                ],
+              ),
+          ),
+              /*
               _isPlayComplete ? InkWell(
                 onTap: (() {
 
@@ -95,6 +129,8 @@ class _VideoPlayerExampleScreenState extends BaseState<VideoPlayerExampleScreen>
                 ),
               )
                   : Container()
+
+               */
             ],
           ),
         ),
