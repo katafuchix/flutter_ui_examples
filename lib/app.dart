@@ -4,6 +4,8 @@ import 'my_navigator.dart';
 import 'main_page.dart';
 import 'dialog/dialog_menu_screen.dart';
 import 'dialog/dialog_alert_example_screen.dart';
+import 'video/video_menu_screen.dart';
+import 'video/video_player_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -52,6 +54,8 @@ class _MyAppState extends State<MyApp> {
       Routes.home: () => MainPage(),
       Routes.dialog_menu: () => DialogMenuScreen(),
       Routes.dialog_alert_example: () => DialogAlertExampleScreen(),
+      Routes.video_menu: () => VideoMenuScreen(),
+      Routes.video_player_example: () => VideoPlayerExampleScreen(),
     };
   }
 }
@@ -60,6 +64,8 @@ class Routes {
   static const String home = '/home';
   static const String dialog_menu = '/dialog_menu';
   static const String dialog_alert_example = '/dialog_alert_example';
+  static const String video_menu = '/video_menu';
+  static const String video_player_example = '/video_player_example';
 }
 
 

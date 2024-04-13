@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import './example_route.dart';
 import './example_routes.dart' as example_routes;
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
-import 'dialog/dialog_menu_screen.dart';
 import '../my_navigator.dart';
 import '../components/snack_bar.dart';
 import 'app.dart';
+import 'dialog/dialog_menu_screen.dart';
+import 'video/video_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -56,31 +57,35 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-
-                  //showDataAlert(context);
-                  //showAlert(context);
-                  //Navigator.push(context, DialogMenuPage());
-                  /*
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return DialogMenuPage();
-                      },
-                    ),
-                  );
-                  */
-                  /*
-                  Navigator.pushNamed(
-                    context,
-                    Routes.fluttercandiesDemogrouppage,
-                    arguments: <String, dynamic>{
-                      'keyValue': routesGroup.entries.toList()[index],
-                    },
-                  );
-                  */
-                //},
               )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'video',
+                        //style: TextStyle(inherit: false),
+                      ),
+                      Text(
+                        ' demos of video ui',
+                        //page.description,
+                        style: const TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.video_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is VideoMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
             )
           ],
         ),
