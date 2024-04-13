@@ -6,6 +6,9 @@ import 'dialog/dialog_menu_screen.dart';
 import 'dialog/dialog_alert_example_screen.dart';
 import 'video/video_menu_screen.dart';
 import 'video/video_player_example_screen.dart';
+import 'slide_menu/slide_menu_screen.dart';
+import 'slide_menu/slide_menu_simple_example.dart';
+import 'slide_menu/slide_menu_drawer_esample.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -56,6 +59,9 @@ class _MyAppState extends State<MyApp> {
       Routes.dialog_alert_example: () => DialogAlertExampleScreen(),
       Routes.video_menu: () => VideoMenuScreen(),
       Routes.video_player_example: () => VideoPlayerExampleScreen(),
+      Routes.slide_menu: () => SlideMenuScreen(),
+      Routes.slide_menu_simple_example: () => SlideMenuSimpleExampleScreen(),
+      Routes.slide_menu_drawer_example: () => SlideMenuDrawerExampleScreen(),
     };
   }
 }
@@ -66,6 +72,9 @@ class Routes {
   static const String dialog_alert_example = '/dialog_alert_example';
   static const String video_menu = '/video_menu';
   static const String video_player_example = '/video_player_example';
+  static const String slide_menu = '/slide_menu';
+  static const String slide_menu_simple_example = '/slide_menu_simple_example';
+  static const String slide_menu_drawer_example = '/slide_menu_drawer_example';
 }
 
 

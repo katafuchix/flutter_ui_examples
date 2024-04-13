@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_examples/slide_menu/slide_menu_screen.dart';
 import './example_route.dart';
 import './example_routes.dart' as example_routes;
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
@@ -82,6 +83,34 @@ class MainPage extends StatelessWidget {
                         context, Routes.video_menu,
                         pageOpenType: PageOpenType.SLIDE);
                     if (result is VideoMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'slide menu',
+                        //style: TextStyle(inherit: false),
+                      ),
+                      Text(
+                        ' demos of slide menu ui',
+                        //page.description,
+                        style: const TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.slide_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is SlideMenuScreenResult) {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
