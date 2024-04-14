@@ -38,6 +38,7 @@ dependencies:
   ff_annotation_route_library: ^3.0.0
   extended_text: ^13.0.0
   video_player: ^2.8.6
+  google_maps_flutter: ^2.1.8
 
 dev_dependencies:
   flutter_test:

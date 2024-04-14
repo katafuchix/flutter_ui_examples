@@ -9,6 +9,7 @@ import 'app.dart';
 import 'dialog/dialog_menu_screen.dart';
 import 'video/video_menu_screen.dart';
 import 'modal/modal_menu_screen.dart';
+import 'map/map_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -98,11 +99,9 @@ class MainPage extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         'slide menu',
-                        //style: TextStyle(inherit: false),
                       ),
                       Text(
                         ' demos of slide menu ui',
-                        //page.description,
                         style: const TextStyle(color: Colors.grey),
                       )
                     ],
@@ -140,6 +139,34 @@ class MainPage extends StatelessWidget {
                         context, Routes.modal_menu,
                         pageOpenType: PageOpenType.SLIDE);
                     if (result is ModalMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'map menu',
+                        //style: TextStyle(inherit: false),
+                      ),
+                      Text(
+                        ' demos of google map',
+                        //page.description,
+                        style: const TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.map_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is MapMenuScreenResult) {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
