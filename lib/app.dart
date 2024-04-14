@@ -13,6 +13,8 @@ import 'modal/modal_menu_screen.dart';
 import 'modal/modal_simple_screen.dart';
 import 'map/map_menu_screen.dart';
 import 'map/map_example_screen.dart';
+import 'bar/bar_menu_screen.dart';
+import 'bar/app_bar_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -70,6 +72,8 @@ class _MyAppState extends State<MyApp> {
       Routes.modal_simple_example: () => ModalSimpleExampleScreen(),
       Routes.map_menu: () => MapMenuScreen(),
       Routes.map_example: () => MapExampleScreen(),
+      Routes.bar_menu: () => BarMenuScreen(),
+      Routes.app_bar_example: () => AppBarExampleScreen()
     };
   }
 }
@@ -87,6 +91,8 @@ class Routes {
   static const String modal_simple_example = '/modal_simple_example';
   static const String map_menu = '/map_menu';
   static const String map_example = '/map_example';
+  static const String bar_menu = '/bar_menu';
+  static const String app_bar_example = '/app_bar_example';
 }
 
 

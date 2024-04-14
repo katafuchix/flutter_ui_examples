@@ -10,6 +10,7 @@ import 'dialog/dialog_menu_screen.dart';
 import 'video/video_menu_screen.dart';
 import 'modal/modal_menu_screen.dart';
 import 'map/map_menu_screen.dart';
+import 'bar/bar_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -144,7 +145,29 @@ class MainPage extends StatelessWidget {
                     }
                   },
                 )
-            )
+            ),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('bar menu',),
+                      Text('demos of bar ui',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.bar_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is BarMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
           ],
         ),
       ),
