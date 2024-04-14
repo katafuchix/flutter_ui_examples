@@ -23,6 +23,7 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const edgeInsets = EdgeInsets.only(top:20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -35,7 +36,7 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
           padding: const EdgeInsets.all(2.0),
           children: [
             Container(
-                margin: const EdgeInsets.all(20.0),
+                margin: edgeInsets,
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   child: const Column(
@@ -47,7 +48,8 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
                       Text(
                         ' ',
                         style: TextStyle(color: Colors.grey),
-                      )
+                      ),
+                      Divider()
                     ],
                   ),
                   onTap: () async {
@@ -61,7 +63,7 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
                 )
             ),
             Container(
-                margin: const EdgeInsets.all(20.0),
+                margin: edgeInsets,
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   child: const Column(
@@ -73,7 +75,8 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
                       Text(
                         ' ',
                         style: TextStyle(color: Colors.grey),
-                      )
+                      ),
+                      Divider()
                     ],
                   ),
                   onTap: () async {

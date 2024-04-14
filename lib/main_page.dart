@@ -21,6 +21,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const edgeInsets = EdgeInsets.only(top:20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -35,21 +36,15 @@ class MainPage extends StatelessWidget {
           //shrinkWrap: true,
           children: [
             Container(
-              margin: const EdgeInsets.all(20.0),
+              margin: edgeInsets,
               child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'Dialog',
-                      //style: TextStyle(inherit: false),
-                    ),
-                    Text(
-                      ' demos of dialog ui',
-                      //page.description,
-                      style: const TextStyle(color: Colors.grey),
-                    )
+                    Text('Dialog'),
+                    Text('demos of dialog ui',style: const TextStyle(color: Colors.grey),),
+                    Divider()
                   ],
                 ),
                 onTap: () async {
@@ -63,21 +58,15 @@ class MainPage extends StatelessWidget {
               )
             ),
             Container(
-                margin: const EdgeInsets.all(20.0),
+                margin: edgeInsets,
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'video',
-                        //style: TextStyle(inherit: false),
-                      ),
-                      Text(
-                        ' demos of video ui',
-                        //page.description,
-                        style: const TextStyle(color: Colors.grey),
-                      )
+                      Text('video',),
+                      Text('demos of video ui',style: const TextStyle(color: Colors.grey),),
+                      Divider()
                     ],
                   ),
                   onTap: () async {
@@ -91,19 +80,15 @@ class MainPage extends StatelessWidget {
                 )
             ),
             Container(
-                margin: const EdgeInsets.all(20.0),
+                margin: edgeInsets,
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'slide menu',
-                      ),
-                      Text(
-                        ' demos of slide menu ui',
-                        style: const TextStyle(color: Colors.grey),
-                      )
+                      Text('slide menu',),
+                      Text('demos of slide menu ui',style: const TextStyle(color: Colors.grey),),
+                      Divider()
                     ],
                   ),
                   onTap: () async {
@@ -117,21 +102,15 @@ class MainPage extends StatelessWidget {
                 )
             ),
             Container(
-                margin: const EdgeInsets.all(20.0),
+                margin: edgeInsets,
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'modal menu',
-                        //style: TextStyle(inherit: false),
-                      ),
-                      Text(
-                        ' demos of modal ui',
-                        //page.description,
-                        style: const TextStyle(color: Colors.grey),
-                      )
+                      Text('modal menu',),
+                      Text('demos of modal ui',style: const TextStyle(color: Colors.grey),),
+                      Divider()
                     ],
                   ),
                   onTap: () async {
@@ -145,21 +124,15 @@ class MainPage extends StatelessWidget {
                 )
             ),
             Container(
-                margin: const EdgeInsets.all(20.0),
+                margin: edgeInsets,
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'map menu',
-                        //style: TextStyle(inherit: false),
-                      ),
-                      Text(
-                        ' demos of google map',
-                        //page.description,
-                        style: const TextStyle(color: Colors.grey),
-                      )
+                      Text('map menu',),
+                      Text('demos of google map', style: const TextStyle(color: Colors.grey),),
+                      Divider()
                     ],
                   ),
                   onTap: () async {
