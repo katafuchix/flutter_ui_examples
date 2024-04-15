@@ -17,6 +17,7 @@ import 'bar/bar_menu_screen.dart';
 import 'bar/app_bar_example_screen.dart';
 import 'alignment/alignment_menu_screen.dart';
 import 'alignment/alignment_example_screen.dart';
+import 'alignment/alignment_column_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -78,6 +79,7 @@ class _MyAppState extends State<MyApp> {
       Routes.app_bar_example: () => AppBarExampleScreen(),
       Routes.alignment_menu: () => AlignmentMenuScreen(),
       Routes.alignment_example: () => AlignmentExampleScreen(),
+      Routes.alignment_column_example: () => AlignmentColumnExampleScreen(),
     };
   }
 }
@@ -99,6 +101,7 @@ class Routes {
   static const String app_bar_example = '/app_bar_example';
   static const String alignment_menu = '/alignment_menu';
   static const String alignment_example = '/alignment_example';
+  static const String alignment_column_example = '/alignment_column_example';
 }
 
 
