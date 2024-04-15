@@ -11,6 +11,7 @@ import 'video/video_menu_screen.dart';
 import 'modal/modal_menu_screen.dart';
 import 'map/map_menu_screen.dart';
 import 'bar/bar_menu_screen.dart';
+import 'alignment/alignment_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -161,6 +162,28 @@ class MainPage extends StatelessWidget {
                   onTap: () async {
                     final result = await MyNavigator.pushNamed(
                         context, Routes.bar_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is BarMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('aligment menu',),
+                      Text('demos of aligment ui',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.alignment_menu,
                         pageOpenType: PageOpenType.SLIDE);
                     if (result is BarMenuScreenResult) {
                       showInfoSnackBar(context, text: result.message);

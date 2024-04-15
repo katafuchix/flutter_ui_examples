@@ -15,6 +15,8 @@ import 'map/map_menu_screen.dart';
 import 'map/map_example_screen.dart';
 import 'bar/bar_menu_screen.dart';
 import 'bar/app_bar_example_screen.dart';
+import 'alignment/alignment_menu_screen.dart';
+import 'alignment/alignment_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -73,7 +75,9 @@ class _MyAppState extends State<MyApp> {
       Routes.map_menu: () => MapMenuScreen(),
       Routes.map_example: () => MapExampleScreen(),
       Routes.bar_menu: () => BarMenuScreen(),
-      Routes.app_bar_example: () => AppBarExampleScreen()
+      Routes.app_bar_example: () => AppBarExampleScreen(),
+      Routes.alignment_menu: () => AlignmentMenuScreen(),
+      Routes.alignment_example: () => AlignmentExampleScreen(),
     };
   }
 }
@@ -93,6 +97,8 @@ class Routes {
   static const String map_example = '/map_example';
   static const String bar_menu = '/bar_menu';
   static const String app_bar_example = '/app_bar_example';
+  static const String alignment_menu = '/alignment_menu';
+  static const String alignment_example = '/alignment_example';
 }
 
 
