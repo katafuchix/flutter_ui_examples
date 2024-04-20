@@ -12,6 +12,7 @@ import 'modal/modal_menu_screen.dart';
 import 'map/map_menu_screen.dart';
 import 'bar/bar_menu_screen.dart';
 import 'alignment/alignment_menu_screen.dart';
+import 'shared/shared_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -185,7 +186,29 @@ class MainPage extends StatelessWidget {
                     final result = await MyNavigator.pushNamed(
                         context, Routes.alignment_menu,
                         pageOpenType: PageOpenType.SLIDE);
-                    if (result is BarMenuScreenResult) {
+                    if (result is AlignmentMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('shared preference menu',),
+                      Text('demos of shared preference',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.shared_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is SharedMenuScreenResult) {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },

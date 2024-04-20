@@ -39,6 +39,7 @@ dependencies:
   extended_text: ^13.0.0
   video_player: ^2.8.6
   google_maps_flutter: ^2.1.8
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
