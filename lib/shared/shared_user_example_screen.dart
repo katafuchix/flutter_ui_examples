@@ -1,8 +1,53 @@
 import 'dart:convert';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
-import '../base/base_stateful_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter/services.dart';
+import '../common/file_util.dart';
+import '../base/base_stateful_widget.dart';
+
+
+class User {
+  String name = "";
+  String age = "";
+  String location = "";
+  //List<String> files = [];
+
+  User();
+
+  User.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        age = json['age'],
+        location = json['location'];
+        //files = json['files'];
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'age': age,
+    'location': location,
+    //'files': files,//.map((e) => e.path)
+  };
+}
+
+
+class SharedPref {
+  read(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (prefs.getString(key) == null) return;
+    return json.decode(prefs.getString(key)!);
+  }
+
+  save(String key, value) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString(key, json.encode(value));
+  }
+
+  remove(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove(key);
+  }
+}
 
 class SharedUserExampleScreenResult {
   final String message;
@@ -97,7 +142,11 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    final File file1 = await getImageFileFromAssets('images/DSCF9613.JPG');
+                    final File file2 = await getImageFileFromAssets('images/DSCF9617.JPG');
+                    //userSave.files = [file1.path, file2.path];
+                    print(userSave);
                     sharedPref.save("user", userSave);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: new Text("Saved!"),
@@ -144,42 +193,5 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
         ],
       )
     );
-  }
-}
-
-class User {
-  String name = "";
-  String age = "";
-  String location = "";
-
-  User();
-
-  User.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        age = json['age'],
-        location = json['location'];
-
-  Map<String, dynamic> toJson() => {
-    'name': name,
-    'age': age,
-    'location': location,
-  };
-}
-
-class SharedPref {
-  read(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    if (prefs.getString(key) == null) return;
-    return json.decode(prefs.getString(key)!);
-  }
-
-  save(String key, value) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString(key, json.encode(value));
-  }
-
-  remove(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.remove(key);
   }
 }

@@ -70,7 +70,7 @@ class _SharedMenuScreenState extends BaseState<SharedMenuScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'ahred user example',
+                        'shared user example',
                       ),
                       Text(
                         ' ',
