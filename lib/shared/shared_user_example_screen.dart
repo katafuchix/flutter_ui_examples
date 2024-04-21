@@ -167,7 +167,8 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
                     print('保存したmyData: $myData');
 
                     String saveStr = json.encode(userSave.toJson());
-                    await prefs.setStringList("testKeyStr", myData);
+                    //await prefs.setStringList("testKeyStr", myData);
+                    await prefs.setString("testKeyStr", saveStr);
                     print('保存したStr myData: $saveStr');
 
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -182,9 +183,17 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
 
                     SharedPreferences prefs = await SharedPreferences.getInstance();
                     // ①読み出し
-                    var result = prefs.getStringList("testKeyStr");
+                    var result = prefs.getString("testKeyStr");
 
                     print('読み出したresult:$result');
+                    print(json.decode(result!));
+
+                    final u = User.fromJson( json.decode(result!) );
+                    print(u);
+                    print(u.name);
+                    print(u.files);
+
+                    /*
                     //const u = User.fromJson(json.decode(result));
                     //const testData = [result].map((f) => User.fromJson(json.decode(f)));
                     //print(json.decode(prefs.getStringList("testKeyStr")));
@@ -199,6 +208,7 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
                     final u = User.fromJson( json.decode(prefs.getStringList("testKeyStr")![0]) );
                     print(u.name);
                     print(u.files);
+                    */
 
                   },
                   child: Text('Load', style: TextStyle(fontSize: 20)),
