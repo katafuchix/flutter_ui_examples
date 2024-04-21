@@ -12,22 +12,30 @@ class User {
   String name = "";
   String age = "";
   String location = "";
-  //List<String> files = [];
+  List<dynamic> files = [];
 
   User();
 
   User.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         age = json['age'],
-        location = json['location'];
-        //files = json['files'];
+        location = json['location'],
+        files = json['files'];
+   /*
+    User.fromJson(Map json)
+      : name = json['name'],
+        age = json['age'],
+        location = json['location'],
+        files = json['files'];
+    */
 
   Map<String, dynamic> toJson() => {
     'name': name,
     'age': age,
     'location': location,
-    //'files': files,//.map((e) => e.path)
+    'files': files,//.map((e) => e.path)
   };
+
 }
 
 
@@ -145,9 +153,23 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
                   onPressed: () async {
                     final File file1 = await getImageFileFromAssets('images/DSCF9613.JPG');
                     final File file2 = await getImageFileFromAssets('images/DSCF9617.JPG');
-                    //userSave.files = [file1.path, file2.path];
+                    userSave.files = [file1.path, file2.path];
                     print(userSave);
                     sharedPref.save("user", userSave);
+
+                    List<String> myData =
+                    [userSave].map((f) => json.encode(f.toJson())).toList();
+
+                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                    // ④保存
+                    await prefs.setStringList("testKey", myData);
+
+                    print('保存したmyData: $myData');
+
+                    String saveStr = json.encode(userSave.toJson());
+                    await prefs.setStringList("testKeyStr", myData);
+                    print('保存したStr myData: $saveStr');
+
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: new Text("Saved!"),
                         duration: const Duration(milliseconds: 500)));
@@ -155,8 +177,29 @@ class _SharedUserExampleScreenState extends BaseState<SharedUserExampleScreen> {
                   child: Text('Save', style: TextStyle(fontSize: 20)),
                 ),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     loadSharedPrefs();
+
+                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                    // ①読み出し
+                    var result = prefs.getStringList("testKeyStr");
+
+                    print('読み出したresult:$result');
+                    //const u = User.fromJson(json.decode(result));
+                    //const testData = [result].map((f) => User.fromJson(json.decode(f)));
+                    //print(json.decode(prefs.getStringList("testKeyStr")));
+                    print(result![0]);
+                    print( json.decode(result![0]) );
+
+                    print( prefs.getStringList("testKeyStr")![0] );
+
+                    print(json.decode(result![0]).runtimeType);
+                    // User 単体
+                    print( User.fromJson( json.decode(prefs.getStringList("testKeyStr")![0]) ));
+                    final u = User.fromJson( json.decode(prefs.getStringList("testKeyStr")![0]) );
+                    print(u.name);
+                    print(u.files);
+
                   },
                   child: Text('Load', style: TextStyle(fontSize: 20)),
                 ),
