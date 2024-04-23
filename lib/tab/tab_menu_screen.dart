@@ -4,7 +4,6 @@ import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
 import 'tab_example_screen.dart';
-import 'tab_controller_example_screen.dart';
 
 class TabMenuScreenResult {
   final String message;
@@ -105,6 +104,29 @@ class _TabMenuScreenState extends BaseState<TabMenuScreen> {
                   onTap: () async {
                     final result = await MyNavigator.pushNamed(
                         context, Routes.tab_library_example,
+                        pageOpenType: PageOpenType.SLIDE);
+                  },
+                )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'tab indicator example',
+                      ),
+                      Text(
+                        'Tab Custom Indicator',
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.tab_indicator_example,
                         pageOpenType: PageOpenType.SLIDE);
                   },
                 )

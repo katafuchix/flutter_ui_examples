@@ -25,6 +25,7 @@ import 'tab/tab_menu_screen.dart';
 import 'tab/tab_example_screen.dart';
 import 'tab/tab_controller_example_screen.dart';
 import 'tab/tab_library_example_screen.dart';
+import 'tab/tab_indicator_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -94,6 +95,7 @@ class _MyAppState extends State<MyApp> {
       Routes.tab_example: () => TabExampleScreen(),
       Routes.tab_controller_example: () => TabControllerExampleScreen(),
       Routes.tab_library_example: () => TabLibraryExampleScreen(),
+      Routes.tab_indicator_example: () => TabIndicatorExampleScreen(),
     };
   }
 }
@@ -123,6 +125,7 @@ class Routes {
   static const String tab_example = '/tab_example';
   static const String tab_controller_example = '/tab_controller_example';
   static const String tab_library_example = '/tab_library_example';
+  static const String tab_indicator_example = '/tab_indicator_example';
 }
 
 

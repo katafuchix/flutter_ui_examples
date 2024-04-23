@@ -19,6 +19,35 @@ class _TabExampleScreenState extends BaseState<TabExampleScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Products'),
+          bottom: const TabBar(
+            indicatorPadding: EdgeInsets.symmetric(horizontal: 10),
+            indicatorColor: Colors.black,
+            padding: EdgeInsets.zero,
+            labelPadding: EdgeInsets.zero,
+            tabs: [
+              SizedBox(height: 40, child: Center(child: Text('Tab 1'))),
+              SizedBox(height: 40, child: Center(child: Text('Tab 2'))),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            Center(child: Text('Tab 1')),
+            Center(child: Text('Tab 2')),
+          ],
+        ),
+      ),
+    );
+  }
+  /*
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
@@ -38,5 +67,5 @@ class _TabExampleScreenState extends BaseState<TabExampleScreen> {
         ),
       ),
     );
-  }
+  }*/
 }
