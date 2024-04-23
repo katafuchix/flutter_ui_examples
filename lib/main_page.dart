@@ -13,6 +13,7 @@ import 'map/map_menu_screen.dart';
 import 'bar/bar_menu_screen.dart';
 import 'alignment/alignment_menu_screen.dart';
 import 'shared/shared_menu_screen.dart';
+import 'tab/tab_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -209,6 +210,28 @@ class MainPage extends StatelessWidget {
                         context, Routes.shared_menu,
                         pageOpenType: PageOpenType.SLIDE);
                     if (result is SharedMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )
+            ),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('tab menu',),
+                      Text('demos of tab',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.tab_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is TabMenuScreenResult) {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },

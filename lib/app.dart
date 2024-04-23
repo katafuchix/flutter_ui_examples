@@ -21,6 +21,9 @@ import 'alignment/alignment_column_example_screen.dart';
 import 'shared/shared_menu_screen.dart';
 import 'shared/shared_simple_example_screen.dart';
 import 'shared/shared_user_example_screen.dart';
+import 'tab/tab_menu_screen.dart';
+import 'tab/tab_example_screen.dart';
+import 'tab/tab_controller_example_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp();
@@ -86,6 +89,9 @@ class _MyAppState extends State<MyApp> {
       Routes.shared_menu: () => SharedMenuScreen(),
       Routes.shared_simple_example: () => SharedSimpleExampleScreen(),
       Routes.shared_user_example: () => SharedUserExampleScreen(),
+      Routes.tab_menu: () => TabMenuScreen(),
+      Routes.tab_example: () => TabExampleScreen(),
+      Routes.tab_controller_example: () => TabControllerExampleScreen(),
     };
   }
 }
@@ -111,6 +117,9 @@ class Routes {
   static const String shared_menu = '/shared_menu_screen';
   static const String shared_simple_example = '/shared_simple_example';
   static const String shared_user_example = '/shared_user_example';
+  static const String tab_menu = '/tab_menu';
+  static const String tab_example = '/tab_example';
+  static const String tab_controller_example = '/tab_controller_example';
 }
 
 
