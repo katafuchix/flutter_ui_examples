@@ -85,6 +85,29 @@ class _TabMenuScreenState extends BaseState<TabMenuScreen> {
                     //};
                   },
                 )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'tab library example',
+                      ),
+                      Text(
+                        'Tab Custom',
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.tab_library_example,
+                        pageOpenType: PageOpenType.SLIDE);
+                  },
+                )
             )
           ],
         ),
