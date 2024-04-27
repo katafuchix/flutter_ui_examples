@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'example_route.dart';
 import 'example_routes.dart';
 import 'app.dart';
 
 void main() {
+
+  // Hiveの初期化
+  //await Hive.initFlutter();
+  //Hive.registerAdapter(RecordModelAdapter());
+
   runApp(const MyApp());
 }
 

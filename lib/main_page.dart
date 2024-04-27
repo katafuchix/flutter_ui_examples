@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_examples/slide_menu/slide_menu_screen.dart';
 import './example_route.dart';
@@ -14,6 +15,7 @@ import 'bar/bar_menu_screen.dart';
 import 'alignment/alignment_menu_screen.dart';
 import 'shared/shared_menu_screen.dart';
 import 'tab/tab_menu_screen.dart';
+import 'database/database_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -39,6 +41,25 @@ class MainPage extends StatelessWidget {
           padding: EdgeInsets.all(2.0),
           //shrinkWrap: true,
           children: [
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('DataBase'),
+                      Text('demos of database',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                      return DatabaseMenuScreen();
+                    }));
+                  },
+                )
+            ),
             Container(
               margin: edgeInsets,
               child: GestureDetector(
