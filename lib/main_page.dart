@@ -16,6 +16,7 @@ import 'alignment/alignment_menu_screen.dart';
 import 'shared/shared_menu_screen.dart';
 import 'tab/tab_menu_screen.dart';
 import 'database/database_menu_screen.dart';
+import 'overlay/overlay_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -41,6 +42,25 @@ class MainPage extends StatelessWidget {
           padding: EdgeInsets.all(2.0),
           //shrinkWrap: true,
           children: [
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Overlay'),
+                      Text('demos of overlaye',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                      return OverlayMenuScreen();
+                    }));
+                  },
+                )
+            ),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
