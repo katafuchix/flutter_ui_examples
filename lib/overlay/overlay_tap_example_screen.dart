@@ -50,10 +50,11 @@ class _OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
           print(position);
           x = position.dx;
           y = position.dy;
-        },
-        onLongPress: () {
           _showOverlay();
         },
+        /*onLongPress: () { // 長押し利用時
+          _showOverlay();
+        },*/
         child:
           Container(
             color: Colors.transparent, // colorがないとタップを検出できない？
