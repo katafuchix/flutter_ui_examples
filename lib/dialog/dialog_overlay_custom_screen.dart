@@ -63,6 +63,7 @@ class DialogOverlayCustomScreenState extends State<DialogOverlayCustomScreen> {
             child: Material(
               color: Colors.transparent,
               child: Container(
+                width: MediaQuery.of(context).size.width * 0.8,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -75,21 +76,83 @@ class DialogOverlayCustomScreenState extends State<DialogOverlayCustomScreen> {
                     ),
                   ],
                 ),
-                child: Column(
+                child:
+
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Text('カスタムダイアログのタイトル'),
-                    SizedBox(height: 10),
-                    Text('これはカスタムダイアログの内容です。'),
-                    SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        _removeOverlayIfNeeded();
-                      },
-                      child: Text('閉じる'),
+                    SizedBox(
+                      height: 20,
+                      child:
+                      Row(children: [
+                        const Spacer(),
+                        IconButton(icon:Icon(Icons.close, color:MyColors().grey1, size: 16),
+                            onPressed: ()  {
+                              _removeOverlayIfNeeded();
+                            }),
+                      ],
+                      ),
+                    ),
+                    const SizedBox(height: 4,),
+                    Row(children: [
+                      const Spacer(),
+                      buildNormalBoldText("投稿が完了しました", maxLines: 1),
+                      const Spacer(),
+                    ],
+                    ),
+                    const SizedBox(height: 10,),
+
+                    Container(
+                        padding: const EdgeInsets.all(2.0),
+                        child:
+                        Column(
+                          children: [
+                            Padding(padding: const EdgeInsets.only(left: 0, right: 0, top: 8, bottom: 8),
+                              child:
+                              TextButton(
+                                  child: buildNormalBoldText("続けて投稿する", maxLines: 1, colors: TextColors.WHITE),
+                                  style: ButtonStyle(
+                                      //fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 46)),
+                                      fixedSize: MaterialStateProperty.all(Size(300, 46)),
+                                      backgroundColor: MaterialStateProperty.all<Color>(MyColors().button1Bg),
+                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(23.0),
+                                              side: BorderSide(color: MyColors().button1Bg)
+                                          )
+                                      )
+                                  ),
+                                  onPressed: () => {
+                                    _removeOverlayIfNeeded()
+                                  }),
+                            ),
+
+                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 0),
+                              child:
+                              TextButton(
+                                  child: buildNormalBoldText("ルームへ戻る", maxLines: 1, colors: TextColors.SECONDARY_TEXT),
+                                  style: ButtonStyle(
+                                      fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 46)),
+                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(23.0),
+                                              side: BorderSide(color: MyColors().grey2)
+                                          )
+                                      )
+                                  ),
+                                  onPressed: ()  {
+                                  _removeOverlayIfNeeded();
+                                  }),
+                            )
+                          ],
+                        )
+
                     ),
                   ],
                 ),
+
               ),
             ),
           ),
