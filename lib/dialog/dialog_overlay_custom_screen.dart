@@ -64,7 +64,7 @@ class DialogOverlayCustomScreenState extends State<DialogOverlayCustomScreen> {
               color: Colors.transparent,
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.only(left: 4, top: 8, right: 4, bottom: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -89,27 +89,29 @@ class DialogOverlayCustomScreenState extends State<DialogOverlayCustomScreen> {
                       Row(children: [
                         const Spacer(),
                         IconButton(icon:Icon(Icons.close, color:MyColors().grey1, size: 16),
+                            highlightColor: Colors.transparent, // ハイライトカラーを透明に設定
+                            splashColor: Colors.transparent,
                             onPressed: ()  {
                               _removeOverlayIfNeeded();
                             }),
                       ],
                       ),
                     ),
-                    const SizedBox(height: 4,),
+                    const SizedBox(height: 16,),
                     Row(children: [
                       const Spacer(),
                       buildNormalBoldText("投稿が完了しました", maxLines: 1),
                       const Spacer(),
                     ],
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(height: 20,),
 
                     Container(
                         padding: const EdgeInsets.all(2.0),
                         child:
                         Column(
                           children: [
-                            Padding(padding: const EdgeInsets.only(left: 0, right: 0, top: 8, bottom: 8),
+                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 10),
                               child:
                               TextButton(
                                   child: buildNormalBoldText("続けて投稿する", maxLines: 1, colors: TextColors.WHITE),
@@ -129,7 +131,7 @@ class DialogOverlayCustomScreenState extends State<DialogOverlayCustomScreen> {
                                   }),
                             ),
 
-                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 0),
+                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 10),
                               child:
                               TextButton(
                                   child: buildNormalBoldText("ルームへ戻る", maxLines: 1, colors: TextColors.SECONDARY_TEXT),
