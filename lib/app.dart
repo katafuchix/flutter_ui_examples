@@ -4,6 +4,9 @@ import 'my_navigator.dart';
 import 'main_page.dart';
 import 'dialog/dialog_menu_screen.dart';
 import 'dialog/dialog_alert_example_screen.dart';
+import 'dialog/dialog_overlay_example_screen.dart';
+import 'dialog/dialog_overlay_custom_screen.dart';
+import 'dialog/dialog_stack_example_screen.dart';
 import 'video/video_menu_screen.dart';
 import 'video/video_player_example_screen.dart';
 import 'slide_menu/slide_menu_screen.dart';
@@ -74,6 +77,9 @@ class _MyAppState extends State<MyApp> {
       Routes.home: () => MainPage(),
       Routes.dialog_menu: () => DialogMenuScreen(),
       Routes.dialog_alert_example: () => DialogAlertExampleScreen(),
+      Routes.dialog_overlay_example: () => DialogOverlayExampleScreen(),
+      Routes.dialog_overlay_custom: () => DialogOverlayCustomScreen(),
+      Routes.dialog_stack_example: () => DialogStackExampleScreen(),
       Routes.video_menu: () => VideoMenuScreen(),
       Routes.video_player_example: () => VideoPlayerExampleScreen(),
       Routes.slide_menu: () => SlideMenuScreen(),
@@ -104,6 +110,9 @@ class Routes {
   static const String home = '/home';
   static const String dialog_menu = '/dialog_menu';
   static const String dialog_alert_example = '/dialog_alert_example';
+  static const String dialog_overlay_example = '/dialog_overlay_example';
+  static const String dialog_overlay_custom = '/dialog_overlay_custom';
+  static const String dialog_stack_example = '/dialog_stack_example';
   static const String video_menu = '/video_menu';
   static const String video_player_example = '/video_player_example';
   static const String slide_menu = '/slide_menu';

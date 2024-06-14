@@ -4,6 +4,8 @@ import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
 import 'dialog_alert_example_screen.dart';
+import 'dialog_overlay_example_screen.dart';
+import 'dialog_overlay_custom_screen.dart';
 
 class DialogMenuScreenResult {
   final String message;
@@ -46,7 +48,8 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
                       Text(
                         ' ',
                         style: TextStyle(color: Colors.grey),
-                      )
+                      ),
+                      Divider(),
                     ],
                   ),
                   onTap: () async {
@@ -58,7 +61,85 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
                     };
                   },
                 )
-            )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'dialog overlay',
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.dialog_overlay_example,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is DialogOverlayExampleScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    };
+                  },
+                )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'dialog overlay custom',
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.dialog_overlay_custom,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is DialogOverlayCustomScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    };
+                  },
+                )
+            ),
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'dialog ostack example',
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.dialog_stack_example,
+                        pageOpenType: PageOpenType.SLIDE);
+                  },
+                )
+            ),
           ],
         ),
       ),
