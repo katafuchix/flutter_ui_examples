@@ -47,7 +47,15 @@ class _ClipovalExampleScreenState extends State<ClipovalExampleScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
+/*
+              Center(child:
+              ClipOval(
+                //clipper: MyClipper(),
+                clipper: MyRectClipper(),
+                child: Image.network('https://equal-love.jp/image/profile/otani_emiri.jpg'),
+              ),
+              ),
+*/
               CircleAvatar(
                 backgroundImage: NetworkImage(
                     'https://equal-love.jp/image/profile/otani_emiri.jpg'),
@@ -98,12 +106,12 @@ class _ClipovalExampleScreenState extends State<ClipovalExampleScreen> {
 class MyRectClipper extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
-    return Rect.fromLTWH(0, 0, size.width / 2, size.height / 2);
+    return Rect.fromLTWH(size.width / 6.5, 0, size.width / 1.5, size.width / 1.5);
   }
 
   @override
   bool shouldReclip(CustomClipper<Rect> oldClipper) {
-    return true;
+    return false;
   }
 }
 
@@ -119,4 +127,24 @@ class InvertedCircleClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+}
+
+
+class MyClipper extends CustomClipper<Rect>{
+
+  MyClipper();
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromCircle(
+        center: Offset(size.width/3, size.width/3),
+        radius: size.width/3
+    );
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Rect> oldClipper) {
+    return false;
+  }
+
 }

@@ -43,11 +43,22 @@ class _CircleavatarExampleScreenState extends State<CircleavatarExampleScreen> {
               .inversePrimary,
         ),
         body:
+
+
         Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
+              Text('image'),
+              Align(
+                alignment: Alignment.topCenter,
+                heightFactor: 0.2, //切り抜き後の高さ/元の高さ
+                child: ClipOval(
+                  clipper: MyClipper(),
+                  child: Image.network('https://equal-love.jp/image/profile/otani_emiri.jpg'),
+                ),
+              ),
+              Text('image'),
               /*
               CircleAvatar(
                 backgroundImage: NetworkImage(
@@ -77,10 +88,31 @@ class _CircleavatarExampleScreenState extends State<CircleavatarExampleScreen> {
                 child: Image.asset('assets/images/otani_emiri.jpg',),
               ),
 */
+/*
+          SizedBox(
+          width: 200,
+            height: 200,
+            child:
+            Center(child:
               ClipOval(
                 clipper: MyClipper(),
                 child: Image.network('https://equal-love.jp/image/profile/otani_emiri.jpg'),
               ),
+            ),
+          ),
+*/
+            /*
+          CircleAvatar(
+          backgroundColor: Colors.transparent,
+            child: SizedBox(
+                width: 200,
+                height: 200,
+                child: ClipOval(
+                  clipper: MyClipper(),
+                  child: Image.network('https://equal-love.jp/image/profile/otani_emiri.jpg'),
+                )
+            )
+          )*/
 
             ],
           ),
@@ -96,8 +128,8 @@ class MyClipper extends CustomClipper<Rect>{
   @override
   Rect getClip(Size size) {
     return Rect.fromCircle(
-        center: Offset(size.width/3, size.width/3),
-        radius: size.width/3
+        center: Offset(size.width/2, size.width/2),
+        radius: size.width/2
     );
   }
 
