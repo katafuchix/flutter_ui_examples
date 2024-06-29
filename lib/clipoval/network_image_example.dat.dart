@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'package:cached_network_image/cached_network_image.dart';
 
 class NetworkImageExampleScreen extends StatefulWidget {
   @override
@@ -128,4 +129,5 @@ class _NetworkImageTopThirdAvatarState extends State<NetworkImageTopThirdAvatar>
     final ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png) ?? ByteData(0);
     return byteData.buffer.asUint8List();
   }
+
 }

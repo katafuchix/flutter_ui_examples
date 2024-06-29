@@ -8,6 +8,7 @@ import 'clipoval_example_screen.dart';
 import 'circleavatar_example_screen.dart';
 import 'circleavatar_image_cache_example_screen.dart';
 import 'network_image_example.dat.dart';
+import 'image_cache_example_screen.dart';
 
 class ClipovalMenuScreenResult {
   final String message;
@@ -137,6 +138,31 @@ class _ClipovalMenuScreenState extends BaseState<ClipovalMenuScreen> {
                 )
             ),
 
+
+            Container(
+                margin: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'network image cache example',
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Divider(),
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                      return ImageCacheExampleScreen();
+                    }));
+                  },
+                )
+            ),
 
           ],
         ),
