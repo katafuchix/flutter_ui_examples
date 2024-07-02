@@ -19,6 +19,7 @@ import 'database/database_menu_screen.dart';
 import 'overlay/overlay_menu_screen.dart';
 import 'clipoval/clipoval_menu_screen.dart';
 import 'list/list_menu_screen.dart';
+import 'screen/screen_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -44,6 +45,25 @@ class MainPage extends StatelessWidget {
           padding: EdgeInsets.all(2.0),
           //shrinkWrap: true,
           children: [
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Screen'),
+                      Text('demos of Screen',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                      return ScreenMenuScreen();
+                    }));
+                  },
+                )
+            ),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
