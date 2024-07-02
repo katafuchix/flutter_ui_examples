@@ -4,6 +4,7 @@ import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import 'incomming_call_example_screen.dart';
+import 'incomming_call_button_example_screen.dart';
 
 class ScreenMenuScreen extends BaseStatefulWidget {
   @override
@@ -49,6 +50,31 @@ class _ScreenMenuScreenState extends BaseState<ScreenMenuScreen> {
                   onTap: () async {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) {
                       return IncomingCallExampleScreen();
+                    }));
+                  },
+                )
+            ),
+
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'incomming call button example',
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                      return IncomingCallButtonExampleScreen();
                     }));
                   },
                 )

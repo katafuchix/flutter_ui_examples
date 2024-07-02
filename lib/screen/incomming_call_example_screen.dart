@@ -33,14 +33,14 @@ class IncomingCallExampleScreen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 50),
+              padding: EdgeInsets.only(bottom: 100),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildActionButton(Icons.call_end, Colors.red, '拒否', () {
+                  _buildActionButton(Icons.call_end, Color(0xffFD3C30), '', () {
                     print('拒否');
                   }),
-                  _buildActionButton(Icons.call, Colors.green, '応答', () {
+                  _buildActionButton(Icons.call, Color(0xff2ED158), '', () {
                     print('応答');
                   }),
                 ],
@@ -56,10 +56,16 @@ class IncomingCallExampleScreen extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        FloatingActionButton(
-          onPressed: onPressed,
-          backgroundColor: color,
-          child: Icon(icon, size: 36),
+        SizedBox(
+          width: 64.0,
+          height: 64.0,
+          child:
+            FloatingActionButton(
+                shape: const CircleBorder(),
+                onPressed: onPressed,
+                backgroundColor: color,
+                child: Icon(icon, size: 36, color: Colors.white,),
+              ),
         ),
         SizedBox(height: 8),
         Text(
