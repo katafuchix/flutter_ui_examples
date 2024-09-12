@@ -39,6 +39,7 @@ class IncomingCallExampleScreen extends StatelessWidget {
                 children: [
                   _buildActionButton(Icons.call_end, Color(0xffFD3C30), '', () {
                     print('拒否');
+                    Navigator.of(context).pop();
                   }),
                   _buildActionButton(Icons.call, Color(0xff2ED158), '', () {
                     print('応答');
