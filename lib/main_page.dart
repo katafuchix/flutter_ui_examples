@@ -8,6 +8,7 @@ import '../my_navigator.dart';
 import '../components/snack_bar.dart';
 import 'app.dart';
 import 'dialog/dialog_menu_screen.dart';
+import 'file_picker/file_picker_menu_screen.dart';
 import 'video/video_menu_screen.dart';
 import 'modal/modal_menu_screen.dart';
 import 'map/map_menu_screen.dart';
@@ -47,6 +48,26 @@ class MainPage extends StatelessWidget {
           padding: EdgeInsets.all(2.0),
           //shrinkWrap: true,
           children: [
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('FilePicker'),
+                      Text('demos of FilePicker',style: const TextStyle(color: Colors.grey),),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                      return FilePickerMenuScreen();
+                    }));
+                  },
+                )
+            ),
+
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
