@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_examples/list/list_refresh_example_screen.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
@@ -18,7 +19,7 @@ class _ListMenuScreenState extends BaseState<ListMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top:20, bottom: 0, left: 20, right: 20);
+    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -48,13 +49,36 @@ class _ListMenuScreenState extends BaseState<ListMenuScreen> {
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return ExpandableListView();
                     }));
                   },
-                )
-            ),
-
+                )),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'list refresh example',
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
+                      return ListRefreshExampleScreen();
+                    }));
+                  },
+                )),
           ],
         ),
       ),

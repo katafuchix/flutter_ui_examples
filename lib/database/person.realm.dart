@@ -26,6 +26,10 @@ class Person extends _Person with RealmEntity, RealmObjectBase, RealmObject {
       RealmObjectBase.getChanges<Person>(this);
 
   @override
+  Stream<RealmObjectChanges<Person>> changesFor([List<String>? keyPaths]) =>
+      RealmObjectBase.getChangesFor<Person>(this, keyPaths);
+
+  @override
   Person freeze() => RealmObjectBase.freezeObject<Person>(this);
 
   EJsonValue toEJson() {
@@ -36,6 +40,7 @@ class Person extends _Person with RealmEntity, RealmObjectBase, RealmObject {
 
   static EJsonValue _toEJson(Person value) => value.toEJson();
   static Person _fromEJson(EJsonValue ejson) {
+    if (ejson is! Map<String, dynamic>) return raiseInvalidEJson(ejson);
     return switch (ejson) {
       {
         'name': EJsonValue name,
@@ -50,7 +55,7 @@ class Person extends _Person with RealmEntity, RealmObjectBase, RealmObject {
   static final schema = () {
     RealmObjectBase.registerFactory(Person._);
     register(_toEJson, _fromEJson);
-    return SchemaObject(ObjectType.realmObject, Person, 'Person', [
+    return const SchemaObject(ObjectType.realmObject, Person, 'Person', [
       SchemaProperty('name', RealmPropertyType.string),
     ]);
   }();
