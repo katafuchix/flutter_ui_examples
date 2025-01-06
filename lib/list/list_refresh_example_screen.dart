@@ -26,6 +26,9 @@ class ListViewRefreshExampleScreenState
         _loadMoreItems();
       }
     });
+
+    // 下方向（reverse: true の場合）での引っ張り検知
+    // _scrollController.position.pixels <= 0
   }
 
   Future<void> _refreshItems() async {
