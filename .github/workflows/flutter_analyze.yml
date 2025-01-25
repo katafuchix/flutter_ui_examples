@@ -3,6 +3,8 @@ name: Flutter Analyze
 on:
   pull_request:
     branches: [ "main", "develop", "feature/*" ]
+  push:
+    branches: [ "main", "develop", "feature/*" ]
 
 env:
   flutter_version: 3.24.3
