@@ -2,7 +2,7 @@ name: Flutter Analyze
 
 on:
   pull_request:
-    branches: [ "develop", "feature/*" ]
+    branches: [ "main", "develop", "feature/*" ]
 
 env:
   flutter_version: 3.24.3
@@ -29,10 +29,10 @@ jobs:
         run: |
           # 解析結果をファイルに保存
           flutter analyze lib --write=filename> analyze_result.txt || true
-          
+
           # Filter only lines containing 'info' or 'warning'
           grep -E "(info|warning) •" analyze_result.txt > filtered_result.txt || true
-          
+
           # Output the filtered results
           echo "Filtered Analysis Results:"
           cat filtered_result.txt
@@ -72,8 +72,8 @@ jobs:
         run: |
           # PR番号を取得
            PR_NUMBER=${{ github.event.pull_request.number }}
-          
 
-          
+
+
            # コメントを投稿
            gh pr comment "$PR_NUMBER" -F /tmp/comment
