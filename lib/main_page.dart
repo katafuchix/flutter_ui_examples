@@ -23,18 +23,18 @@ import 'list/list_menu_screen.dart';
 import 'screen/screen_menu_screen.dart';
 import 'indexstack/indexstack_menu_screen.dart';
 import 'datepicker/datepicker_menu_screen.dart';
+import 'swipeback/swipe_back_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
   routeName: 'MainPage',
 )
-
 class MainPage extends StatelessWidget {
   MainPage({super.key}) {}
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top:20, bottom: 0, left: 20, right: 20);
+    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -55,19 +55,43 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('FilePicker'),
-                      Text('demos of FilePicker',style: const TextStyle(color: Colors.grey),),
+                      Text('Swipe Back'),
+                      Text(
+                        'demos of Swipe Back',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
+                      return SwipeBackMenuScreen();
+                    }));
+                  },
+                )),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('FilePicker'),
+                      Text(
+                        'demos of FilePicker',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return FilePickerMenuScreen();
                     }));
                   },
-                )
-            ),
-
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -76,17 +100,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('DatePicker'),
-                      Text('demos of DatePicker',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of DatePicker',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return DatePickerMenuScreen();
                     }));
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -95,17 +122,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('IndexStack'),
-                      Text('demos of IndexStack',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of IndexStack',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return IndexstackMenuScreen();
                     }));
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -114,17 +144,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Screen'),
-                      Text('demos of Screen',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of Screen',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return ScreenMenuScreen();
                     }));
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -133,17 +166,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('List'),
-                      Text('demos of List',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of List',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return ListMenuScreen();
                     }));
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -152,17 +188,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('ClipOval'),
-                      Text('demos of ClipOval',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of ClipOval',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return ClipovalMenuScreen();
                     }));
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -171,17 +210,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Overlay'),
-                      Text('demos of overlaye',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of overlaye',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return OverlayMenuScreen();
                     }));
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -190,39 +232,20 @@ class MainPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('DataBase'),
-                      Text('demos of database',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'demos of database',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
                   onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) {
                       return DatabaseMenuScreen();
                     }));
                   },
-                )
-            ),
-            Container(
-              margin: edgeInsets,
-              child: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('Dialog'),
-                    Text('demos of dialog ui',style: const TextStyle(color: Colors.grey),),
-                    Divider()
-                  ],
-                ),
-                onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.dialog_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is DialogMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-              )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -230,8 +253,37 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('video',),
-                      Text('demos of video ui',style: const TextStyle(color: Colors.grey),),
+                      Text('Dialog'),
+                      Text(
+                        'demos of dialog ui',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                      Divider()
+                    ],
+                  ),
+                  onTap: () async {
+                    final result = await MyNavigator.pushNamed(
+                        context, Routes.dialog_menu,
+                        pageOpenType: PageOpenType.SLIDE);
+                    if (result is DialogMenuScreenResult) {
+                      showInfoSnackBar(context, text: result.message);
+                    }
+                  },
+                )),
+            Container(
+                margin: edgeInsets,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'video',
+                      ),
+                      Text(
+                        'demos of video ui',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -243,8 +295,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -252,8 +303,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('slide menu',),
-                      Text('demos of slide menu ui',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'slide menu',
+                      ),
+                      Text(
+                        'demos of slide menu ui',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -265,8 +321,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -274,8 +329,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('modal menu',),
-                      Text('demos of modal ui',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'modal menu',
+                      ),
+                      Text(
+                        'demos of modal ui',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -287,8 +347,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -296,8 +355,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('map menu',),
-                      Text('demos of google map', style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'map menu',
+                      ),
+                      Text(
+                        'demos of google map',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -309,8 +373,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -318,8 +381,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('bar menu',),
-                      Text('demos of bar ui',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'bar menu',
+                      ),
+                      Text(
+                        'demos of bar ui',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -331,8 +399,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -340,8 +407,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('aligment menu',),
-                      Text('demos of aligment ui',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'aligment menu',
+                      ),
+                      Text(
+                        'demos of aligment ui',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -353,8 +425,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -362,8 +433,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('shared preference menu',),
-                      Text('demos of shared preference',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'shared preference menu',
+                      ),
+                      Text(
+                        'demos of shared preference',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -375,8 +451,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -384,8 +459,13 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('tab menu',),
-                      Text('demos of tab',style: const TextStyle(color: Colors.grey),),
+                      Text(
+                        'tab menu',
+                      ),
+                      Text(
+                        'demos of tab',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                       Divider()
                     ],
                   ),
@@ -397,8 +477,7 @@ class MainPage extends StatelessWidget {
                       showInfoSnackBar(context, text: result.message);
                     }
                   },
-                )
-            ),
+                )),
           ],
         ),
       ),
@@ -411,14 +490,14 @@ class MainPage extends StatelessWidget {
       builder: (context) {
         Future.delayed(
           Duration(seconds: 5),
-              () {
+          () {
             Navigator.of(context).pop(true);
             print('aaa');
           },
         );
 
-        return  WillPopScope(
-          onWillPop: () async=> false,
+        return WillPopScope(
+          onWillPop: () async => false,
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -439,18 +518,19 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  Future <void> showLoadingDialog({
+  Future<void> showLoadingDialog({
     required BuildContext context,
   }) async {
     showGeneralDialog(
         context: context,
         barrierDismissible: false,
         transitionDuration: const Duration(milliseconds: 250),
-        barrierColor: Colors.black.withOpacity(0.5), // 画面マスクの透明度
+        barrierColor: Colors.black.withOpacity(0.5),
+        // 画面マスクの透明度
         pageBuilder: (BuildContext context, Animation animation,
             Animation secondaryAnimation) {
-          return  WillPopScope(
-            onWillPop: () async=> false,
+          return WillPopScope(
+            onWillPop: () async => false,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -519,9 +599,9 @@ class MainPage extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                          //primary: Colors.black,
-                          // fixedSize: Size(250, 50),
-                        ),
+                            //primary: Colors.black,
+                            // fixedSize: Size(250, 50),
+                            ),
                         child: Text(
                           "Submit",
                         ),
@@ -535,11 +615,11 @@ class MainPage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
-                            ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-                            ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                            ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
-                            'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
-                            ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+                        ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                        ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
+                        'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
+                        ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         style: TextStyle(fontSize: 12),
                       ),
                     ),
