@@ -61,36 +61,23 @@ class MainPage extends StatelessWidget {
                         Divider()
                       ],
                     ),
-                    onTap: () => context.push('/swipeback_menu')
-                    /*
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return SwipeBackMenuScreen();
-                    }));
-                  },*/
-                    )),
+                    onTap: () => context.push('/swipeback_menu'))),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('FilePicker'),
-                      Text(
-                        'demos of FilePicker',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return FilePickerMenuScreen();
-                    }));
-                  },
-                )),
+                    behavior: HitTestBehavior.translucent,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('FilePicker'),
+                        Text(
+                          'demos of FilePicker',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        Divider()
+                      ],
+                    ),
+                    onTap: () => context.push('/filepicker_menu'))),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
