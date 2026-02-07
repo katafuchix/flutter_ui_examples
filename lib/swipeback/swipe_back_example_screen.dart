@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_examples/swipeback/swipe_back_handler.dart';
+
+//import 'package:flutter_ui_examples/swipeback/swipe_back_handler.dart';
 import '../base/base_stateful_widget.dart';
 
 class SwipeBackExampleScreenResult {
@@ -33,7 +34,10 @@ class _SwipeBackExampleScreenState extends BaseState<SwipeBackExampleScreen> {
               title: const Text('Swipe Back examples'),
               backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             ),
-            body: GestureDetector(
+            body: const Center(
+              child: Text('Example'),
+            )));
+    /*GestureDetector(
                 //GestureDetector が Flutter のシステムジェスチャー（スワイプバックなど）をブロックしてしまうとき
                 behavior: HitTestBehavior.opaque,
                 onHorizontalDragUpdate: (details) => handleSwipeUpdate(details),
@@ -42,5 +46,6 @@ class _SwipeBackExampleScreenState extends BaseState<SwipeBackExampleScreen> {
                 child: Center(
                   child: const Text('Example'),
                 ))));
+    */
   }
 }

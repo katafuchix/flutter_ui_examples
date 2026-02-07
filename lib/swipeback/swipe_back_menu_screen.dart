@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
@@ -56,27 +57,22 @@ class _SwipeBackMenuScreenState extends BaseState<SwipeBackMenuScreen> {
                     Container(
                         margin: edgeInsets,
                         child: GestureDetector(
-                          behavior: HitTestBehavior.translucent,
-                          child: const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Swipe Back example',
-                              ),
-                              Text(
-                                ' ',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              Divider()
-                            ],
-                          ),
-                          onTap: () async {
-                            Navigator.push(context,
-                                CupertinoPageRoute(builder: (context) {
-                              return SwipeBackExampleScreen();
-                            }));
-                          },
-                        )),
+                            behavior: HitTestBehavior.translucent,
+                            child: const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'Swipe Back example',
+                                ),
+                                Text(
+                                  ' ',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                                Divider()
+                              ],
+                            ),
+                            onTap: () => context
+                                .push('/swipeback_menu/swipeback_example'))),
                   ],
                 ),
               )),

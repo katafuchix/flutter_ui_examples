@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_examples/slide_menu/slide_menu_screen.dart';
-import './example_route.dart';
-import './example_routes.dart' as example_routes;
+import 'package:go_router/go_router.dart';
 import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
 import '../my_navigator.dart';
 import '../components/snack_bar.dart';
@@ -23,7 +22,6 @@ import 'list/list_menu_screen.dart';
 import 'screen/screen_menu_screen.dart';
 import 'indexstack/indexstack_menu_screen.dart';
 import 'datepicker/datepicker_menu_screen.dart';
-import 'swipeback/swipe_back_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
@@ -51,25 +49,26 @@ class MainPage extends StatelessWidget {
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Swipe Back'),
-                      Text(
-                        'demos of Swipe Back',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
+                    behavior: HitTestBehavior.translucent,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('Swipe Back'),
+                        Text(
+                          'demos of Swipe Back',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        Divider()
+                      ],
+                    ),
+                    onTap: () => context.push('/swipeback_menu')
+                    /*
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (context) {
                       return SwipeBackMenuScreen();
                     }));
-                  },
-                )),
+                  },*/
+                    )),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
