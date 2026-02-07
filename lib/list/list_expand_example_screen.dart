@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ExpandableListView extends StatefulWidget {
+  const ExpandableListView({super.key});
+
   @override
-  _ExpandableListViewState createState() => _ExpandableListViewState();
+  ExpandableListViewState createState() => ExpandableListViewState();
 }
 
-class _ExpandableListViewState extends State<ExpandableListView> {
-  List<Item> _items = List.generate(10, (index) => Item(title: 'Item $index'));
+class ExpandableListViewState extends State<ExpandableListView> {
+  final List<Item> _items =
+      List.generate(10, (index) => Item(title: 'Item $index'));
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,8 @@ class ExpandableListItem extends StatelessWidget {
   final Item item;
   final VoidCallback onTap;
 
-  ExpandableListItem({required this.item, required this.onTap});
+  const ExpandableListItem(
+      {super.key, required this.item, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

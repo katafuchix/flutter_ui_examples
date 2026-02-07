@@ -1,28 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../my_navigator.dart';
-import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
-import 'clipoval_example_screen.dart';
-import 'circleavatar_example_screen.dart';
-import 'circleavatar_image_cache_example_screen.dart';
-import 'network_image_example.dat.dart';
-import 'image_cache_example_screen.dart';
+import 'package:go_router/go_router.dart';
 
-class ClipovalMenuScreenResult {
-  final String message;
-  ClipovalMenuScreenResult(this.message);
-}
+class ClipovalMenuScreen extends StatefulWidget {
+  const ClipovalMenuScreen({super.key});
 
-class ClipovalMenuScreen extends BaseStatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ClipovalMenuScreenState();
   }
 }
 
-class _ClipovalMenuScreenState extends BaseState<ClipovalMenuScreen> {
+class _ClipovalMenuScreenState extends State<ClipovalMenuScreen> {
   _ClipovalMenuScreenState() : super();
 
   @override
@@ -41,129 +29,98 @@ class _ClipovalMenuScreenState extends BaseState<ClipovalMenuScreen> {
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'clip oval example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                      return ClipovalExampleScreen();
-                    }));
-                  },
-                )
-            ),
-
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'clip oval example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider(),
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/clipoval_menu/clip_oval_example'))),
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'circle avatar example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                      return CircleavatarExampleScreen();
-                    }));
-                  },
-                )
-            ),
-
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'circle avatar example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider(),
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/clipoval_menu/circle_avatar_example'))),
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'circle avatar image cache example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                      return CircleavatarImageCacheExampleScreen();
-                    }));
-                  },
-                )
-            ),
-
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'circle avatar image cache example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider(),
+                      ],
+                    ),
+                    onTap: () => context.push(
+                        '/clipoval_menu/circle_avatar_image_cache_example'))),
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'network image example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                      return NetworkImageExampleScreen();
-                    }));
-                  },
-                )
-            ),
-
-
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'network image example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider(),
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/clipoval_menu/network_image_example'))),
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'network image cache example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                      return ImageCacheExampleScreen();
-                    }));
-                  },
-                )
-            ),
-
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'network image cache example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider(),
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/clipoval_menu/image_cache_example'))),
           ],
         ),
       ),

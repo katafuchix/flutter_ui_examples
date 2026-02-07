@@ -7,7 +7,6 @@ import '../my_navigator.dart';
 import '../components/snack_bar.dart';
 import 'app.dart';
 import 'dialog/dialog_menu_screen.dart';
-import 'file_picker/file_picker_menu_screen.dart';
 import 'video/video_menu_screen.dart';
 import 'modal/modal_menu_screen.dart';
 import 'map/map_menu_screen.dart';
@@ -21,14 +20,13 @@ import 'clipoval/clipoval_menu_screen.dart';
 import 'list/list_menu_screen.dart';
 import 'screen/screen_menu_screen.dart';
 import 'indexstack/indexstack_menu_screen.dart';
-import 'datepicker/datepicker_menu_screen.dart';
 
 @FFRoute(
   name: 'fluttercandies://mainpage',
   routeName: 'MainPage',
 )
 class MainPage extends StatelessWidget {
-  MainPage({super.key}) {}
+  MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,10 @@ class MainPage extends StatelessWidget {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text('UI examples'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme
+            .of(context)
+            .colorScheme
+            .inversePrimary,
       ),
       body: Center(
         child: ListView(
@@ -81,46 +82,35 @@ class MainPage extends StatelessWidget {
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('DatePicker'),
-                      Text(
-                        'demos of DatePicker',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return DatePickerMenuScreen();
-                    }));
-                  },
-                )),
+                    behavior: HitTestBehavior.translucent,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('DatePicker'),
+                        Text(
+                          'demos of DatePicker',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        Divider()
+                      ],
+                    ),
+                    onTap: () => context.push('/date_picker_menu'))),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('IndexStack'),
-                      Text(
-                        'demos of IndexStack',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return IndexstackMenuScreen();
-                    }));
-                  },
+                    behavior: HitTestBehavior.translucent,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('IndexStack'),
+                        Text(
+                          'demos of IndexStack',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        Divider()
+                      ],
+                    ),
+                    onTap: () => context.push('/indexstack_menu')
                 )),
             Container(
                 margin: edgeInsets,
@@ -140,8 +130,8 @@ class MainPage extends StatelessWidget {
                   onTap: () async {
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (context) {
-                      return ScreenMenuScreen();
-                    }));
+                          return ScreenMenuScreen();
+                        }));
                   },
                 )),
             Container(
@@ -162,8 +152,8 @@ class MainPage extends StatelessWidget {
                   onTap: () async {
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (context) {
-                      return ListMenuScreen();
-                    }));
+                          return ListMenuScreen();
+                        }));
                   },
                 )),
             Container(
@@ -184,8 +174,8 @@ class MainPage extends StatelessWidget {
                   onTap: () async {
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (context) {
-                      return ClipovalMenuScreen();
-                    }));
+                          return ClipovalMenuScreen();
+                        }));
                   },
                 )),
             Container(
@@ -206,8 +196,8 @@ class MainPage extends StatelessWidget {
                   onTap: () async {
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (context) {
-                      return OverlayMenuScreen();
-                    }));
+                          return OverlayMenuScreen();
+                        }));
                   },
                 )),
             Container(
@@ -228,8 +218,8 @@ class MainPage extends StatelessWidget {
                   onTap: () async {
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (context) {
-                      return DatabaseMenuScreen();
-                    }));
+                          return DatabaseMenuScreen();
+                        }));
                   },
                 )),
             Container(
@@ -476,7 +466,7 @@ class MainPage extends StatelessWidget {
       builder: (context) {
         Future.delayed(
           Duration(seconds: 5),
-          () {
+              () {
             Navigator.of(context).pop(true);
             print('aaa');
           },
@@ -585,9 +575,9 @@ class MainPage extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                            //primary: Colors.black,
-                            // fixedSize: Size(250, 50),
-                            ),
+                          //primary: Colors.black,
+                          // fixedSize: Size(250, 50),
+                        ),
                         child: Text(
                           "Submit",
                         ),
@@ -601,11 +591,11 @@ class MainPage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
-                        ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-                        ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                        ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
-                        'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
-                        ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                            ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+                            ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                            ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
+                            'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
+                            ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         style: TextStyle(fontSize: 12),
                       ),
                     ),

@@ -1,20 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_examples/list/list_refresh_example_screen.dart';
-import '../my_navigator.dart';
-import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
-import 'list_expand_example_screen.dart';
+import 'package:go_router/go_router.dart';
 
-class ListMenuScreen extends BaseStatefulWidget {
+class ListMenuScreen extends StatefulWidget {
+  const ListMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ListMenuScreenState();
   }
 }
 
-class _ListMenuScreenState extends BaseState<ListMenuScreen> {
+class _ListMenuScreenState extends State<ListMenuScreen> {
   _ListMenuScreenState() : super();
 
   @override
@@ -34,51 +30,41 @@ class _ListMenuScreenState extends BaseState<ListMenuScreen> {
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'list expand example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return ExpandableListView();
-                    }));
-                  },
-                )),
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'list expand example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider()
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/list_menu/list_expand_example'))),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'list refresh example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return ListRefreshExampleScreen();
-                    }));
-                  },
-                )),
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'list refresh example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Divider()
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/list_menu/list_refresh_example'))),
           ],
         ),
       ),

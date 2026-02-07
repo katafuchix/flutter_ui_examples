@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_examples/util/my_logger.dart';
 
 class ListRefreshExampleScreen extends StatefulWidget {
+  const ListRefreshExampleScreen({super.key});
+
   @override
   ListViewRefreshExampleScreenState createState() =>
       ListViewRefreshExampleScreenState();
@@ -55,7 +57,10 @@ class ListViewRefreshExampleScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ListView上下更新')),
+      appBar: AppBar(
+        title: Text('ListView上下更新'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
       body: Stack(
         children: [
           RefreshIndicator(

@@ -4,8 +4,9 @@ import '../my_navigator.dart';
 
 abstract class BaseStatefulWidget extends StatefulWidget {
   final ScreenArgs? args;
+
   //BaseStatefulWidget({this.args});
-  BaseStatefulWidget({super.key, this.args});
+  const BaseStatefulWidget({super.key, this.args});
 
   // TODO abstractにしたい abstractにすると全体的に修正が必要になるので、いったんダミー値を返すようにする
   String getArgsKey() {
@@ -27,7 +28,6 @@ abstract class BaseStatefulWidget extends StatefulWidget {
 
 abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     with WidgetsBindingObserver {
-
   bool _showingProgress = false;
 
   @protected
@@ -53,15 +53,15 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
   @mustCallSuper
   @override
   void initState() {
-    WidgetsBinding.instance?.addObserver(this);
-    WidgetsBinding.instance?.addPostFrameCallback((_) => onBuildWidget());
+    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) => onBuildWidget());
     super.initState();
   }
 
   @mustCallSuper
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -83,7 +83,7 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
         break;
       case AppLifecycleState.hidden:
         break;
-        // TODO: Handle this case.
+      // TODO: Handle this case.
     }
   }
 

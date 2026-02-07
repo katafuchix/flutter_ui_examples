@@ -1,17 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:flutter_ui_examples/datepicker/cupertino_datepicker_example_screen.dart';
+import 'package:flutter_ui_examples/datepicker/datepicker_example_screen.dart';
+import 'package:flutter_ui_examples/indexstack/indexstack_example_screen.dart';
 import 'package:go_router/go_router.dart';
 
+import '../clipoval/circleavatar_example_screen.dart';
+import '../clipoval/circleavatar_image_cache_example_screen.dart';
+import '../clipoval/clipoval_example_screen.dart';
 import '../clipoval/clipoval_menu_screen.dart';
+import '../clipoval/image_cache_example_screen.dart';
+import '../clipoval/network_image_example.dat.dart';
 import '../database/database_menu_screen.dart';
 import '../datepicker/datepicker_menu_screen.dart';
 import '../file_picker/file_picker_example_screen.dart';
 import '../file_picker/file_picker_menu_screen.dart';
 import '../file_picker/file_picker_multi_example_screen.dart';
 import '../indexstack/indexstack_menu_screen.dart';
+import '../list/list_expand_example_screen.dart';
 import '../list/list_menu_screen.dart';
+import '../list/list_refresh_example_screen.dart';
 import '../main_page.dart';
 import '../overlay/overlay_menu_screen.dart';
+import '../screen/incomming_call_button_example_screen.dart';
+import '../screen/incomming_call_example_screen.dart';
 import '../screen/screen_menu_screen.dart';
 import '../swipeback/swipe_back_example_screen.dart';
 import '../swipeback/swipe_back_menu_screen.dart';
@@ -388,49 +400,168 @@ final router = GoRouter(
 
     // DatePickerMenuScreen
     GoRoute(
-        path: "/date_picker_menu",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DatePickerMenuScreen(),
-          );
-        }),
+      path: "/date_picker_menu",
+      pageBuilder: (context, state) {
+        return CupertinoPage(
+          key: state.pageKey,
+          child: DatePickerMenuScreen(),
+        );
+      },
+      routes: [
+        GoRoute(
+          path: 'date_picker_example', // 注意：先頭の '/' は不要です
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: DatePickerExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          path: '/cupertino_date_picker_example', // 注意：先頭の '/' は不要です
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: CupertinoDatePickerExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
     // IndexstackMenuScreen
     GoRoute(
-        path: "/indexstack_menu",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: IndexstackMenuScreen(),
-          );
-        }),
+      path: "/indexstack_menu",
+      pageBuilder: (context, state) {
+        return CupertinoPage(
+          key: state.pageKey,
+          child: IndexstackMenuScreen(),
+        );
+      },
+      routes: [
+        GoRoute(
+          path: 'indexstack_example', // 注意：先頭の '/' は不要です
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: IndexstackExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
     // ScreenMenuScreen
     GoRoute(
-        path: "/screen_menu",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: ScreenMenuScreen(),
-          );
-        }),
+      path: "/screen_menu",
+      pageBuilder: (context, state) {
+        return CupertinoPage(
+          key: state.pageKey,
+          child: ScreenMenuScreen(),
+        );
+      },
+      routes: [
+        GoRoute(
+          path: 'incoming_call_example', // 注意：先頭の '/' は不要です
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: IncomingCallExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          path: 'incoming_call_button_example', // 注意：先頭の '/' は不要です
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: IncomingCallButtonExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
     // ListMenuScreen
     GoRoute(
-        path: "/list_menu",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: ListMenuScreen(),
-          );
-        }),
+      path: "/list_menu",
+      pageBuilder: (context, state) {
+        return CupertinoPage(
+          key: state.pageKey,
+          child: ListMenuScreen(),
+        );
+      },
+      routes: [
+        GoRoute(
+          path: 'list_expand_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: ExpandableListView(),
+            );
+          },
+        ),
+        GoRoute(
+          path: 'list_refresh_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: ListRefreshExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
     // ClipovalMenuScreen
     GoRoute(
-        path: "/clipoval_menu",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: ClipovalMenuScreen(),
-          );
-        }),
+      path: "/clipoval_menu",
+      pageBuilder: (context, state) {
+        return CupertinoPage(
+          key: state.pageKey,
+          child: ClipovalMenuScreen(),
+        );
+      },
+      routes: [
+        GoRoute(
+          path: 'clip_oval_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: ClipovalExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          path: 'circle_avatar_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: CircleavatarExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          path: 'circle_avatar_image_cache_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: CircleavatarImageCacheExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          path: 'network_image_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+                key: state.pageKey, child: NetworkImageExampleScreen());
+          },
+        ),
+        GoRoute(
+          path: 'image_cache_example',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+                key: state.pageKey, child: ImageCacheExampleScreen());
+          },
+        ),
+      ],
+    ),
     // OverlayMenuScreen
     GoRoute(
         path: "/overlay_menu",

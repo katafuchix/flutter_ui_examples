@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../my_navigator.dart';
+import 'package:go_router/go_router.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
-import 'indexstack_example_screen.dart';
 
 class IndexstackMenuScreen extends BaseStatefulWidget {
   @override
@@ -32,21 +29,21 @@ class _IndexstackMenuScreenState extends BaseState<IndexstackMenuScreen> {
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('indexstack example',),
-                      Text( ' ',style: TextStyle(color: Colors.grey),)
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                      return IndexstackExampleScreen();
-                    }));
-                  },
-                )
-            ),
+                    behavior: HitTestBehavior.translucent,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'indexstack example',
+                        ),
+                        Text(
+                          ' ',
+                          style: TextStyle(color: Colors.grey),
+                        )
+                      ],
+                    ),
+                    onTap: () =>
+                        context.push('/indexstack_menu/indexstack_example'))),
           ],
         ),
       ),
