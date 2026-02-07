@@ -21,7 +21,9 @@ import '../list/list_expand_example_screen.dart';
 import '../list/list_menu_screen.dart';
 import '../list/list_refresh_example_screen.dart';
 import '../main_page.dart';
+import '../overlay/overlay_example_screen.dart';
 import '../overlay/overlay_menu_screen.dart';
+import '../overlay/overlay_tap_example_screen.dart';
 import '../screen/incomming_call_button_example_screen.dart';
 import '../screen/incomming_call_example_screen.dart';
 import '../screen/screen_menu_screen.dart';
@@ -570,7 +572,27 @@ final router = GoRouter(
             key: state.pageKey,
             child: OverlayMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          GoRoute(
+            path: 'overlay_example',
+            pageBuilder: (context, state) {
+              return CupertinoPage(
+                key: state.pageKey,
+                child: OverlayExampleScreen(),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'overlay_tap_example',
+            pageBuilder: (context, state) {
+              return CupertinoPage(
+                key: state.pageKey,
+                child: OverlayTapExampleScreen(),
+              );
+            },
+          ),
+        ]),
     // DatabaseMenuScreen
     GoRoute(
         path: "/database_menu",

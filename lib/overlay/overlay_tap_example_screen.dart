@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class OverlayTapExampleScreen extends StatefulWidget {
+  const OverlayTapExampleScreen({super.key});
+
   @override
-  _OverlayTapExampleScreenState createState() => _OverlayTapExampleScreenState();
+  OverlayTapExampleScreenState createState() => OverlayTapExampleScreenState();
 }
 
-class _OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
-
+class OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
   @override
   void initState() {
     super.initState();
@@ -27,11 +28,9 @@ class _OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
     super.dispose();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-  }
+  //@override
+  void didChangeAppLifecycleState(AppLifecycleState state) {}
 
-  final GlobalKey _actionKey = GlobalKey();
   OverlayEntry? _menuOverlayEntry;
   double x = 0;
   double y = 0;
@@ -43,11 +42,10 @@ class _OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
         title: const Text('Overlay Example'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body:
-      GestureDetector(
+      body: GestureDetector(
         onTapDown: (details) {
           var position = details.globalPosition;
-          print(position);
+          //print(position);
           x = position.dx;
           y = position.dy;
           _showOverlay();
@@ -55,21 +53,19 @@ class _OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
         /*onLongPress: () { // 長押し利用時
           _showOverlay();
         },*/
-        child:
-          Container(
-            color: Colors.transparent, // colorがないとタップを検出できない？
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child:
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'You have pushed the button this many times:',
-                  ),
-                ],
+        child: Container(
+          color: Colors.transparent, // colorがないとタップを検出できない？
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'You have pushed the button this many times:',
               ),
+            ],
           ),
+        ),
       ),
       /*floatingActionButton: FloatingActionButton(
         onPressed: () {_showOverlay();},
@@ -94,17 +90,14 @@ class _OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
           Positioned(
             left: x,
             top: y,
-            child:
-              new Container(
-                //decoration: new BoxDecoration(color: Colors.red),
-                child: Center(
-                  child:
-                    Text(
-                      "Hello, World!",
-                      style: TextStyle(fontSize: 20,),
-                    ),
+            child: Center(
+              child: Text(
+                "Hello, World!",
+                style: TextStyle(
+                  fontSize: 20,
                 ),
-              )
+              ),
+            ),
           )
         ],
       );

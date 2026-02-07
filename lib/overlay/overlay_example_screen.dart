@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 class OverlayExampleScreen extends StatefulWidget {
+  const OverlayExampleScreen({super.key});
+
   @override
-  _OverlayExampleScreenState createState() => _OverlayExampleScreenState();
+  OverlayExampleScreenState createState() => OverlayExampleScreenState();
 }
 
-class _OverlayExampleScreenState extends State<OverlayExampleScreen> {
-
+class OverlayExampleScreenState extends State<OverlayExampleScreen> {
   @override
   void initState() {
     super.initState();
@@ -28,11 +28,9 @@ class _OverlayExampleScreenState extends State<OverlayExampleScreen> {
     super.dispose();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-  }
+  //@override
+  void didChangeAppLifecycleState(AppLifecycleState state) {}
 
-  final GlobalKey _actionKey = GlobalKey();
   OverlayEntry? _menuOverlayEntry;
 
   @override
@@ -42,8 +40,7 @@ class _OverlayExampleScreenState extends State<OverlayExampleScreen> {
         title: const Text('Overlay Example'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body:
-      Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -54,7 +51,9 @@ class _OverlayExampleScreenState extends State<OverlayExampleScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {_showOverlay();},
+        onPressed: () {
+          _showOverlay();
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma make
@@ -76,11 +75,10 @@ class _OverlayExampleScreenState extends State<OverlayExampleScreen> {
           Positioned(
             top: 200.0,
             right: 20.0,
-            child:
-              Material(
-                child: Text('Floating widget in Overlay'),
-              ),
-            )
+            child: Material(
+              child: Text('Floating widget in Overlay'),
+            ),
+          )
         ],
       );
     });
