@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
+import '../util/ui_utils.dart';
 import 'app_bar_example_screen.dart';
 
 class BarMenuScreenResult {
   final String message;
+
   BarMenuScreenResult(this.message);
 }
 
@@ -22,7 +25,7 @@ class _BarMenuScreenState extends BaseState<BarMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top:20, bottom: 0, left: 20, right: 20);
+    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -34,34 +37,12 @@ class _BarMenuScreenState extends BaseState<BarMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'AppBar example',
-                      ),
-                      Text(
-                        'bar buttons',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.app_bar_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is AppBarExampleScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    };
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'AppBar example',
+              subtitle: 'bar buttons',
+              routePath: "${RoutePath.bar_menu}/${RoutePath.app_bar_example}",
             ),
-
           ],
         ),
       ),

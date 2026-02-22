@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../base/base_stateful_widget.dart';
+import '../core/route_path.dart';
 import 'file_picker_example_screen.dart';
 import 'file_picker_multi_example_screen.dart';
 
@@ -46,8 +47,8 @@ class _FilePickerMenuScreenState extends BaseState<FilePickerMenuScreen> {
                         Divider()
                       ],
                     ),
-                    onTap: () =>
-                        context.push('/filepicker_menu/filepicker_example'))),
+                    onTap: () => context.push(
+                        "${RoutePath.filepicker_menu}/${RoutePath.filepicker_example}"))),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -65,8 +66,8 @@ class _FilePickerMenuScreenState extends BaseState<FilePickerMenuScreen> {
                         Divider()
                       ],
                     ),
-                    onTap: () => context
-                        .push('/filepicker_menu/filepicker_multi_example'))),
+                    onTap: () => context.push(
+                        "${RoutePath.filepicker_menu}/${RoutePath.filepicker_multi_example}"))),
           ],
         ),
       ),

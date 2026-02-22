@@ -58,7 +58,7 @@ class MainPage extends StatelessWidget {
                 context: context,
                 title: 'Video',
                 subtitle: 'demos of video ui',
-                routePath: RoutePath.video_menu),
+                routePath: RoutePath.videoMenu),
             // Side menu
             buildListItem(
                 context: context,

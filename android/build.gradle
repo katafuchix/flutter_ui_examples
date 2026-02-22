@@ -3,6 +3,12 @@ allprojects {
         google()
         mavenCentral()
     }
+    dependencies {
+        // Gradle 8.x への対応。package_info_plus 9.0.0 等に必須
+        //classpath 'com.android.tools.build:gradle:8.2.1'
+        // Kotlinのバージョンも、Gradle 8.x に合わせて 1.9.0 以上を推奨
+        //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10"
+    }
 }
 
 rootProject.buildDir = '../build'
@@ -15,4 +21,38 @@ subprojects {
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+
+
+// afterEvaluateを一切使わない強制設定
+subprojects {
+    // 1. namespaceエラー対策 (プラグイン追加時に即座に実行)
+    project.plugins.whenPluginAdded { plugin ->
+        if ("com.android.build.gradle.AppPlugin" == plugin.class.name || "com.android.build.gradle.LibraryPlugin" == plugin.class.name) {
+            project.android {
+                if (namespace == null) namespace = project.group.toString()
+            }
+        }
+    }
+}
+
+// ファイルの一番最後に追記してください
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            // 何もしない（空でもこれを入れることで依存関係を再スキャンさせる）
+        }
+    }
+}
+
+// エラーが出ている image_gallery_saver だけを名指しで 1.8 に引き戻す
+// 全体を17にしようとするから衝突するので、こいつだけは1.8で通すように強制します
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        if (project.name == 'image_gallery_saver') {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
 }

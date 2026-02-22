@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../base/base_stateful_widget.dart';
+import '../core/route_path.dart';
+import '../util/ui_utils.dart';
 
 class ScreenMenuScreen extends BaseStatefulWidget {
   @override
@@ -27,44 +29,20 @@ class _ScreenMenuScreenState extends BaseState<ScreenMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'incomming call example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/screen_menu/incoming_call_example'))),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'incomming call button example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () => context
-                        .push('/screen_menu/incoming_call_button_example'))),
+            buildListItem(
+              context: context,
+              title: 'incomming call example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.screen_menu}/${RoutePath.incoming_call_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'incomming call button example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.screen_menu}/${RoutePath.incoming_call_button_example}",
+            ),
           ],
         ),
       ),

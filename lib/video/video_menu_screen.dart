@@ -36,7 +36,8 @@ class _VideoMenuScreenState extends BaseState<VideoMenuScreen> {
               context: context,
               title: 'video player',
               subtitle: '',
-              routePath: RoutePath.video_player_example,
+              routePath:
+                  "${RoutePath.videoMenu}/${RoutePath.videoPlayerExample}",
             ),
           ],
         ),

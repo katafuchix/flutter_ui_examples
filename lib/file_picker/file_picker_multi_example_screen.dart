@@ -3,10 +3,12 @@ import 'package:file_picker/file_picker.dart';
 
 class FilePickerMultiExampleScreen extends StatefulWidget {
   @override
-  _FilePickerMultiExampleScreenState createState() => _FilePickerMultiExampleScreenState();
+  _FilePickerMultiExampleScreenState createState() =>
+      _FilePickerMultiExampleScreenState();
 }
 
-class _FilePickerMultiExampleScreenState extends State<FilePickerMultiExampleScreen> {
+class _FilePickerMultiExampleScreenState
+    extends State<FilePickerMultiExampleScreen> {
   // デフォルトのファイルタイプを設定
   FileType _selectedFileType = FileType.any;
 
@@ -49,7 +51,10 @@ class _FilePickerMultiExampleScreenState extends State<FilePickerMultiExampleScr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("File Picker Example")),
+      appBar: AppBar(
+        title: Text("File Picker Example"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

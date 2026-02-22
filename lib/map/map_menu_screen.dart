@@ -40,34 +40,8 @@ class _MapMenuScreenState extends BaseState<MapMenuScreen> {
               context: context,
               title: 'map example',
               subtitle: '',
-              routePath: RoutePath.map_example,
+              routePath: "${RoutePath.map_menu}/${RoutePath.map_example}",
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'map example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.map_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is MapExampleScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                    ;
-                  },
-                ))
           ],
         ),
       ),

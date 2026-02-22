@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../base/base_stateful_widget.dart';
+import '../core/route_path.dart';
+import '../util/ui_utils.dart';
 
 class IndexstackMenuScreen extends BaseStatefulWidget {
   @override
@@ -26,24 +28,13 @@ class _IndexstackMenuScreenState extends BaseState<IndexstackMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'indexstack example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/indexstack_menu/indexstack_example'))),
+            buildListItem(
+              context: context,
+              title: 'indexstack example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.indexstack_menu}/${RoutePath.indexstack_example}",
+            ),
           ],
         ),
       ),

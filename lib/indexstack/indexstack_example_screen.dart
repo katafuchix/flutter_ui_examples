@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-
 class IndexstackExampleScreen extends StatefulWidget {
   @override
-  _IndexstackExampleScreenState createState() => _IndexstackExampleScreenState();
+  _IndexstackExampleScreenState createState() =>
+      _IndexstackExampleScreenState();
 }
 
 class _IndexstackExampleScreenState extends State<IndexstackExampleScreen> {
@@ -20,6 +20,7 @@ class _IndexstackExampleScreenState extends State<IndexstackExampleScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('IndexedStack Sample'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: IndexedStack(
@@ -40,38 +41,32 @@ class _IndexstackExampleScreenState extends State<IndexstackExampleScreen> {
           ],
         ),
       ),
-      bottomNavigationBar:
-        Theme(
-              data: ThemeData(
+      bottomNavigationBar: Theme(
+          data: ThemeData(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
+              colorScheme: Theme.of(context).colorScheme),
+          child: Stack(children: [
+            BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.business),
+                  label: 'Business',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.school),
+                  label: 'School',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.amber[800],
+              onTap: _onItemTapped,
             ),
-            child:
-              Stack(
-                  children: [
-                    BottomNavigationBar(
-                      items: const <BottomNavigationBarItem>[
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
-                          label: 'Home',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.business),
-                          label: 'Business',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.school),
-                          label: 'School',
-                        ),
-                      ],
-                      currentIndex: _selectedIndex,
-                      selectedItemColor: Colors.amber[800],
-                      onTap: _onItemTapped,
-                    ),
-                  ]
-              )
-        ),
+          ])),
     );
   }
 }
-

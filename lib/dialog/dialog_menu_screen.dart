@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
 import '../app.dart';
+import '../core/route_path.dart';
 import '../util/ui_utils.dart';
 
 class DialogMenuScreenResult {
@@ -36,25 +37,29 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
               context: context,
               title: 'dialog alert',
               subtitle: '',
-              routePath: Routes.dialog_alert_example,
+              routePath:
+                  "${RoutePath.dialog_menu}/${RoutePath.dialog_alert_example}",
             ),
             buildListItem(
               context: context,
               title: 'dialog overlay',
               subtitle: '',
-              routePath: Routes.dialog_overlay_example,
+              routePath:
+                  "${RoutePath.dialog_menu}/${RoutePath.dialog_overlay_example}",
             ),
             buildListItem(
               context: context,
               title: 'dialog overlay custom',
               subtitle: '',
-              routePath: Routes.dialog_overlay_custom,
+              routePath:
+                  "${RoutePath.dialog_menu}/${RoutePath.dialog_overlay_custom}",
             ),
             buildListItem(
               context: context,
               title: 'dialog stack custom',
               subtitle: '',
-              routePath: Routes.dialog_stack_example,
+              routePath:
+                  "${RoutePath.dialog_menu}/${RoutePath.dialog_stack_example}",
             ),
           ],
         ),

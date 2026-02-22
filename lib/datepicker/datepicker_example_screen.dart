@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class DatePickerExampleScreen extends StatefulWidget {
   @override
-  _DatePickerExampleScreenState createState() => _DatePickerExampleScreenState();
+  _DatePickerExampleScreenState createState() =>
+      _DatePickerExampleScreenState();
 }
 
 class _DatePickerExampleScreenState extends State<DatePickerExampleScreen> {
@@ -26,31 +27,29 @@ class _DatePickerExampleScreenState extends State<DatePickerExampleScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('IndexedStack Sample'),
+        title: const Text('DatePicker Example'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
-        child:
-        Column(
-          children: [
+          child: Column(
+        children: [
+          TextButton(
+            onPressed: () => _pickDate(context),
+            child: Text(_selectedDate == null
+                ? '日付未選択'
+                : '選択した日付: ${_selectedDate.toString().split(' ')[0]}'),
+          ),
+          if (_selectedDate != null)
             TextButton(
-              onPressed: () => _pickDate(context),
-              child: Text(_selectedDate == null
-                  ? '日付未選択'
-                  : '選択した日付: ${_selectedDate.toString().split(' ')[0]}'),
+              onPressed: () {
+                setState(() {
+                  _selectedDate = null;
+                });
+              },
+              child: Text('選択解除'),
             ),
-            if (_selectedDate != null)
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    _selectedDate = null;
-                  });
-                },
-                child: Text('選択解除'),
-              ),
-          ],
-        )
-      ),
+        ],
+      )),
     );
   }
-
 }

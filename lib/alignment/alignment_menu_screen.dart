@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
+import '../util/ui_utils.dart';
 import 'alignment_example_screen.dart';
 import 'alignment_column_example_screen.dart';
 
 class AlignmentMenuScreenResult {
   final String message;
+
   AlignmentMenuScreenResult(this.message);
 }
 
@@ -34,48 +37,20 @@ class _AlignmentMenuScreenState extends BaseState<AlignmentMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-              margin: const EdgeInsets.all(20.0),
-              child: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('alignment row example',),
-                    Text( ' ',style: TextStyle(color: Colors.grey),)
-                  ],
-                ),
-                onTap: () async {
-                  final result = await MyNavigator.pushNamed(
-                      context, Routes.alignment_example,
-                      pageOpenType: PageOpenType.SLIDE);
-                  if (result is AlignmentExampleScreenResult) {
-                    showInfoSnackBar(context, text: result.message);
-                  };
-                },
-              )
+            buildListItem(
+              context: context,
+              title: 'alignment row example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.alignment_menu}/${RoutePath.alignment_example}",
             ),
-            Container(
-              margin: const EdgeInsets.all(20.0),
-              child: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('alignment column example',),
-                    Text( ' ',style: TextStyle(color: Colors.grey),)
-                  ],
-                ),
-                onTap: () async {
-                  final result = await MyNavigator.pushNamed(
-                      context, Routes.alignment_column_example,
-                      pageOpenType: PageOpenType.SLIDE);
-                  if (result is AlignmentColumnExampleScreenResult) {
-                    showInfoSnackBar(context, text: result.message);
-                  };
-                },
-              )
-            )
+            buildListItem(
+              context: context,
+              title: 'alignment column example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.alignment_menu}/${RoutePath.alignment_column_example}",
+            ),
           ],
         ),
       ),

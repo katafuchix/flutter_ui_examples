@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
+import '../util/ui_utils.dart';
 import 'tab_example_screen.dart';
 
 class TabMenuScreenResult {
   final String message;
+
   TabMenuScreenResult(this.message);
 }
 
@@ -33,104 +36,33 @@ class _TabMenuScreenState extends BaseState<TabMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'tab example',
-                      ),
-                      Text(
-                        'DefaultTabController',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.tab_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is TabExampleScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    };
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'tab example',
+              subtitle: 'DefaultTabController',
+              routePath: "${RoutePath.tab_menu}/${RoutePath.tab_example}",
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'tab controller example',
-                      ),
-                      Text(
-                        'TabController',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.tab_controller_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                    //if (result is TabControllerExampleScreenResult) {
-                    //  showInfoSnackBar(context, text: result.message);
-                    //};
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'tab controller example',
+              subtitle: 'TabController',
+              routePath:
+                  "${RoutePath.tab_menu}/${RoutePath.tab_controller_example}",
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'tab library example',
-                      ),
-                      Text(
-                        'Tab Custom',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.tab_library_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'tab library example',
+              subtitle: 'Tab Custom',
+              routePath:
+                  "${RoutePath.tab_menu}/${RoutePath.tab_library_example}",
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'tab indicator example',
-                      ),
-                      Text(
-                        'Tab Custom Indicator',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.tab_indicator_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                  },
-                )
-            )
+            buildListItem(
+              context: context,
+              title: 'tab indicator example',
+              subtitle: 'Tab Custom Indicator',
+              routePath:
+                  "${RoutePath.tab_menu}/${RoutePath.tab_indicator_example}",
+            ),
           ],
         ),
       ),

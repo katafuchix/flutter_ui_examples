@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_examples/core/router.dart';
 import 'package:go_router/go_router.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
+import '../util/ui_utils.dart';
 import 'datepicker_example_screen.dart';
 import 'cupertino_datepicker_example_screen.dart';
 
@@ -32,42 +34,20 @@ class _DatePickerMenuScreenState extends BaseState<DatePickerMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'datepicker example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/date_picker_menu/date_picker_example'))),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'cupertino datepicker example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    ),
-                    onTap: () => context.push(
-                        '/date_picker_menu/cupertino_date_picker_example'))),
+            buildListItem(
+              context: context,
+              title: 'datepicker example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.date_picker_menu}/${RoutePath.date_picker_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'cupertino datepicker example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.date_picker_menu}/${RoutePath.cupertino_date_picker_example}",
+            ),
           ],
         ),
       ),

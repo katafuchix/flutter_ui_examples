@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class CupertinoDatePickerExampleScreen extends StatefulWidget {
   @override
-  _CupertinoDatePickerExampleScreenState createState() => _CupertinoDatePickerExampleScreenState();
+  _CupertinoDatePickerExampleScreenState createState() =>
+      _CupertinoDatePickerExampleScreenState();
 }
 
-class _CupertinoDatePickerExampleScreenState extends State<CupertinoDatePickerExampleScreen> {
+class _CupertinoDatePickerExampleScreenState
+    extends State<CupertinoDatePickerExampleScreen> {
   DateTime? _selectedDate;
 
   void _showCupertinoDatePicker(BuildContext context) {
@@ -46,6 +48,7 @@ class _CupertinoDatePickerExampleScreenState extends State<CupertinoDatePickerEx
     return Scaffold(
       appBar: AppBar(
         title: Text('CupertinoDatePicker サンプル'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: Column(

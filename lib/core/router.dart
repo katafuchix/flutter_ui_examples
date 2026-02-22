@@ -59,17 +59,17 @@ import '../tab/tab_indicator_example_screen.dart';
 import 'route_path.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
-  observers: [FlutterSmartDialog.observer],
+  initialLocation: RoutePath.init,
+  observers: [FlutterSmartDialog.observer, FlutterSmartDialog.observer],
   routes: [
     // メインの検索画面
     GoRoute(
-      path: '/',
+      path: RoutePath.init,
       builder: (context, state) => MainPage(),
     ),
     // SwipeBack
     GoRoute(
-      path: '/swipeback_menu',
+      path: RoutePath.swipeback_menu,
       pageBuilder: (context, state) {
         return CupertinoPage(
           key: state.pageKey,
@@ -79,7 +79,7 @@ final router = GoRouter(
       // 子ルートをここに追加
       routes: [
         GoRoute(
-          path: 'swipeback_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.swipeback_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -89,9 +89,10 @@ final router = GoRouter(
         ),
       ],
     ),
+
     // FilePicker
     GoRoute(
-      path: '/filepicker_menu',
+      path: RoutePath.filepicker_menu,
       pageBuilder: (context, state) {
         return CupertinoPage(
           key: state.pageKey,
@@ -101,7 +102,7 @@ final router = GoRouter(
       // 子ルートをここに追加
       routes: [
         GoRoute(
-          path: 'filepicker_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.filepicker_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -110,7 +111,7 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'filepicker_multi_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.filepicker_multi_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -121,19 +122,9 @@ final router = GoRouter(
       ],
     ),
 
-// MainPage(),
+    // DialogMenuScreen(),
     GoRoute(
-        path: "/home",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: MainPage(),
-          );
-        }),
-
-// DialogMenuScreen(),
-    GoRoute(
-        path: "/dialog_menu",
+        path: RoutePath.dialog_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
@@ -143,7 +134,8 @@ final router = GoRouter(
         routes: [
           // DialogAlertExampleScreen(),
           GoRoute(
-              path: "/dialog_alert_example",
+              name: RoutePath.dialog_alert_example,
+              path: RoutePath.dialog_alert_example,
               pageBuilder: (context, state) {
                 return CupertinoPage(
                   key: state.pageKey,
@@ -153,7 +145,8 @@ final router = GoRouter(
 
           // DialogOverlayExampleScreen(),
           GoRoute(
-              path: "/dialog_overlay_example",
+              name: RoutePath.dialog_overlay_example,
+              path: RoutePath.dialog_overlay_example,
               pageBuilder: (context, state) {
                 return CupertinoPage(
                   key: state.pageKey,
@@ -163,7 +156,8 @@ final router = GoRouter(
 
           // DialogOverlayCustomScreen(),
           GoRoute(
-              path: "/dialog_overlay_custom",
+              name: RoutePath.dialog_overlay_custom,
+              path: RoutePath.dialog_overlay_custom,
               pageBuilder: (context, state) {
                 return CupertinoPage(
                   key: state.pageKey,
@@ -173,7 +167,8 @@ final router = GoRouter(
 
           // DialogStackExampleScreen(),
           GoRoute(
-              path: "/dialog_stack_example",
+              name: RoutePath.dialog_stack_example,
+              path: RoutePath.dialog_stack_example,
               pageBuilder: (context, state) {
                 return CupertinoPage(
                   key: state.pageKey,
@@ -184,7 +179,7 @@ final router = GoRouter(
 
     // VideoMenuScreen(),
     GoRoute(
-        path: RoutePath.video_menu,
+        path: RoutePath.videoMenu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
@@ -192,11 +187,9 @@ final router = GoRouter(
           );
         },
         routes: [
-          // VideoPlayerExampleScreen(),
           GoRoute(
-              name: "videoexample",
-              //name: RoutePath.video_player_example,
-              path: RoutePath.video_player_example,
+              name: RoutePath.videoPlayerExample,
+              path: RoutePath.videoPlayerExample,
               pageBuilder: (context, state) {
                 return CupertinoPage(
                   key: state.pageKey,
@@ -204,7 +197,6 @@ final router = GoRouter(
                 );
               }),
         ]),
-
     // SlideMenuScreen(),
     GoRoute(
         path: RoutePath.slide_menu,
@@ -217,7 +209,7 @@ final router = GoRouter(
         routes: [
           // SlideMenuSimpleExampleScreen(),
           GoRoute(
-              name: "slieex",
+              name: RoutePath.slide_simple_example,
               path: RoutePath.slide_simple_example,
               pageBuilder: (context, state) {
                 return CupertinoPage(
@@ -227,7 +219,7 @@ final router = GoRouter(
               }),
           // SlideMenuDrawerExampleScreen(),
           GoRoute(
-              name: "slide2",
+              name: RoutePath.slide_drawer_example,
               path: RoutePath.slide_drawer_example,
               pageBuilder: (context, state) {
                 return CupertinoPage(
@@ -239,7 +231,7 @@ final router = GoRouter(
 
 // ModalMenuScreen(),
     GoRoute(
-        path: "/modal_menu",
+        path: RoutePath.modal_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
@@ -249,7 +241,8 @@ final router = GoRouter(
         routes: [
           // ModalSimpleExampleScreen(),
           GoRoute(
-              path: "/modal_simple_example",
+              name: RoutePath.modal_simple_example,
+              path: RoutePath.modal_simple_example,
               pageBuilder: (context, state) {
                 return CupertinoPage(
                   key: state.pageKey,
@@ -258,9 +251,9 @@ final router = GoRouter(
               }),
         ]),
 
-// MapMenuScreen(),
+    // MapMenuScreen(),
     GoRoute(
-        path: "/map_menu",
+        path: RoutePath.map_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
@@ -279,139 +272,141 @@ final router = GoRouter(
               }),
         ]),
 
-// BarMenuScreen(),
+    // BarMenuScreen(),
     GoRoute(
-        path: "/bar_menu",
+        path: RoutePath.bar_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
             child: BarMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          // AppBarExampleScreen(),
+          GoRoute(
+              path: RoutePath.app_bar_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: AppBarExampleScreen(),
+                );
+              }),
+        ]),
 
-// AppBarExampleScreen(),
+    // AlignmentMenuScreen(),
     GoRoute(
-        path: "/app_bar_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: AppBarExampleScreen(),
-          );
-        }),
-
-// AlignmentMenuScreen(),
-    GoRoute(
-        path: "/alignment_menu",
+        path: RoutePath.alignment_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
             child: AlignmentMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          // AlignmentExampleScreen(),
+          GoRoute(
+              path: RoutePath.alignment_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: AlignmentExampleScreen(),
+                );
+              }),
+          // AlignmentColumnExampleScreen(),
+          GoRoute(
+              path: RoutePath.alignment_column_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: AlignmentColumnExampleScreen(),
+                );
+              }),
+        ]),
 
-// AlignmentExampleScreen(),
+    // SharedMenuScreen(),
     GoRoute(
-        path: "/alignment_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: AlignmentExampleScreen(),
-          );
-        }),
-
-// AlignmentColumnExampleScreen(),
-    GoRoute(
-        path: "/alignment_column_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: AlignmentColumnExampleScreen(),
-          );
-        }),
-
-// SharedMenuScreen(),
-    GoRoute(
-        path: "/shared_menu",
+        path: RoutePath.shared_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
             child: SharedMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          // SharedSimpleExampleScreen(),
+          GoRoute(
+              path: RoutePath.shared_simple_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: SharedSimpleExampleScreen(),
+                );
+              }),
+          // SharedUserExampleScreen(),
+          GoRoute(
+              path: RoutePath.shared_user_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: SharedUserExampleScreen(),
+                );
+              }),
+        ]),
 
-// SharedSimpleExampleScreen(),
+    // TabMenuScreen(),
     GoRoute(
-        path: "/shared_simple_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: SharedSimpleExampleScreen(),
-          );
-        }),
-
-// SharedUserExampleScreen(),
-    GoRoute(
-        path: "/shared_user_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: SharedUserExampleScreen(),
-          );
-        }),
-
-// TabMenuScreen(),
-    GoRoute(
-        path: "/tab_menu",
+        path: RoutePath.tab_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
             child: TabMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          // TabExampleScreen(),
+          GoRoute(
+              path: RoutePath.tab_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: TabExampleScreen(),
+                );
+              }),
 
-// TabExampleScreen(),
-    GoRoute(
-        path: "/tab_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: TabExampleScreen(),
-          );
-        }),
+          // TabControllerExampleScreen(),
+          GoRoute(
+              path: RoutePath.tab_controller_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: TabControllerExampleScreen(),
+                );
+              }),
 
-// TabControllerExampleScreen(),
-    GoRoute(
-        path: "/tab_controller_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: TabControllerExampleScreen(),
-          );
-        }),
+          // TabLibraryExampleScreen(),
+          GoRoute(
+              path: RoutePath.tab_library_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: TabLibraryExampleScreen(),
+                );
+              }),
 
-// TabLibraryExampleScreen(),
-    GoRoute(
-        path: "/tab_library_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: TabLibraryExampleScreen(),
-          );
-        }),
-
-// TabIndicatorExampleScreen(),
-    GoRoute(
-        path: "/tab_indicator_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: TabIndicatorExampleScreen(),
-          );
-        }),
+          // TabIndicatorExampleScreen(),
+          GoRoute(
+              path: RoutePath.tab_indicator_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: TabIndicatorExampleScreen(),
+                );
+              }),
+        ]),
 
     // DatePickerMenuScreen
     GoRoute(
-      path: "/date_picker_menu",
+      path: RoutePath.date_picker_menu,
       pageBuilder: (context, state) {
         return CupertinoPage(
           key: state.pageKey,
@@ -420,7 +415,7 @@ final router = GoRouter(
       },
       routes: [
         GoRoute(
-          path: 'date_picker_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.date_picker_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -429,7 +424,7 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: '/cupertino_date_picker_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.cupertino_date_picker_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -441,28 +436,29 @@ final router = GoRouter(
     ),
     // IndexstackMenuScreen
     GoRoute(
-      path: "/indexstack_menu",
-      pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: IndexstackMenuScreen(),
-        );
-      },
-      routes: [
-        GoRoute(
-          path: 'indexstack_example', // 注意：先頭の '/' は不要です
-          pageBuilder: (context, state) {
-            return CupertinoPage(
-              key: state.pageKey,
-              child: IndexstackExampleScreen(),
-            );
-          },
-        ),
-      ],
-    ),
+        path: RoutePath.indexstack_menu,
+        pageBuilder: (context, state) {
+          return CupertinoPage(
+            key: state.pageKey,
+            child: IndexstackMenuScreen(),
+          );
+        },
+        routes: [
+          GoRoute(
+            path: RoutePath.indexstack_example, // 注意：先頭の '/' は不要です
+            //path: '/indexstack_example',
+            pageBuilder: (context, state) {
+              return CupertinoPage(
+                key: state.pageKey,
+                child: IndexstackExampleScreen(),
+              );
+            },
+          ),
+        ]),
+
     // ScreenMenuScreen
     GoRoute(
-      path: "/screen_menu",
+      path: RoutePath.screen_menu,
       pageBuilder: (context, state) {
         return CupertinoPage(
           key: state.pageKey,
@@ -471,7 +467,7 @@ final router = GoRouter(
       },
       routes: [
         GoRoute(
-          path: 'incoming_call_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.incoming_call_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -480,7 +476,7 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'incoming_call_button_example', // 注意：先頭の '/' は不要です
+          path: RoutePath.incoming_call_button_example, // 注意：先頭の '/' は不要です
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -492,7 +488,7 @@ final router = GoRouter(
     ),
     // ListMenuScreen
     GoRoute(
-      path: "/list_menu",
+      path: RoutePath.list_menu,
       pageBuilder: (context, state) {
         return CupertinoPage(
           key: state.pageKey,
@@ -501,7 +497,7 @@ final router = GoRouter(
       },
       routes: [
         GoRoute(
-          path: 'list_expand_example',
+          path: RoutePath.list_expand_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -510,7 +506,7 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'list_refresh_example',
+          path: RoutePath.list_refresh_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -522,7 +518,7 @@ final router = GoRouter(
     ),
     // ClipovalMenuScreen
     GoRoute(
-      path: "/clipoval_menu",
+      path: RoutePath.clipoval_menu,
       pageBuilder: (context, state) {
         return CupertinoPage(
           key: state.pageKey,
@@ -531,7 +527,7 @@ final router = GoRouter(
       },
       routes: [
         GoRoute(
-          path: 'clip_oval_example',
+          path: RoutePath.clip_oval_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -540,7 +536,7 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'circle_avatar_example',
+          path: RoutePath.circle_avatar_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -549,7 +545,7 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'circle_avatar_image_cache_example',
+          path: RoutePath.circle_avatar_image_cache_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
               key: state.pageKey,
@@ -558,14 +554,14 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'network_image_example',
+          path: RoutePath.network_image_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
                 key: state.pageKey, child: NetworkImageExampleScreen());
           },
         ),
         GoRoute(
-          path: 'image_cache_example',
+          path: RoutePath.image_cache_example,
           pageBuilder: (context, state) {
             return CupertinoPage(
                 key: state.pageKey, child: ImageCacheExampleScreen());
@@ -575,7 +571,7 @@ final router = GoRouter(
     ),
     // OverlayMenuScreen
     GoRoute(
-        path: "/overlay_menu",
+        path: RoutePath.overlay_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
@@ -584,7 +580,7 @@ final router = GoRouter(
         },
         routes: [
           GoRoute(
-            path: 'overlay_example',
+            path: RoutePath.overlay_example,
             pageBuilder: (context, state) {
               return CupertinoPage(
                 key: state.pageKey,
@@ -593,7 +589,7 @@ final router = GoRouter(
             },
           ),
           GoRoute(
-            path: 'overlay_tap_example',
+            path: RoutePath.overlay_tap_example,
             pageBuilder: (context, state) {
               return CupertinoPage(
                 key: state.pageKey,
@@ -604,7 +600,7 @@ final router = GoRouter(
         ]),
     // DatabaseMenuScreen
     GoRoute(
-        path: "/database_menu",
+        path: RoutePath.database_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
@@ -613,7 +609,7 @@ final router = GoRouter(
         }),
     // DialogMenuScreen
     GoRoute(
-        path: "/daialog_menu",
+        path: RoutePath.daialog_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,

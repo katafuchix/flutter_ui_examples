@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
@@ -71,8 +72,11 @@ class _SwipeBackMenuScreenState extends BaseState<SwipeBackMenuScreen> {
                                 Divider()
                               ],
                             ),
-                            onTap: () => context
-                                .push('/swipeback_menu/swipeback_example'))),
+                            //onTap: () => context
+                            //    .push('/swipeback_menu/swipeback_example'))),
+
+                            onTap: () => context.push(
+                                "${RoutePath.swipeback_menu}/${RoutePath.swipeback_example}"))),
                   ],
                 ),
               )),
