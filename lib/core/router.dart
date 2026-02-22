@@ -138,47 +138,48 @@ final router = GoRouter(
             key: state.pageKey,
             child: DialogMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          // DialogAlertExampleScreen(),
+          GoRoute(
+              path: "/dialog_alert_example",
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: DialogAlertExampleScreen(),
+                );
+              }),
 
-// DialogAlertExampleScreen(),
-    GoRoute(
-        path: "/dialog_alert_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DialogAlertExampleScreen(),
-          );
-        }),
+          // DialogOverlayExampleScreen(),
+          GoRoute(
+              path: "/dialog_overlay_example",
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: DialogOverlayExampleScreen(),
+                );
+              }),
 
-// DialogOverlayExampleScreen(),
-    GoRoute(
-        path: "/dialog_overlay_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DialogOverlayExampleScreen(),
-          );
-        }),
+          // DialogOverlayCustomScreen(),
+          GoRoute(
+              path: "/dialog_overlay_custom",
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: DialogOverlayCustomScreen(),
+                );
+              }),
 
-// DialogOverlayCustomScreen(),
-    GoRoute(
-        path: "/dialog_overlay_custom",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DialogOverlayCustomScreen(),
-          );
-        }),
-
-// DialogStackExampleScreen(),
-    GoRoute(
-        path: "/dialog_stack_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DialogStackExampleScreen(),
-          );
-        }),
+          // DialogStackExampleScreen(),
+          GoRoute(
+              path: "/dialog_stack_example",
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: DialogStackExampleScreen(),
+                );
+              }),
+        ]),
 
 // VideoMenuScreen(),
     GoRoute(

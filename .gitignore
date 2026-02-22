@@ -14,7 +14,14 @@ migrate_working_dir/
 *.iml
 *.ipr
 *.iws
-.idea/
+#.idea/
+
+# 1. .idea フォルダ自体は無視するが、その「中身の探索」は許可する
+.idea/*
+# 2. ただし、中にある特定のフォルダは無視しないように「特例」を出す
+!.idea/dictionaries/
+# 3. その中にある目的のファイルを許可する（※ディレクトリが許可されていればこれは自動で通ることも多い）
+!.idea/dictionaries/project_dic.xml
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line

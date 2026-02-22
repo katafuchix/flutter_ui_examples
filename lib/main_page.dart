@@ -1,45 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_examples/slide_menu/slide_menu_screen.dart';
-import 'package:go_router/go_router.dart';
-import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
-import '../my_navigator.dart';
-import '../components/snack_bar.dart';
-import 'app.dart';
-import 'dialog/dialog_menu_screen.dart';
-import 'video/video_menu_screen.dart';
-import 'modal/modal_menu_screen.dart';
-import 'map/map_menu_screen.dart';
-import 'bar/bar_menu_screen.dart';
-import 'alignment/alignment_menu_screen.dart';
-import 'shared/shared_menu_screen.dart';
-import 'tab/tab_menu_screen.dart';
-import 'database/database_menu_screen.dart';
-import 'overlay/overlay_menu_screen.dart';
-import 'clipoval/clipoval_menu_screen.dart';
-import 'list/list_menu_screen.dart';
-import 'screen/screen_menu_screen.dart';
-import 'indexstack/indexstack_menu_screen.dart';
+import 'core/route_path.dart';
+import 'util/ui_utils.dart';
 
-@FFRoute(
-  name: 'fluttercandies://mainpage',
-  routeName: 'MainPage',
-)
 class MainPage extends StatelessWidget {
-  MainPage({super.key});
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text('UI examples'),
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: ListView(
@@ -47,413 +20,122 @@ class MainPage extends StatelessWidget {
           padding: EdgeInsets.all(2.0),
           //shrinkWrap: true,
           children: [
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('Swipe Back'),
-                        Text(
-                          'demos of Swipe Back',
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () => context.push('/swipeback_menu'))),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('FilePicker'),
-                        Text(
-                          'demos of FilePicker',
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () => context.push('/filepicker_menu'))),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('DatePicker'),
-                        Text(
-                          'demos of DatePicker',
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () => context.push('/date_picker_menu'))),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('IndexStack'),
-                        Text(
-                          'demos of IndexStack',
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () => context.push('/indexstack_menu')
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Screen'),
-                      Text(
-                        'demos of Screen',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                          return ScreenMenuScreen();
-                        }));
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('List'),
-                      Text(
-                        'demos of List',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                          return ListMenuScreen();
-                        }));
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('ClipOval'),
-                      Text(
-                        'demos of ClipOval',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                          return ClipovalMenuScreen();
-                        }));
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Overlay'),
-                      Text(
-                        'demos of overlaye',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                          return OverlayMenuScreen();
-                        }));
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('DataBase'),
-                      Text(
-                        'demos of database',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                          return DatabaseMenuScreen();
-                        }));
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Dialog'),
-                      Text(
-                        'demos of dialog ui',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.dialog_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is DialogMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'video',
-                      ),
-                      Text(
-                        'demos of video ui',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.video_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is VideoMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'slide menu',
-                      ),
-                      Text(
-                        'demos of slide menu ui',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.slide_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is SlideMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'modal menu',
-                      ),
-                      Text(
-                        'demos of modal ui',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.modal_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is ModalMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'map menu',
-                      ),
-                      Text(
-                        'demos of google map',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.map_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is MapMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'bar menu',
-                      ),
-                      Text(
-                        'demos of bar ui',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.bar_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is BarMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'aligment menu',
-                      ),
-                      Text(
-                        'demos of aligment ui',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.alignment_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is AlignmentMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'shared preference menu',
-                      ),
-                      Text(
-                        'demos of shared preference',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.shared_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is SharedMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'tab menu',
-                      ),
-                      Text(
-                        'demos of tab',
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.tab_menu,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is TabMenuScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    }
-                  },
-                )),
+            // Swipe Back
+            buildListItem(
+              context: context,
+              title: 'Swipe Back',
+              subtitle: 'demos of Swipe Back',
+              routePath: RoutePath.swipeback_menu,
+            ),
+            buildListItem(
+              context: context,
+              title: 'File Picker',
+              subtitle: 'demos of File Picker',
+              routePath: RoutePath.filepicker_menu,
+            ),
+            buildListItem(
+              context: context,
+              title: 'Date Picker',
+              subtitle: 'demos of Date Picker',
+              routePath: RoutePath.date_picker_menu,
+            ),
+            buildListItem(
+              context: context,
+              title: 'Index Stack',
+              subtitle: '',
+              routePath: RoutePath.indexstack_menu,
+            ),
+
+            // dialog menu
+            buildListItem(
+              context: context,
+              title: 'Dialog',
+              subtitle: 'demos of dialog ui',
+              routePath: RoutePath.dialog_menu,
+            ),
+            // Video menu
+            buildListItem(
+                context: context,
+                title: 'Video',
+                subtitle: 'demos of video ui',
+                routePath: RoutePath.video_menu),
+            // Side menu
+            buildListItem(
+                context: context,
+                title: 'Slide Menu',
+                subtitle: 'demos of menu ui',
+                routePath: RoutePath.slide_menu),
+            // modal menu
+            buildListItem(
+                context: context,
+                title: 'Modal Menu',
+                subtitle: 'demos of menu ui',
+                routePath: RoutePath.modal_menu),
+            // map menu
+            buildListItem(
+                context: context,
+                title: 'Map Menu',
+                subtitle: 'demos of map',
+                routePath: RoutePath.map_menu),
+            // bar_menu
+            buildListItem(
+                context: context,
+                title: 'Bar Menu',
+                subtitle: '',
+                routePath: RoutePath.bar_menu),
+            // alignment_menu
+            buildListItem(
+                context: context,
+                title: 'Alignment Menu',
+                subtitle: '',
+                routePath: RoutePath.alignment_menu),
+            // shared_menu
+            buildListItem(
+                context: context,
+                title: 'Shared Menu',
+                subtitle: '',
+                routePath: RoutePath.shared_menu),
+            // tab_menu
+            buildListItem(
+                context: context,
+                title: 'Tab Menu',
+                subtitle: '',
+                routePath: RoutePath.tab_menu),
+
+            // screen_menu
+            buildListItem(
+                context: context,
+                title: 'Screen Menu',
+                subtitle: '',
+                routePath: RoutePath.screen_menu),
+
+            // list_menu
+            buildListItem(
+                context: context,
+                title: 'List Menu',
+                subtitle: '',
+                routePath: RoutePath.list_menu),
+
+            // clipoval_menu
+            buildListItem(
+                context: context,
+                title: 'Clip Oval Menu',
+                subtitle: '',
+                routePath: RoutePath.clipoval_menu),
+
+            // overlay_menu
+            buildListItem(
+                context: context,
+                title: 'OverLay Menu',
+                subtitle: '',
+                routePath: RoutePath.overlay_menu),
+
+            // database_menu
+            buildListItem(
+                context: context,
+                title: 'DataBase Menu',
+                subtitle: '',
+                routePath: RoutePath.database_menu),
           ],
         ),
       ),
@@ -466,9 +148,8 @@ class MainPage extends StatelessWidget {
       builder: (context) {
         Future.delayed(
           Duration(seconds: 5),
-              () {
+          () {
             Navigator.of(context).pop(true);
-            print('aaa');
           },
         );
 
@@ -541,7 +222,7 @@ class MainPage extends StatelessWidget {
               "Create ID",
               style: TextStyle(fontSize: 24.0),
             ),
-            content: Container(
+            content: SizedBox(
               height: 400,
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(8.0),
@@ -575,9 +256,9 @@ class MainPage extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                          //primary: Colors.black,
-                          // fixedSize: Size(250, 50),
-                        ),
+                            //primary: Colors.black,
+                            // fixedSize: Size(250, 50),
+                            ),
                         child: Text(
                           "Submit",
                         ),
@@ -591,11 +272,11 @@ class MainPage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
-                            ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-                            ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                            ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
-                            'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
-                            ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+                        ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                        ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
+                        'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
+                        ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         style: TextStyle(fontSize: 12),
                       ),
                     ),

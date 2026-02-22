@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
+import '../util/ui_utils.dart';
 import 'dialog_alert_example_screen.dart';
 import 'dialog_overlay_example_screen.dart';
 import 'dialog_overlay_custom_screen.dart';
 
 class DialogMenuScreenResult {
   final String message;
+
   DialogMenuScreenResult(this.message);
 }
 
@@ -35,110 +38,29 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'dialog alert',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                      context, Routes.dialog_alert_example,
-                      pageOpenType: PageOpenType.SLIDE);
-                    if (result is DialogAlertExampleScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    };
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'dialog alert',
+              subtitle: '',
+              routePath: Routes.dialog_alert_example,
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'dialog overlay',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.dialog_overlay_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is DialogOverlayExampleScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    };
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'dialog overlay',
+              subtitle: '',
+              routePath: Routes.dialog_overlay_example,
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'dialog overlay custom',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.dialog_overlay_custom,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is DialogOverlayCustomScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    };
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'dialog overlay custom',
+              subtitle: '',
+              routePath: Routes.dialog_overlay_custom,
             ),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'dialog ostack example',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Divider()
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.dialog_stack_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                  },
-                )
+            buildListItem(
+              context: context,
+              title: 'dialog stack custom',
+              subtitle: '',
+              routePath: Routes.dialog_stack_example,
             ),
           ],
         ),

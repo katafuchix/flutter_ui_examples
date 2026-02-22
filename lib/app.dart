@@ -96,7 +96,8 @@ class _MyAppState extends State<_MyApp> {
   Widget build(BuildContext context) {
     AppColors colors = MyColors();
 
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       title: 'Flutter Demo',
       theme: ThemeData(
         //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -111,15 +112,15 @@ class _MyAppState extends State<_MyApp> {
         ),*/
       ),
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: MainPage(),
-      onGenerateRoute: (RouteSettings settings) {
+      //home: MainPage(),
+      /*onGenerateRoute: (RouteSettings settings) {
         assert(settings.arguments == null || settings.arguments is ScreenArgs);
         CreatePage createPage = _createScreen(
                 context, settings.arguments as ScreenArgs?)[settings.name]
             as CreatePage;
         return _SlideRoute<Object>(
             page: createPage, args: settings.arguments as ScreenArgs);
-      },
+      },*/
     );
   }
 
