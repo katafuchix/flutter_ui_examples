@@ -8,6 +8,7 @@ allprojects {
         //classpath 'com.android.tools.build:gradle:8.2.1'
         // Kotlinのバージョンも、Gradle 8.x に合わせて 1.9.0 以上を推奨
         //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10"
+        //classpath 'com.android.tools.build:gradle:8.3.0' // またはそれ以上
     }
 }
 

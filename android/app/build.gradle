@@ -78,6 +78,20 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+    }
+
+    // Android 15以降の動作に合わせるためのフラグ
+    buildTypes {
+        debug {
+            // デバッグ時も16KBアライメントを有効にする設定
+            ext.useEightByteAlignment = true
+        }
+    }
 }
 
 flutter {
