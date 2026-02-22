@@ -10,6 +10,8 @@ class VideoMenuScreenResult {
 }
 
 class VideoMenuScreen extends BaseStatefulWidget {
+  const VideoMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _VideoMenuScreenState();

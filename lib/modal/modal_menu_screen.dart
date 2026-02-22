@@ -10,6 +10,8 @@ class ModalMenuScreenResult {
 }
 
 class ModalMenuScreen extends BaseStatefulWidget {
+  const ModalMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ModalMenuScreenState();

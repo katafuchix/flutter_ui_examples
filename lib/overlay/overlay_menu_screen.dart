@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_examples/clipoval/clipoval_menu_screen.dart';
-import 'package:go_router/go_router.dart';
-import 'overlay_example_screen.dart';
-import 'overlay_tap_example_screen.dart';
+
+import '../core/route_path.dart';
+import '../util/ui_utils.dart';
 
 class OverlayMenuScreen extends StatefulWidget {
   const OverlayMenuScreen({super.key});
@@ -18,7 +17,6 @@ class _OverlayMenuScreenState extends State<OverlayMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -30,44 +28,20 @@ class _OverlayMenuScreenState extends State<OverlayMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'overlay example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/overlay_menu/overlay_example'))),
-            Container(
-                margin: edgeInsets,
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'overlay tap example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider()
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/overlay_menu/overlay_tap_example')))
+            buildListItem(
+              context: context,
+              title: 'overlay example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.overlay_menu}/${RoutePath.overlay_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'overlay tap example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.overlay_menu}/${RoutePath.overlay_tap_example}",
+            ),
           ],
         ),
       ),

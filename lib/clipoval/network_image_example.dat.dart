@@ -6,11 +6,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class NetworkImageExampleScreen extends StatefulWidget {
   @override
-  _NetworkImageExampleScreenState createState() => _NetworkImageExampleScreenState();
+  _NetworkImageExampleScreenState createState() =>
+      _NetworkImageExampleScreenState();
 }
 
 class _NetworkImageExampleScreenState extends State<NetworkImageExampleScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -20,55 +20,48 @@ class _NetworkImageExampleScreenState extends State<NetworkImageExampleScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: const Text('Overlay Example'),
-    backgroundColor: Theme
-    .of(context)
-        .colorScheme
-    .inversePrimary,
-    ),
-    body:
-      Center(
-        child:
-        /*
+          title: const Text('Overlay Example'),
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        ),
+        body: Center(
+          child:
+              /*
         NetworkImageTopThirdAvatar(
           imageUrl: 'https://equal-love.jp/image/profile/otani_emiri.jpg', // Replace with your image URL
         )*/
 
-
-        CircleAvatar(
-        backgroundColor: Colors.red,
-        radius: 36,
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          radius: 35,
-          child:
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 32,
-            child:
-            NetworkImageTopThirdAvatar(
-              imageUrl: 'https://equal-love.jp/image/profile/otani_emiri.jpg', // Replace with your image URL
-            )
+              CircleAvatar(
+            backgroundColor: Colors.red,
+            radius: 36,
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 35,
+              child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 32,
+                  child: NetworkImageTopThirdAvatar(
+                    imageUrl:
+                        'https://equal-love.jp/image/profile/otani_emiri.jpg', // Replace with your image URL
+                  )),
+            ),
           ),
-        ),
-      ),
-
-      )
-    );
-
+        ));
   }
 }
 
 class NetworkImageTopThirdAvatar extends StatefulWidget {
   final String imageUrl;
 
-  const NetworkImageTopThirdAvatar({Key? key, required this.imageUrl}) : super(key: key);
+  const NetworkImageTopThirdAvatar({Key? key, required this.imageUrl})
+      : super(key: key);
 
   @override
-  _NetworkImageTopThirdAvatarState createState() => _NetworkImageTopThirdAvatarState();
+  _NetworkImageTopThirdAvatarState createState() =>
+      _NetworkImageTopThirdAvatarState();
 }
 
-class _NetworkImageTopThirdAvatarState extends State<NetworkImageTopThirdAvatar> {
+class _NetworkImageTopThirdAvatarState
+    extends State<NetworkImageTopThirdAvatar> {
   ui.Image? _image;
   bool _isLoading = true;
 
@@ -85,15 +78,23 @@ class _NetworkImageTopThirdAvatarState extends State<NetworkImageTopThirdAvatar>
 
     // Calculate dimensions for top 1/3 of the image
     final double targetHeight = image.height.toDouble() / 2.0;
-    final Rect topThirdRect = Rect.fromLTWH(0, 0, image.width.toDouble(), targetHeight);
+    final Rect topThirdRect =
+        Rect.fromLTWH(0, 0, image.width.toDouble(), targetHeight);
     //final Rect topThirdRect = Rect.fromLTWH(image.width.toDouble() / 6.5, 0, image.width.toDouble() / 1.5, image.width.toDouble() / 1.5);
 
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
 
-    canvas.drawImageRect(image, topThirdRect, Rect.fromPoints(Offset.zero, Offset(image.width.toDouble(), targetHeight)), Paint());
+    canvas.drawImageRect(
+        image,
+        topThirdRect,
+        Rect.fromPoints(
+            Offset.zero, Offset(image.width.toDouble(), targetHeight)),
+        Paint());
 
-    final croppedImage = await recorder.endRecording().toImage(image.width, targetHeight.toInt());
+    final croppedImage = await recorder
+        .endRecording()
+        .toImage(image.width, targetHeight.toInt());
 
     setState(() {
       _image = croppedImage;
@@ -106,28 +107,28 @@ class _NetworkImageTopThirdAvatarState extends State<NetworkImageTopThirdAvatar>
     return _isLoading
         ? CircularProgressIndicator()
         : FutureBuilder<Uint8List>(
-      future: _imageToByteData(_image!),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
-        }
-        if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
-        }
-        if (snapshot.hasData) {
-          return CircleAvatar(
-            backgroundImage: MemoryImage(snapshot.data!),
-            radius: 50,
+            future: _imageToByteData(_image!),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              }
+              if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              }
+              if (snapshot.hasData) {
+                return CircleAvatar(
+                  backgroundImage: MemoryImage(snapshot.data!),
+                  radius: 50,
+                );
+              }
+              return Container();
+            },
           );
-        }
-        return Container();
-      },
-    );
   }
 
   Future<Uint8List> _imageToByteData(ui.Image image) async {
-    final ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png) ?? ByteData(0);
+    final ByteData byteData =
+        await image.toByteData(format: ui.ImageByteFormat.png) ?? ByteData(0);
     return byteData.buffer.asUint8List();
   }
-
 }

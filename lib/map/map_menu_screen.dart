@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/route_path.dart';
-import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
 import '../util/ui_utils.dart';
-import 'map_example_screen.dart';
 
 class MapMenuScreenResult {
   final String message;

@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../base/base_stateful_widget.dart';
 import '../core/route_path.dart';
 import '../util/ui_utils.dart';
 
 class ScreenMenuScreen extends BaseStatefulWidget {
+  const ScreenMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ScreenMenuScreenState();
@@ -17,7 +17,6 @@ class _ScreenMenuScreenState extends BaseState<ScreenMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by

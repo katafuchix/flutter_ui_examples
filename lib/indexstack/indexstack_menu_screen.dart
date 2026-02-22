@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../base/base_stateful_widget.dart';
 import '../core/route_path.dart';
 import '../util/ui_utils.dart';
 
 class IndexstackMenuScreen extends BaseStatefulWidget {
+  const IndexstackMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _IndexstackMenuScreenState();

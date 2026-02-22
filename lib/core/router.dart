@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:flutter_ui_examples/database/database_example_screen.dart';
 import 'package:flutter_ui_examples/datepicker/cupertino_datepicker_example_screen.dart';
 import 'package:flutter_ui_examples/datepicker/datepicker_example_screen.dart';
 import 'package:flutter_ui_examples/indexstack/indexstack_example_screen.dart';
@@ -606,15 +607,26 @@ final router = GoRouter(
             key: state.pageKey,
             child: DatabaseMenuScreen(),
           );
-        }),
-    // DialogMenuScreen
-    GoRoute(
-        path: RoutePath.daialog_menu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DialogMenuScreen(),
-          );
-        }),
+        },
+        routes: [
+          GoRoute(
+            path: RoutePath.database_example,
+            pageBuilder: (context, state) {
+              return CupertinoPage(
+                key: state.pageKey,
+                child: DatabaseExampleScreen(),
+              );
+            },
+          ),
+          /*GoRoute(
+            path: RoutePath.database_shared_example,
+            pageBuilder: (context, state) {
+              return CupertinoPage(
+                key: state.pageKey,
+                child: DatabaseSharedExampleScreen(),
+              );
+            },
+          ),*/
+        ]),
   ],
 );

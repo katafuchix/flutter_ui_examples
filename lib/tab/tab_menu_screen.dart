@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/route_path.dart';
-import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
 import '../util/ui_utils.dart';
-import 'tab_example_screen.dart';
 
 class TabMenuScreenResult {
   final String message;
@@ -14,6 +10,8 @@ class TabMenuScreenResult {
 }
 
 class TabMenuScreen extends BaseStatefulWidget {
+  const TabMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _TabMenuScreenState();

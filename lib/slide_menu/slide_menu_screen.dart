@@ -10,6 +10,8 @@ class SlideMenuScreenResult {
 }
 
 class SlideMenuScreen extends BaseStatefulWidget {
+  const SlideMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _SlideMenuScreenState();
@@ -21,7 +23,6 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
+import '../core/route_path.dart';
+import '../util/ui_utils.dart';
 
 class ClipovalMenuScreen extends StatefulWidget {
   const ClipovalMenuScreen({super.key});
@@ -26,101 +28,41 @@ class _ClipovalMenuScreenState extends State<ClipovalMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'clip oval example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider(),
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/clipoval_menu/clip_oval_example'))),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'circle avatar example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider(),
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/clipoval_menu/circle_avatar_example'))),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'circle avatar image cache example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider(),
-                      ],
-                    ),
-                    onTap: () => context.push(
-                        '/clipoval_menu/circle_avatar_image_cache_example'))),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'network image example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider(),
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/clipoval_menu/network_image_example'))),
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'network image cache example',
-                        ),
-                        Text(
-                          ' ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Divider(),
-                      ],
-                    ),
-                    onTap: () =>
-                        context.push('/clipoval_menu/image_cache_example'))),
+            buildListItem(
+              context: context,
+              title: 'clip oval example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.clipoval_menu}/${RoutePath.clip_oval_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'circle avatar example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.clipoval_menu}/${RoutePath.circle_avatar_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'circle avatar image cache example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.clipoval_menu}/${RoutePath.circle_avatar_image_cache_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'network image example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.clipoval_menu}/${RoutePath.network_image_example}",
+            ),
+            buildListItem(
+              context: context,
+              title: 'network image cache example',
+              subtitle: '',
+              routePath:
+                  "${RoutePath.clipoval_menu}/${RoutePath.image_cache_example}",
+            ),
           ],
         ),
       ),

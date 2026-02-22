@@ -78,6 +78,7 @@ abstract class RoutePath {
 
   static const database_menu = '/database_menu';
   static const database_example = 'database_example';
+  static const database_shared_example = 'database_shared_example';
 
   static const daialog_menu = '/daialog_menu';
   static const daialog_alert_example = 'daialog_alert_example';

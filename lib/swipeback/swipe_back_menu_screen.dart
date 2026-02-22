@@ -1,12 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../core/route_path.dart';
-import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
-import 'swipe_back_example_screen.dart';
 import 'swipe_back_handler.dart';
 
 class SwipeBackScreenResult {
@@ -16,6 +11,8 @@ class SwipeBackScreenResult {
 }
 
 class SwipeBackMenuScreen extends BaseStatefulWidget {
+  const SwipeBackMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _SwipeBackMenuScreenState();
@@ -33,7 +30,6 @@ class _SwipeBackMenuScreenState extends BaseState<SwipeBackMenuScreen> {
         canPop: false,
         onPopInvokedWithResult: (didPop, result) async {
           if (didPop) return;
-
           Navigator.pop(context);
         },
         child: Scaffold(
