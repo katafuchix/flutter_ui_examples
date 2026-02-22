@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import '../my_navigator.dart';
+import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
-import 'video_player_example_screen.dart';
+import '../util/ui_utils.dart';
 
 class VideoMenuScreenResult {
   final String message;
+
   VideoMenuScreenResult(this.message);
 }
 
@@ -33,32 +32,12 @@ class _VideoMenuScreenState extends BaseState<VideoMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
-            Container(
-                margin: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'video player',
-                      ),
-                      Text(
-                        ' ',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  onTap: () async {
-                    final result = await MyNavigator.pushNamed(
-                        context, Routes.video_player_example,
-                        pageOpenType: PageOpenType.SLIDE);
-                    if (result is VideoPlayerExampleScreenResult) {
-                      showInfoSnackBar(context, text: result.message);
-                    };
-                  },
-                )
-            )
+            buildListItem(
+              context: context,
+              title: 'video player',
+              subtitle: '',
+              routePath: RoutePath.video_player_example,
+            ),
           ],
         ),
       ),

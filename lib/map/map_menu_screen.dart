@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import '../core/route_path.dart';
 import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
 import '../components/snack_bar.dart';
 import '../app.dart';
+import '../util/ui_utils.dart';
 import 'map_example_screen.dart';
 
 class MapMenuScreenResult {
   final String message;
+
   MapMenuScreenResult(this.message);
 }
 
@@ -33,6 +36,12 @@ class _MapMenuScreenState extends BaseState<MapMenuScreen> {
         child: ListView(
           padding: const EdgeInsets.all(2.0),
           children: [
+            buildListItem(
+              context: context,
+              title: 'map example',
+              subtitle: '',
+              routePath: RoutePath.map_example,
+            ),
             Container(
                 margin: const EdgeInsets.all(20.0),
                 child: GestureDetector(
@@ -55,10 +64,10 @@ class _MapMenuScreenState extends BaseState<MapMenuScreen> {
                         pageOpenType: PageOpenType.SLIDE);
                     if (result is MapExampleScreenResult) {
                       showInfoSnackBar(context, text: result.message);
-                    };
+                    }
+                    ;
                   },
-                )
-            )
+                ))
           ],
         ),
       ),

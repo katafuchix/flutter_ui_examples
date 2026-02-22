@@ -56,6 +56,7 @@ import '../tab/tab_example_screen.dart';
 import '../tab/tab_controller_example_screen.dart';
 import '../tab/tab_library_example_screen.dart';
 import '../tab/tab_indicator_example_screen.dart';
+import 'route_path.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -181,55 +182,60 @@ final router = GoRouter(
               }),
         ]),
 
-// VideoMenuScreen(),
+    // VideoMenuScreen(),
     GoRoute(
-        path: "/video_menu",
+        path: RoutePath.video_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
             child: VideoMenuScreen(),
           );
-        }),
+        },
+        routes: [
+          // VideoPlayerExampleScreen(),
+          GoRoute(
+              name: "videoexample",
+              //name: RoutePath.video_player_example,
+              path: RoutePath.video_player_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: VideoPlayerExampleScreen(),
+                );
+              }),
+        ]),
 
-// VideoPlayerExampleScreen(),
+    // SlideMenuScreen(),
     GoRoute(
-        path: "/video_player_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: VideoPlayerExampleScreen(),
-          );
-        }),
-
-// SlideMenuScreen(),
-    GoRoute(
-        path: "/slide_menu",
+        path: RoutePath.slide_menu,
         pageBuilder: (context, state) {
           return CupertinoPage(
             key: state.pageKey,
             child: SlideMenuScreen(),
           );
-        }),
-
-// SlideMenuSimpleExampleScreen(),
-    GoRoute(
-        path: "/slide_menu_simple_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: SlideMenuSimpleExampleScreen(),
-          );
-        }),
-
-// SlideMenuDrawerExampleScreen(),
-    GoRoute(
-        path: "/slide_menu_drawer_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: SlideMenuDrawerExampleScreen(),
-          );
-        }),
+        },
+        routes: [
+          // SlideMenuSimpleExampleScreen(),
+          GoRoute(
+              name: "slieex",
+              path: RoutePath.slide_simple_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: SlideMenuSimpleExampleScreen(),
+                );
+              }),
+          // SlideMenuDrawerExampleScreen(),
+          GoRoute(
+              name: "slide2",
+              path: RoutePath.slide_drawer_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: SlideMenuDrawerExampleScreen(),
+                );
+              }),
+        ]),
 
 // ModalMenuScreen(),
     GoRoute(
@@ -239,17 +245,18 @@ final router = GoRouter(
             key: state.pageKey,
             child: ModalMenuScreen(),
           );
-        }),
-
-// ModalSimpleExampleScreen(),
-    GoRoute(
-        path: "/modal_simple_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: ModalSimpleExampleScreen(),
-          );
-        }),
+        },
+        routes: [
+          // ModalSimpleExampleScreen(),
+          GoRoute(
+              path: "/modal_simple_example",
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: ModalSimpleExampleScreen(),
+                );
+              }),
+        ]),
 
 // MapMenuScreen(),
     GoRoute(
@@ -259,17 +266,18 @@ final router = GoRouter(
             key: state.pageKey,
             child: MapMenuScreen(),
           );
-        }),
-
-// MapExampleScreen(),
-    GoRoute(
-        path: "/map_example",
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: MapExampleScreen(),
-          );
-        }),
+        },
+        routes: [
+          // MapExampleScreen(),
+          GoRoute(
+              path: RoutePath.map_example,
+              pageBuilder: (context, state) {
+                return CupertinoPage(
+                  key: state.pageKey,
+                  child: MapExampleScreen(),
+                );
+              }),
+        ]),
 
 // BarMenuScreen(),
     GoRoute(

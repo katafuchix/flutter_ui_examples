@@ -19,12 +19,17 @@ abstract class RoutePath {
   static const String dialog_stack_example = '/dialog_stack_example';
 
   static const video_menu = '/video_menu';
+  static const video_player_example = '/video_menu/video_player_example';
 
   static const slide_menu = '/slide_menu';
+  static const slide_simple_example = '/slide_menu/slide_simple_example';
+  static const slide_drawer_example = '/slide_menu/slide_drawer_example';
 
   static const modal_menu = '/modal_menu';
+  static const String modal_simple_example = 'modal_simple_example';
 
   static const map_menu = '/map_menu';
+  static const map_example = 'map_menu_example';
 
   static const bar_menu = '/bar_menu';
 
