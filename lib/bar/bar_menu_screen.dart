@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/route_path.dart';
-import '../my_navigator.dart';
 import '../base/base_stateful_widget.dart';
-import '../components/snack_bar.dart';
-import '../app.dart';
 import '../util/ui_utils.dart';
-import 'app_bar_example_screen.dart';
 
 class BarMenuScreenResult {
   final String message;
@@ -41,7 +37,7 @@ class _BarMenuScreenState extends BaseState<BarMenuScreen> {
               context: context,
               title: 'AppBar example',
               subtitle: 'bar buttons',
-              routePath: "${RoutePath.bar_menu}/${RoutePath.app_bar_example}",
+              routePath: "${RoutePath.barMenu}/${RoutePath.appBarExample}",
             ),
           ],
         ),

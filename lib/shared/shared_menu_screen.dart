@@ -39,14 +39,14 @@ class _SharedMenuScreenState extends BaseState<SharedMenuScreen> {
               title: 'sharedpreference menu simple',
               subtitle: '',
               routePath:
-                  "${RoutePath.shared_menu}/${RoutePath.shared_simple_example}",
+                  "${RoutePath.sharedMenu}/${RoutePath.sharedSimpleExample}",
             ),
             buildListItem(
               context: context,
               title: 'shared user example',
               subtitle: '',
               routePath:
-                  "${RoutePath.shared_menu}/${RoutePath.shared_user_example}",
+                  "${RoutePath.sharedMenu}/${RoutePath.sharedUserExample}",
             ),
           ],
         ),

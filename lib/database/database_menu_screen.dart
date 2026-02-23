@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
 import '../core/route_path.dart';
 import '../util/ui_utils.dart';
-import 'database_example_screen.dart';
 
 class DatabaseMenuScreen extends BaseStatefulWidget {
   const DatabaseMenuScreen({super.key});
@@ -19,7 +17,6 @@ class _DatabaseMenuScreenState extends BaseState<DatabaseMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20);
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -36,14 +33,14 @@ class _DatabaseMenuScreenState extends BaseState<DatabaseMenuScreen> {
               title: 'database example',
               subtitle: '',
               routePath:
-                  "${RoutePath.database_menu}/${RoutePath.database_example}",
+                  "${RoutePath.databaseMenu}/${RoutePath.databaseExample}",
             ),
             /*buildListItem(
               context: context,
               title: 'database user example',
               subtitle: '',
               routePath:
-                  "${RoutePath.database_menu}/${RoutePath.database_shared_example}",
+                  "${RoutePath.databaseMenu}/${RoutePath.databaseSharedExample}",
             ),*/
           ],
         ),

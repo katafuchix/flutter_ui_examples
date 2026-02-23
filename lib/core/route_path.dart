@@ -6,92 +6,90 @@ abstract class RoutePath {
   static const mainPagePath = '/mainpagePath';
 
   // swipe back
-  static const swipeback_menu = '/swipeback_menu';
-  static const swipeback_example = 'swipeback_example';
+  static const swipebackMenu = '/swipebackMenu';
+  static const swipebackExample = 'swipebackExample';
 
-  static const filepicker_menu = '/filepicker_menu';
-  static const filepicker_example = 'filepicker_eample';
-  static const filepicker_multi_example = 'filepicker_multi_example';
+  static const filepickerMenu = '/filepickerMenu';
+  static const filepickerExample = 'filepickerExample';
+  static const filepickerMultiExample = 'filepickerMultiExample';
 
-  static const date_picker_menu = '/date_picker_menu';
-  static const date_picker_example = 'date_picker_example';
-  static const cupertino_date_picker_example = 'cupertino_date_picker_example';
+  static const datePickerMenu = '/datePickerMenu';
+  static const datePickerExample = 'datePickerExample';
+  static const cupertinoDatePickerExample = 'cupertinoDatePickerExample';
 
-  static const indexstack_menu = '/indexstack_menu';
-  static const indexstack_example = 'indexstack_example';
+  static const indexstackMenu = '/indexstackMenu';
+  static const indexstackExample = 'indexstackExample';
 
-  static const dialog_menu = '/dialog_menu';
-  static const String dialog_alert_example = 'dialog_alert_example';
-  static const String dialog_overlay_example = 'dialog_overlay_example';
-  static const String dialog_overlay_custom = 'dialog_overlay_custom';
-  static const String dialog_stack_example = 'dialog_stack_example';
+  static const dialogMenu = '/dialogMenu';
+  static const String dialogAlertExample = 'dialogAlertExample';
+  static const String dialogOverlayExample = 'dialogOverlayExample';
+  static const String dialogOverlayCustom = 'dialogOverlayCustom';
+  static const String dialogStackExample = 'dialogStackExample';
 
   static const videoMenu = '/videoMenu';
   static const videoPlayerExample = 'videoPlayerExample';
 
-  static const slide_menu = '/slide_menu';
-  static const slide_simple_example = 'slide_simple_example';
-  static const slide_drawer_example = 'slide_drawer_example';
+  static const slideMenu = '/slideMenu';
+  static const slideSimpleExample = 'slideSimpleExample';
+  static const slideDrawerExample = 'slideDrawerExample';
 
-  static const modal_menu = '/modal_menu';
-  static const String modal_simple_example = 'modal_simple_example';
+  static const modalMenu = '/modalMenu';
+  static const String modalSimpleExample = 'modalSimpleExample';
 
-  static const map_menu = '/map_menu';
-  static const map_example = 'map_menu_example';
+  static const mapMenu = '/mapMenu';
+  static const mapExample = 'mapExample';
 
-  static const bar_menu = '/bar_menu';
-  static const app_bar_example = 'app_bar_example';
+  static const barMenu = '/barMenu';
+  static const appBarExample = 'appBarExample';
 
-  static const alignment_menu = '/alignment_menu';
-  static const alignment_example = 'alignment_example';
-  static const alignment_column_example = 'alignment_column_example';
+  static const alignmentMenu = '/alignmentMenu';
+  static const alignmentExample = 'alignmentExample';
+  static const alignmentColumnExample = 'alignmentColumnExample';
 
-  static const shared_menu = '/shared_menu';
-  static const shared_simple_example = 'shared_simple_example';
-  static const shared_user_example = 'shared_user_example';
+  static const sharedMenu = '/sharedMenu';
+  static const sharedSimpleExample = 'sharedSimpleExample';
+  static const sharedUserExample = 'sharedUserExample';
 
-  static const tab_menu = '/tab_menu';
-  static const tab_example = 'tab_example';
-  static const tab_controller_example = 'tab_controller_example';
-  static const tab_library_example = 'tab_library_example';
-  static const tab_indicator_example = 'tab_indicator_example';
+  static const tabMenu = '/tabMenu';
+  static const tabExample = 'tabExample';
+  static const tabControllerExample = 'tabControllerExample';
+  static const tabLibraryExample = 'tabLibraryExample';
+  static const tabIndicatorExample = 'tabIndicatorExample';
 
-  static const screen_menu = '/screen_menu';
-  static const incoming_call_example = 'incoming_call_example';
-  static const incoming_call_button_example = 'incoming_call_button_example';
+  static const screenMenu = '/screenMenu';
+  static const incomingCallExample = 'incomingCallExample';
+  static const incomingCallButtonExample = 'incomingCallButtonExample';
 
-  static const list_menu = '/list_menu';
-  static const list_expand_example = 'list_expand_example';
-  static const list_refresh_example = 'list_refresh_example';
+  static const listMenu = '/listMenu';
+  static const listExpandExample = 'listExpandExample';
+  static const listRefreshExample = 'listRefreshExample';
 
-  static const clipoval_menu = '/clipoval_menu';
-  static const clip_oval_example = 'clip_oval_example';
-  static const circle_avatar_example = 'circle_avatar_example';
-  static const circle_avatar_image_cache_example =
-      'circle_avatar_image_cache_example';
-  static const network_image_example = 'network_image_example';
-  static const image_cache_example = 'image_cache_example';
+  static const clipovalMenu = '/clipovalMenu';
+  static const clipOvalExample = 'clipOvalExample';
+  static const circleAvatarExample = 'circleAvatarExample';
+  static const circleAvatarImageCacheExample = 'circleAvatarImageCacheExample';
+  static const networkImageExample = 'networkImageExample';
+  static const imageCacheExample = 'imageCacheExample';
 
-  static const overlay_menu = '/overlay_menu';
-  static const overlay_example = 'overlay_example';
-  static const overlay_tap_example = 'overlay_tap_example';
+  static const overlayMenu = '/overlayMenu';
+  static const overlayExample = 'overlayExample';
+  static const overlayTapExample = 'overlayTapExample';
 
-  static const database_menu = '/database_menu';
-  static const database_example = 'database_example';
-  static const database_shared_example = 'database_shared_example';
+  static const databaseMenu = '/databaseMenu';
+  static const databaseExample = 'databaseExample';
+  static const databaseSharedExample = 'databaseSharedExample';
 
-  static const daialog_menu = '/daialog_menu';
-  static const daialog_alert_example = 'daialog_alert_example';
-  static const daialog_overlay_example = 'daialog_overlay_example';
-  static const daialog_overlay_custom = 'daialog_overlay_custom';
-  static const daialog_stack_example = 'daialog_stack_example';
-  static const daialog_tap_example = 'daialog_tap_example';
-  static const daialog_bottom_example = 'daialog_bottom_example';
-  static const daialog_bottom_sheet_example = 'daialog_bottom_sheet_example';
-  static const daialog_bottom_sheet_custom_example =
-      'daialog_bottom_sheet_custom_example';
-  static const daialog_bottom_sheet_tap_example =
-      'daialog_bottom_sheet_tap_example';
-  static const daialog_bottom_sheet_tap_custom_example =
-      'daialog_bottom_sheet_tap_custom_example';
+  static const daialogMenu = '/daialogMenu';
+  static const daialogAlertExample = 'daialogAlertExample';
+  static const daialogOverlayExample = 'daialogOverlayExample';
+  static const daialogOverlayCustom = 'daialogOverlayCustom';
+  static const daialogStackExample = 'daialogStackExample';
+  static const daialogTapExample = 'daialogTapExample';
+  static const daialogBottomExample = 'daialogBottomExample';
+  static const daialogBottomSheetExample = 'daialogBottomSheetExample';
+  static const daialogBottomSheetCustomExample =
+      'daialogBottomSheetCustomExample';
+  static const daialogBottomSheetTapExample = 'daialogBottomSheetTapExample';
+  static const daialogBottomSheetTapCustomExample =
+      'daialogBottomSheetTapCustomExample';
 }

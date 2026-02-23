@@ -39,14 +39,14 @@ class _DatePickerMenuScreenState extends BaseState<DatePickerMenuScreen> {
               title: 'datepicker example',
               subtitle: '',
               routePath:
-                  "${RoutePath.date_picker_menu}/${RoutePath.date_picker_example}",
+                  "${RoutePath.datePickerMenu}/${RoutePath.datePickerExample}",
             ),
             buildListItem(
               context: context,
               title: 'cupertino datepicker example',
               subtitle: '',
               routePath:
-                  "${RoutePath.date_picker_menu}/${RoutePath.cupertino_date_picker_example}",
+                  "${RoutePath.datePickerMenu}/${RoutePath.cupertinoDatePickerExample}",
             ),
           ],
         ),

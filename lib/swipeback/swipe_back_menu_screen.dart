@@ -69,10 +69,10 @@ class _SwipeBackMenuScreenState extends BaseState<SwipeBackMenuScreen> {
                               ],
                             ),
                             //onTap: () => context
-                            //    .push('/swipeback_menu/swipeback_example'))),
+                            //    .push('/swipebackMenu/swipebackExample'))),
 
                             onTap: () => context.push(
-                                "${RoutePath.swipeback_menu}/${RoutePath.swipeback_example}"))),
+                                "${RoutePath.swipebackMenu}/${RoutePath.swipebackExample}"))),
                   ],
                 ),
               )),

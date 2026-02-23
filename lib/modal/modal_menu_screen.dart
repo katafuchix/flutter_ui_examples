@@ -39,7 +39,7 @@ class _ModalMenuScreenState extends BaseState<ModalMenuScreen> {
               title: 'modal simple example',
               subtitle: '',
               routePath:
-                  "${RoutePath.modal_menu}/${RoutePath.modal_simple_example}",
+                  "${RoutePath.modalMenu}/${RoutePath.modalSimpleExample}",
             ),
           ],
         ),

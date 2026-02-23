@@ -25,25 +25,25 @@ class MainPage extends StatelessWidget {
               context: context,
               title: 'Swipe Back',
               subtitle: 'demos of Swipe Back',
-              routePath: RoutePath.swipeback_menu,
+              routePath: RoutePath.swipebackMenu,
             ),
             buildListItem(
               context: context,
               title: 'File Picker',
               subtitle: 'demos of File Picker',
-              routePath: RoutePath.filepicker_menu,
+              routePath: RoutePath.filepickerMenu,
             ),
             buildListItem(
               context: context,
               title: 'Date Picker',
               subtitle: 'demos of Date Picker',
-              routePath: RoutePath.date_picker_menu,
+              routePath: RoutePath.datePickerMenu,
             ),
             buildListItem(
               context: context,
               title: 'Index Stack',
               subtitle: '',
-              routePath: RoutePath.indexstack_menu,
+              routePath: RoutePath.indexstackMenu,
             ),
 
             // dialog menu
@@ -51,7 +51,7 @@ class MainPage extends StatelessWidget {
               context: context,
               title: 'Dialog',
               subtitle: 'demos of dialog ui',
-              routePath: RoutePath.dialog_menu,
+              routePath: RoutePath.dialogMenu,
             ),
             // Video menu
             buildListItem(
@@ -64,78 +64,78 @@ class MainPage extends StatelessWidget {
                 context: context,
                 title: 'Slide Menu',
                 subtitle: 'demos of menu ui',
-                routePath: RoutePath.slide_menu),
+                routePath: RoutePath.slideMenu),
             // modal menu
             buildListItem(
                 context: context,
                 title: 'Modal Menu',
                 subtitle: 'demos of menu ui',
-                routePath: RoutePath.modal_menu),
+                routePath: RoutePath.modalMenu),
             // map menu
             buildListItem(
                 context: context,
                 title: 'Map Menu',
                 subtitle: 'demos of map',
-                routePath: RoutePath.map_menu),
-            // bar_menu
+                routePath: RoutePath.mapMenu),
+            // barMenu
             buildListItem(
                 context: context,
                 title: 'Bar Menu',
                 subtitle: '',
-                routePath: RoutePath.bar_menu),
-            // alignment_menu
+                routePath: RoutePath.barMenu),
+            // alignmentMenu
             buildListItem(
                 context: context,
                 title: 'Alignment Menu',
                 subtitle: '',
-                routePath: RoutePath.alignment_menu),
-            // shared_menu
+                routePath: RoutePath.alignmentMenu),
+            // sharedMenu
             buildListItem(
                 context: context,
                 title: 'Shared Menu',
                 subtitle: '',
-                routePath: RoutePath.shared_menu),
-            // tab_menu
+                routePath: RoutePath.sharedMenu),
+            // tabMenu
             buildListItem(
                 context: context,
                 title: 'Tab Menu',
                 subtitle: '',
-                routePath: RoutePath.tab_menu),
+                routePath: RoutePath.tabMenu),
 
-            // screen_menu
+            // screenMenu
             buildListItem(
                 context: context,
                 title: 'Screen Menu',
                 subtitle: '',
-                routePath: RoutePath.screen_menu),
+                routePath: RoutePath.screenMenu),
 
-            // list_menu
+            // listMenu
             buildListItem(
                 context: context,
                 title: 'List Menu',
                 subtitle: '',
-                routePath: RoutePath.list_menu),
+                routePath: RoutePath.listMenu),
 
-            // clipoval_menu
+            // clipovalMenu
             buildListItem(
                 context: context,
                 title: 'Clip Oval Menu',
                 subtitle: '',
-                routePath: RoutePath.clipoval_menu),
+                routePath: RoutePath.clipovalMenu),
 
-            // overlay_menu
+            // overlayMenu
             buildListItem(
                 context: context,
                 title: 'OverLay Menu',
                 subtitle: '',
-                routePath: RoutePath.overlay_menu),
+                routePath: RoutePath.overlayMenu),
 
-            // database_menu
+            // databaseMenu
             buildListItem(
                 context: context,
                 title: 'DataBase Menu',
                 subtitle: '',
-                routePath: RoutePath.database_menu),
+                routePath: RoutePath.databaseMenu),
           ],
         ),
       ),

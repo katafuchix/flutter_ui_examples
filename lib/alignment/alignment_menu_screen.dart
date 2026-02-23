@@ -39,14 +39,14 @@ class _AlignmentMenuScreenState extends BaseState<AlignmentMenuScreen> {
               title: 'alignment row example',
               subtitle: '',
               routePath:
-                  "${RoutePath.alignment_menu}/${RoutePath.alignment_example}",
+                  "${RoutePath.alignmentMenu}/${RoutePath.alignmentExample}",
             ),
             buildListItem(
               context: context,
               title: 'alignment column example',
               subtitle: '',
               routePath:
-                  "${RoutePath.alignment_menu}/${RoutePath.alignment_column_example}",
+                  "${RoutePath.alignmentMenu}/${RoutePath.alignmentColumnExample}",
             ),
           ],
         ),

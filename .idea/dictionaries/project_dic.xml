@@ -1,16 +1,23 @@
 <component name="ProjectDictionaryState">
   <dictionary name="project_dic">
     <words>
+      <w />
       <w>Fanletter</w>
       <w>HEIC</w>
       <w>Schyler</w>
       <w>audioplayers</w>
       <w>chatmedia</w>
+      <w>circleavatar</w>
+      <w>clipoval</w>
       <w>cosm</w>
+      <w>daialog</w>
+      <w>dialog</w>
       <w>fanletter</w>
+      <w>filepicker</w>
       <w>freezed</w>
       <w>historypage</w>
       <w>imageloader</w>
+      <w>indexstack</w>
       <w>mainpage</w>
       <w>orderpage</w>
       <w>profilepage</w>
@@ -18,6 +25,7 @@
       <w>romaji</w>
       <w>screenutil</w>
       <w>slidable</w>
+      <w>swipeback</w>
       <w>talkroom</w>
       <w>webview</w>
     </words>

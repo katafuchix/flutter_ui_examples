@@ -33,7 +33,7 @@ class _IndexstackMenuScreenState extends BaseState<IndexstackMenuScreen> {
               title: 'indexstack example',
               subtitle: '',
               routePath:
-                  "${RoutePath.indexstack_menu}/${RoutePath.indexstack_example}",
+                  "${RoutePath.indexstackMenu}/${RoutePath.indexstackExample}",
             ),
           ],
         ),

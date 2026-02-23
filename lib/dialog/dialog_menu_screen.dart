@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
-import '../app.dart';
 import '../core/route_path.dart';
 import '../util/ui_utils.dart';
 
@@ -11,6 +10,8 @@ class DialogMenuScreenResult {
 }
 
 class DialogMenuScreen extends BaseStatefulWidget {
+  const DialogMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _DialogMenuScreenState();
@@ -38,28 +39,28 @@ class _DialogMenuScreenState extends BaseState<DialogMenuScreen> {
               title: 'dialog alert',
               subtitle: '',
               routePath:
-                  "${RoutePath.dialog_menu}/${RoutePath.dialog_alert_example}",
+                  "${RoutePath.dialogMenu}/${RoutePath.dialogAlertExample}",
             ),
             buildListItem(
               context: context,
               title: 'dialog overlay',
               subtitle: '',
               routePath:
-                  "${RoutePath.dialog_menu}/${RoutePath.dialog_overlay_example}",
+                  "${RoutePath.dialogMenu}/${RoutePath.dialogOverlayExample}",
             ),
             buildListItem(
               context: context,
               title: 'dialog overlay custom',
               subtitle: '',
               routePath:
-                  "${RoutePath.dialog_menu}/${RoutePath.dialog_overlay_custom}",
+                  "${RoutePath.dialogMenu}/${RoutePath.dialogOverlayCustom}",
             ),
             buildListItem(
               context: context,
               title: 'dialog stack custom',
               subtitle: '',
               routePath:
-                  "${RoutePath.dialog_menu}/${RoutePath.dialog_stack_example}",
+                  "${RoutePath.dialogMenu}/${RoutePath.dialogStackExample}",
             ),
           ],
         ),

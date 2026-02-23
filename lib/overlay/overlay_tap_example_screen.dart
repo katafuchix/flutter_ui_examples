@@ -31,7 +31,7 @@ class OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
   //@override
   void didChangeAppLifecycleState(AppLifecycleState state) {}
 
-  OverlayEntry? _menuOverlayEntry;
+  OverlayEntry? MenuOverlayEntry;
   double x = 0;
   double y = 0;
 
@@ -76,7 +76,7 @@ class OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
   }
 
   void _showOverlay() {
-    _menuOverlayEntry = OverlayEntry(builder: (context) {
+    MenuOverlayEntry = OverlayEntry(builder: (context) {
       return Stack(
         children: [
           // メニュー外をタップした時にもメニューを閉じれるように透明な背景を画面全体に表示
@@ -103,12 +103,12 @@ class OverlayTapExampleScreenState extends State<OverlayTapExampleScreen> {
       );
     });
     // オーバーレイを表示
-    Overlay.of(context).insert(_menuOverlayEntry!);
+    Overlay.of(context).insert(MenuOverlayEntry!);
   }
 
   void _closeOverlay() {
     // メニューを閉じる
-    _menuOverlayEntry?.remove();
-    _menuOverlayEntry = null;
+    MenuOverlayEntry?.remove();
+    MenuOverlayEntry = null;
   }
 }

@@ -38,28 +38,27 @@ class _TabMenuScreenState extends BaseState<TabMenuScreen> {
               context: context,
               title: 'tab example',
               subtitle: 'DefaultTabController',
-              routePath: "${RoutePath.tab_menu}/${RoutePath.tab_example}",
+              routePath: "${RoutePath.tabMenu}/${RoutePath.tabExample}",
             ),
             buildListItem(
               context: context,
               title: 'tab controller example',
               subtitle: 'TabController',
               routePath:
-                  "${RoutePath.tab_menu}/${RoutePath.tab_controller_example}",
+                  "${RoutePath.tabMenu}/${RoutePath.tabControllerExample}",
             ),
             buildListItem(
               context: context,
               title: 'tab library example',
               subtitle: 'Tab Custom',
-              routePath:
-                  "${RoutePath.tab_menu}/${RoutePath.tab_library_example}",
+              routePath: "${RoutePath.tabMenu}/${RoutePath.tabLibraryExample}",
             ),
             buildListItem(
               context: context,
               title: 'tab indicator example',
               subtitle: 'Tab Custom Indicator',
               routePath:
-                  "${RoutePath.tab_menu}/${RoutePath.tab_indicator_example}",
+                  "${RoutePath.tabMenu}/${RoutePath.tabIndicatorExample}",
             ),
           ],
         ),

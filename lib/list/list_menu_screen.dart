@@ -31,15 +31,14 @@ class _ListMenuScreenState extends State<ListMenuScreen> {
               context: context,
               title: 'list expand example',
               subtitle: '',
-              routePath:
-                  "${RoutePath.list_menu}/${RoutePath.list_expand_example}",
+              routePath: "${RoutePath.listMenu}/${RoutePath.listExpandExample}",
             ),
             buildListItem(
               context: context,
               title: 'list refresh example',
               subtitle: '',
               routePath:
-                  "${RoutePath.list_menu}/${RoutePath.list_refresh_example}",
+                  "${RoutePath.listMenu}/${RoutePath.listRefreshExample}",
             ),
           ],
         ),

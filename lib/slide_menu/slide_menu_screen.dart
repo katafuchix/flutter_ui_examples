@@ -39,14 +39,14 @@ class _SlideMenuScreenState extends BaseState<SlideMenuScreen> {
               title: 'slide menu simple example',
               subtitle: '',
               routePath:
-                  "${RoutePath.slide_menu}/${RoutePath.slide_simple_example}",
+                  "${RoutePath.slideMenu}/${RoutePath.slideSimpleExample}",
             ),
             buildListItem(
               context: context,
               title: 'slide menu drawer example',
               subtitle: '',
               routePath:
-                  "${RoutePath.slide_menu}/${RoutePath.slide_drawer_example}",
+                  "${RoutePath.slideMenu}/${RoutePath.slideDrawerExample}",
             ),
           ],
         ),

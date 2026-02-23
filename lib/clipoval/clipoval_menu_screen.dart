@@ -33,35 +33,35 @@ class _ClipovalMenuScreenState extends State<ClipovalMenuScreen> {
               title: 'clip oval example',
               subtitle: '',
               routePath:
-                  "${RoutePath.clipoval_menu}/${RoutePath.clip_oval_example}",
+                  "${RoutePath.clipovalMenu}/${RoutePath.clipOvalExample}",
             ),
             buildListItem(
               context: context,
               title: 'circle avatar example',
               subtitle: '',
               routePath:
-                  "${RoutePath.clipoval_menu}/${RoutePath.circle_avatar_example}",
+                  "${RoutePath.clipovalMenu}/${RoutePath.circleAvatarExample}",
             ),
             buildListItem(
               context: context,
               title: 'circle avatar image cache example',
               subtitle: '',
               routePath:
-                  "${RoutePath.clipoval_menu}/${RoutePath.circle_avatar_image_cache_example}",
+                  "${RoutePath.clipovalMenu}/${RoutePath.circleAvatarImageCacheExample}",
             ),
             buildListItem(
               context: context,
               title: 'network image example',
               subtitle: '',
               routePath:
-                  "${RoutePath.clipoval_menu}/${RoutePath.network_image_example}",
+                  "${RoutePath.clipovalMenu}/${RoutePath.networkImageExample}",
             ),
             buildListItem(
               context: context,
               title: 'network image cache example',
               subtitle: '',
               routePath:
-                  "${RoutePath.clipoval_menu}/${RoutePath.image_cache_example}",
+                  "${RoutePath.clipovalMenu}/${RoutePath.imageCacheExample}",
             ),
           ],
         ),

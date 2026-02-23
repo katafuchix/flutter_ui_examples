@@ -33,14 +33,14 @@ class _ScreenMenuScreenState extends BaseState<ScreenMenuScreen> {
               title: 'incomming call example',
               subtitle: '',
               routePath:
-                  "${RoutePath.screen_menu}/${RoutePath.incoming_call_example}",
+                  "${RoutePath.screenMenu}/${RoutePath.incomingCallExample}",
             ),
             buildListItem(
               context: context,
               title: 'incomming call button example',
               subtitle: '',
               routePath:
-                  "${RoutePath.screen_menu}/${RoutePath.incoming_call_button_example}",
+                  "${RoutePath.screenMenu}/${RoutePath.incomingCallButtonExample}",
             ),
           ],
         ),

@@ -32,15 +32,14 @@ class _OverlayMenuScreenState extends State<OverlayMenuScreen> {
               context: context,
               title: 'overlay example',
               subtitle: '',
-              routePath:
-                  "${RoutePath.overlay_menu}/${RoutePath.overlay_example}",
+              routePath: "${RoutePath.overlayMenu}/${RoutePath.overlayExample}",
             ),
             buildListItem(
               context: context,
               title: 'overlay tap example',
               subtitle: '',
               routePath:
-                  "${RoutePath.overlay_menu}/${RoutePath.overlay_tap_example}",
+                  "${RoutePath.overlayMenu}/${RoutePath.overlayTapExample}",
             ),
           ],
         ),

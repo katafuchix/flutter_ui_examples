@@ -48,7 +48,7 @@ class _FilePickerMenuScreenState extends BaseState<FilePickerMenuScreen> {
                       ],
                     ),
                     onTap: () => context.push(
-                        "${RoutePath.filepicker_menu}/${RoutePath.filepicker_example}"))),
+                        "${RoutePath.filepickerMenu}/${RoutePath.filepickerExample}"))),
             Container(
                 margin: edgeInsets,
                 child: GestureDetector(
@@ -67,7 +67,7 @@ class _FilePickerMenuScreenState extends BaseState<FilePickerMenuScreen> {
                       ],
                     ),
                     onTap: () => context.push(
-                        "${RoutePath.filepicker_menu}/${RoutePath.filepicker_multi_example}"))),
+                        "${RoutePath.filepickerMenu}/${RoutePath.filepickerMultiExample}"))),
           ],
         ),
       ),

@@ -10,6 +10,8 @@ class MapMenuScreenResult {
 }
 
 class MapMenuScreen extends BaseStatefulWidget {
+  const MapMenuScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _MapMenuScreenState();
@@ -36,7 +38,7 @@ class _MapMenuScreenState extends BaseState<MapMenuScreen> {
               context: context,
               title: 'map example',
               subtitle: '',
-              routePath: "${RoutePath.map_menu}/${RoutePath.map_example}",
+              routePath: "${RoutePath.mapMenu}/${RoutePath.mapExample}",
             ),
           ],
         ),
