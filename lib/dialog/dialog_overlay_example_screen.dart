@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import '../base/base_stateful_widget.dart';
-import '../components/texts.dart';
-import '../config/colors.dart';
 
 class DialogOverlayExampleScreenResult {
   final String message;
+
   DialogOverlayExampleScreenResult(this.message);
 }
 
 class DialogOverlayExampleScreen extends StatefulWidget {
+  const DialogOverlayExampleScreen({super.key});
+
   @override
-  DialogOverlayExampleScreenState createState() => DialogOverlayExampleScreenState();
+  DialogOverlayExampleScreenState createState() =>
+      DialogOverlayExampleScreenState();
 }
 
-class DialogOverlayExampleScreenState extends State<DialogOverlayExampleScreen> {
+class DialogOverlayExampleScreenState
+    extends State<DialogOverlayExampleScreen> {
   OverlayEntry? _overlayEntry;
 
   @override
@@ -108,14 +110,13 @@ class DialogOverlayExampleScreenState extends State<DialogOverlayExampleScreen> 
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              _showOverlay(context);
-            },
-            child: Text('カスタムダイアログを表示'),
-          ),
+        child: ElevatedButton(
+          onPressed: () {
+            _showOverlay(context);
+          },
+          child: Text('カスタムダイアログを表示'),
+        ),
       ),
     );
   }
-
 }

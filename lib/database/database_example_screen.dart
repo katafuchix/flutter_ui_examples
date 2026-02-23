@@ -5,19 +5,21 @@ import 'package:realm/realm.dart';
 import 'person.dart';
 
 class DatabaseExampleScreen extends StatefulWidget {
+  const DatabaseExampleScreen({super.key});
+
   @override
-  _DatabaseExampleScreenState createState() => _DatabaseExampleScreenState();
+  DatabaseExampleScreenState createState() => DatabaseExampleScreenState();
 }
 
-class _DatabaseExampleScreenState extends State<DatabaseExampleScreen> {
-  late Realm realm;// Realmインスタンスを保持するための変数
+class DatabaseExampleScreenState extends State<DatabaseExampleScreen> {
+  late Realm realm; // Realmインスタンスを保持するための変数
   final _nameController = TextEditingController();
   final _personsController = StreamController<List<Person>>.broadcast();
 
   @override
   void initState() {
     super.initState();
-    print("画面が表示されました。");
+    //print("画面が表示されました。");
     final config = Configuration.local([Person.schema]);
     realm = Realm(config);
     _fetchPersons();
@@ -42,17 +44,15 @@ class _DatabaseExampleScreenState extends State<DatabaseExampleScreen> {
     super.dispose();
   }
 
-  @override
+  //@override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     _fetchPersons();
   }
 
   // _fetchPersonsは、RealmからPersonのリストを取得し、_personsControllerに追加するメソッド
   void _fetchPersons() {
-    print("_fetchPersons() start");
     final persons = realm.all<Person>().toList();
     _personsController.add(persons);
-    print("_fetchPersons() end");
   }
 
   @override

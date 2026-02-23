@@ -5,17 +5,21 @@ import '../config/colors.dart';
 
 class DialogAlertExampleScreenResult {
   final String message;
+
   DialogAlertExampleScreenResult(this.message);
 }
 
 class DialogAlertExampleScreen extends BaseStatefulWidget {
+  const DialogAlertExampleScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _DialogAlertExampleScreenState();
   }
 }
 
-class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen> {
+class _DialogAlertExampleScreenState
+    extends BaseState<DialogAlertExampleScreen> {
   _DialogAlertExampleScreenState() : super();
 
   @override
@@ -29,22 +33,20 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
       ),
       body: Center(
           child: ElevatedButton(
-                    child: const Text('アラートダイアログを表示'),
-                    onPressed: () {
-                      showPostDoneDialog(context);
-                    },
-                  )
-      ),
+        child: const Text('アラートダイアログを表示'),
+        onPressed: () {
+          showPostDoneDialog(context);
+        },
+      )),
     );
   }
 
   // 投稿完了ダイアログ
-  showPostDoneDialog(BuildContext context) {
+  void showPostDoneDialog(BuildContext context) {
     showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context)
-        {
+        builder: (context) {
           return AlertDialog(
             //backgroundColor: Colors.white, //MyColors().white1,
             shape: const RoundedRectangleBorder(
@@ -72,67 +74,81 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
                   children: <Widget>[
                     SizedBox(
                       height: 20,
-                      child:
-                      Row(children: [
-                        const Spacer(),
-                        IconButton(icon:Icon(Icons.close, color:MyColors().grey1, size: 16),
-                            onPressed: () =>  {}),
-                      ],
+                      child: Row(
+                        children: [
+                          const Spacer(),
+                          IconButton(
+                              icon: Icon(Icons.close,
+                                  color: MyColors().grey1, size: 16),
+                              onPressed: () => {}),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 4,),
-                    Row(children: [
-                      const Spacer(),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Row(
+                      children: [
+                        const Spacer(),
                         buildNormalBoldText("投稿が完了しました", maxLines: 1),
-                      const Spacer(),
+                        const Spacer(),
                       ],
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Container(
                         padding: const EdgeInsets.all(2.0),
-                        child:
-                        Column(
+                        child: Column(
                           children: [
-                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                              child:
-                              TextButton(
-                                  child: buildNormalBoldText("続けて投稿する", maxLines: 1, colors: TextColors.WHITE),
-                                  style: ButtonStyle(
-                                      fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 46)),
-                                      backgroundColor: MaterialStateProperty.all<Color>(MyColors().button1Bg),
-                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(23.0),
-                                              side: BorderSide(color: MyColors().button1Bg)
-                                          )
-                                      )
-                                  ),
-                                  onPressed: () => {
-                                    Navigator.pop(context), // ピッカーを閉じる
-                                  }),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 16, right: 16, top: 8, bottom: 8),
+                              child: TextButton(
+                                style: ButtonStyle(
+                                    fixedSize: WidgetStateProperty.all(Size(
+                                        MediaQuery.of(context).size.width, 46)),
+                                    backgroundColor:
+                                        WidgetStateProperty.all<Color>(
+                                            MyColors().button1Bg),
+                                    shape: WidgetStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(23.0),
+                                            side: BorderSide(
+                                                color: MyColors().button1Bg)))),
+                                onPressed: () => {
+                                  Navigator.pop(context), // ピッカーを閉じる
+                                },
+                                child: buildNormalBoldText("続けて投稿する",
+                                    maxLines: 1, colors: TextColors.WHITE),
+                              ),
                             ),
-
-                            Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 0),
-                              child:
-                              TextButton(
-                                  child: buildNormalBoldText("ルームへ戻る", maxLines: 1, colors: TextColors.SECONDARY_TEXT),
-                                  style: ButtonStyle(
-                                      fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 46)),
-                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(23.0),
-                                              side: BorderSide(color: MyColors().grey2)
-                                          )
-                                      )
-                                  ),
-                                  onPressed: () => {
-                                    Navigator.pop(context), // ピッカーを閉じる
-                                  }),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 16, right: 16, top: 8, bottom: 0),
+                              child: TextButton(
+                                style: ButtonStyle(
+                                    fixedSize: WidgetStateProperty.all(Size(
+                                        MediaQuery.of(context).size.width, 46)),
+                                    shape: WidgetStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(23.0),
+                                            side: BorderSide(
+                                                color: MyColors().grey2)))),
+                                onPressed: () => {
+                                  Navigator.pop(context), // ピッカーを閉じる
+                                },
+                                child: buildNormalBoldText("ルームへ戻る",
+                                    maxLines: 1,
+                                    colors: TextColors.SECONDARY_TEXT),
+                              ),
                             )
                           ],
-                        )
-
-                    ),
+                        )),
                   ],
                 ),
               ),
@@ -140,5 +156,4 @@ class _DialogAlertExampleScreenState extends BaseState<DialogAlertExampleScreen>
           );
         });
   }
-
 }

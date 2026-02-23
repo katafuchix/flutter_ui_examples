@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DialogStackExampleScreen extends StatefulWidget {
+  const DialogStackExampleScreen({super.key});
+
   @override
-  DialogStackExampleScreenState createState() => DialogStackExampleScreenState();
+  DialogStackExampleScreenState createState() =>
+      DialogStackExampleScreenState();
 }
 
 class DialogStackExampleScreenState extends State<DialogStackExampleScreen> {
