@@ -92,4 +92,8 @@ abstract class RoutePath {
   static const daialogBottomSheetTapExample = 'daialogBottomSheetTapExample';
   static const daialogBottomSheetTapCustomExample =
       'daialogBottomSheetTapCustomExample';
+
+  static const toastMenu = '/toastMenu';
+  static const toastExample = 'toastExample';
+  static const toastificationExample = 'toastificationExample';
 }

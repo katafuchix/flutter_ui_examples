@@ -20,6 +20,13 @@ class MainPage extends StatelessWidget {
           padding: EdgeInsets.all(2.0),
           //shrinkWrap: true,
           children: [
+            // Toast
+            buildListItem(
+              context: context,
+              title: 'Toast',
+              subtitle: 'demos of Toast',
+              routePath: RoutePath.toastMenu,
+            ),
             // Swipe Back
             buildListItem(
               context: context,
@@ -55,87 +62,100 @@ class MainPage extends StatelessWidget {
             ),
             // Video menu
             buildListItem(
-                context: context,
-                title: 'Video',
-                subtitle: 'demos of video ui',
-                routePath: RoutePath.videoMenu),
+              context: context,
+              title: 'Video',
+              subtitle: 'demos of video ui',
+              routePath: RoutePath.videoMenu,
+            ),
             // Side menu
             buildListItem(
-                context: context,
-                title: 'Slide Menu',
-                subtitle: 'demos of menu ui',
-                routePath: RoutePath.slideMenu),
+              context: context,
+              title: 'Slide Menu',
+              subtitle: 'demos of menu ui',
+              routePath: RoutePath.slideMenu,
+            ),
             // modal menu
             buildListItem(
-                context: context,
-                title: 'Modal Menu',
-                subtitle: 'demos of menu ui',
-                routePath: RoutePath.modalMenu),
+              context: context,
+              title: 'Modal Menu',
+              subtitle: 'demos of menu ui',
+              routePath: RoutePath.modalMenu,
+            ),
             // map menu
             buildListItem(
-                context: context,
-                title: 'Map Menu',
-                subtitle: 'demos of map',
-                routePath: RoutePath.mapMenu),
+              context: context,
+              title: 'Map Menu',
+              subtitle: 'demos of map',
+              routePath: RoutePath.mapMenu,
+            ),
             // barMenu
             buildListItem(
-                context: context,
-                title: 'Bar Menu',
-                subtitle: '',
-                routePath: RoutePath.barMenu),
+              context: context,
+              title: 'Bar Menu',
+              subtitle: '',
+              routePath: RoutePath.barMenu,
+            ),
             // alignmentMenu
             buildListItem(
-                context: context,
-                title: 'Alignment Menu',
-                subtitle: '',
-                routePath: RoutePath.alignmentMenu),
+              context: context,
+              title: 'Alignment Menu',
+              subtitle: '',
+              routePath: RoutePath.alignmentMenu,
+            ),
             // sharedMenu
             buildListItem(
-                context: context,
-                title: 'Shared Menu',
-                subtitle: '',
-                routePath: RoutePath.sharedMenu),
+              context: context,
+              title: 'Shared Menu',
+              subtitle: '',
+              routePath: RoutePath.sharedMenu,
+            ),
             // tabMenu
             buildListItem(
-                context: context,
-                title: 'Tab Menu',
-                subtitle: '',
-                routePath: RoutePath.tabMenu),
+              context: context,
+              title: 'Tab Menu',
+              subtitle: '',
+              routePath: RoutePath.tabMenu,
+            ),
 
             // screenMenu
             buildListItem(
-                context: context,
-                title: 'Screen Menu',
-                subtitle: '',
-                routePath: RoutePath.screenMenu),
+              context: context,
+              title: 'Screen Menu',
+              subtitle: '',
+              routePath: RoutePath.screenMenu,
+            ),
 
             // listMenu
             buildListItem(
-                context: context,
-                title: 'List Menu',
-                subtitle: '',
-                routePath: RoutePath.listMenu),
+              context: context,
+              title: 'List Menu',
+              subtitle: '',
+              routePath: RoutePath.listMenu,
+            ),
 
             // clipovalMenu
             buildListItem(
-                context: context,
-                title: 'Clip Oval Menu',
-                subtitle: '',
-                routePath: RoutePath.clipovalMenu),
+              context: context,
+              title: 'Clip Oval Menu',
+              subtitle: '',
+              routePath: RoutePath.clipovalMenu,
+            ),
 
             // overlayMenu
             buildListItem(
-                context: context,
-                title: 'OverLay Menu',
-                subtitle: '',
-                routePath: RoutePath.overlayMenu),
+              context: context,
+              title: 'OverLay Menu',
+              subtitle: '',
+              routePath: RoutePath.overlayMenu,
+            ),
 
             // databaseMenu
             buildListItem(
-                context: context,
-                title: 'DataBase Menu',
-                subtitle: '',
-                routePath: RoutePath.databaseMenu),
+              context: context,
+              title: 'DataBase Menu',
+              subtitle: '',
+              routePath: RoutePath.databaseMenu,
+            ),
           ],
         ),
       ),
@@ -146,12 +166,9 @@ class MainPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) {
-        Future.delayed(
-          Duration(seconds: 5),
-          () {
-            Navigator.of(context).pop(true);
-          },
-        );
+        Future.delayed(Duration(seconds: 5), () {
+          Navigator.of(context).pop(true);
+        });
 
         return WillPopScope(
           onWillPop: () async => false,
@@ -175,116 +192,108 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  Future<void> showLoadingDialog({
-    required BuildContext context,
-  }) async {
+  Future<void> showLoadingDialog({required BuildContext context}) async {
     showGeneralDialog(
-        context: context,
-        barrierDismissible: false,
-        transitionDuration: const Duration(milliseconds: 250),
-        barrierColor: Colors.black.withOpacity(0.5),
-        // 画面マスクの透明度
-        pageBuilder: (BuildContext context, Animation animation,
-            Animation secondaryAnimation) {
-          return WillPopScope(
-            onWillPop: () async => false,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const CircularProgressIndicator(),
-                  //Text(S.of(context)!.processing,style: regularWhite18,),
-                ],
+      context: context,
+      barrierDismissible: false,
+      transitionDuration: const Duration(milliseconds: 250),
+      barrierColor: Colors.black.withOpacity(0.5),
+      // 画面マスクの透明度
+      pageBuilder:
+          (
+            BuildContext context,
+            Animation animation,
+            Animation secondaryAnimation,
+          ) {
+            return WillPopScope(
+              onWillPop: () async => false,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CircularProgressIndicator(),
+                    //Text(S.of(context)!.processing,style: regularWhite18,),
+                  ],
+                ),
               ),
-            ),
-          );
-        });
+            );
+          },
+    );
   }
 
   showDataAlert(BuildContext context) {
     showDialog(
-        context: context,
-        useRootNavigator: false,
-        barrierDismissible: false,
-        builder: (context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  20.0,
-                ),
+      context: context,
+      useRootNavigator: false,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          ),
+          contentPadding: EdgeInsets.only(top: 10.0),
+          title: Text("Create ID", style: TextStyle(fontSize: 24.0)),
+          content: SizedBox(
+            height: 400,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Mension Your ID "),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Enter Id here',
+                        labelText: 'ID',
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 60,
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        //Navigator.of(context).pop();
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        //primary: Colors.black,
+                        // fixedSize: Size(250, 50),
+                      ),
+                      child: Text("Submit"),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Note'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
+                      ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+                      ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                      ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
+                      'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
+                      ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
               ),
             ),
-            contentPadding: EdgeInsets.only(
-              top: 10.0,
-            ),
-            title: Text(
-              "Create ID",
-              style: TextStyle(fontSize: 24.0),
-            ),
-            content: SizedBox(
-              height: 400,
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Mension Your ID ",
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Enter Id here',
-                            labelText: 'ID'),
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 60,
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          //Navigator.of(context).pop();
-                          Navigator.pop(context);
-                        },
-                        style: ElevatedButton.styleFrom(
-                            //primary: Colors.black,
-                            // fixedSize: Size(250, 50),
-                            ),
-                        child: Text(
-                          "Submit",
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Note'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
-                        ' ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-                        ' exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                        ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum '
-                        'dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,'
-                        ' sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

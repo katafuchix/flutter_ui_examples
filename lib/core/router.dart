@@ -57,6 +57,9 @@ import '../tab/tab_example_screen.dart';
 import '../tab/tab_controller_example_screen.dart';
 import '../tab/tab_library_example_screen.dart';
 import '../tab/tab_indicator_example_screen.dart';
+import '../toast/toast_menu_screen.dart';
+import '../toast/toast_example_screen.dart';
+import '../toast/toastification_example_screen.dart';
 import 'route_path.dart';
 
 // ---------------------------------------------------------------------------
@@ -628,6 +631,36 @@ final router = GoRouter(
               );
             },
           ),*/
+      ],
+    ),
+    // ToastMenuScreen(),
+    GoRoute(
+      path: RoutePath.toastMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: ToastMenuScreen());
+      },
+      routes: [
+        // SlideMenuSimpleExampleScreen(),
+        GoRoute(
+          name: RoutePath.toastExample,
+          path: RoutePath.toastExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: ToastExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          name: RoutePath.toastificationExample,
+          path: RoutePath.toastificationExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: ToastificationExampleScreen(),
+            );
+          },
+        ),
       ],
     ),
   ],
