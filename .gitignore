@@ -52,4 +52,4 @@ app.*.map.json
 /android/app/release
 
 # Google Map API
-Environment.swift
+#Environment.swift
