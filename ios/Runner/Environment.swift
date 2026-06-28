@@ -9,5 +9,5 @@
 import Foundation
 
 struct Env {
- static let googleMapApiKey = "AIzaSyARs_KJiqqeRaat5jN32vYkrI1krGbIxqE"
+ static let googleMapApiKey = ""
 }
