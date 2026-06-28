@@ -3,11 +3,6 @@ import '../base/base_stateful_widget.dart';
 import '../components/texts.dart';
 import '../config/colors.dart';
 
-class DialogAlertExampleScreenResult {
-  final String message;
-
-  DialogAlertExampleScreenResult(this.message);
-}
 
 class DialogAlertExampleScreen extends BaseStatefulWidget {
   const DialogAlertExampleScreen({super.key});

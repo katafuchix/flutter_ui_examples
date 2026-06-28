@@ -67,7 +67,7 @@ android {
 
         // google map
         manifestPlaceholders += [
-                googleMapApiKey: secretProperties.getProperty('googleMap.apiKey'),
+                googleMapApiKey: secretProperties.getProperty('googleMap.apiKey') ?: '',
         ]
     }
 

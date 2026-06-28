@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import '../base/base_stateful_widget.dart';
 
-class VideoPlayerExampleScreenResult {
-  final String message;
-  VideoPlayerExampleScreenResult(this.message);
-}
 
 class VideoPlayerExampleScreen extends BaseStatefulWidget {
   @override

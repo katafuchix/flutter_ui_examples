@@ -57,10 +57,6 @@ class SharedPref {
   }
 }
 
-class SharedUserExampleScreenResult {
-  final String message;
-  SharedUserExampleScreenResult(this.message);
-}
 
 class SharedUserExampleScreen extends BaseStatefulWidget {
   @override

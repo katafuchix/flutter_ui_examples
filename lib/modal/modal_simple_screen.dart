@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
 
-class ModalSimpleExampleScreenResult {
-  final String message;
-  ModalSimpleExampleScreenResult(this.message);
-}
 
 class ModalSimpleExampleScreen extends BaseStatefulWidget {
   @override

@@ -39,7 +39,7 @@ import '../video/video_menu_screen.dart';
 import '../video/video_player_example_screen.dart';
 import '../slide_menu/slide_menu_screen.dart';
 import '../slide_menu/slide_menu_simple_example.dart';
-import '../slide_menu/slide_menu_drawer_esample.dart';
+import '../slide_menu/slide_menu_drawer_example.dart';
 import '../modal/modal_menu_screen.dart';
 import '../modal/modal_simple_screen.dart';
 import '../map/map_menu_screen.dart';
@@ -59,23 +59,46 @@ import '../tab/tab_library_example_screen.dart';
 import '../tab/tab_indicator_example_screen.dart';
 import 'route_path.dart';
 
+// ---------------------------------------------------------------------------
+// Transition helpers
+// ---------------------------------------------------------------------------
+CustomTransitionPage<T> _bottomSlide<T>(Widget child, GoRouterState state) =>
+    CustomTransitionPage<T>(
+      key: state.pageKey,
+      child: child,
+      transitionsBuilder: (_, animation, _, child) => SlideTransition(
+        position: Tween(
+          begin: const Offset(0, 1),
+          end: Offset.zero,
+        ).animate(animation),
+        child: child,
+      ),
+    );
+
+CustomTransitionPage<T> _rightSlide<T>(Widget child, GoRouterState state) =>
+    CustomTransitionPage<T>(
+      key: state.pageKey,
+      child: child,
+      transitionsBuilder: (_, animation, _, child) => SlideTransition(
+        position: Tween(
+          begin: const Offset(1, 0),
+          end: Offset.zero,
+        ).animate(animation),
+        child: child,
+      ),
+    );
+
 final router = GoRouter(
   initialLocation: RoutePath.init,
   observers: [FlutterSmartDialog.observer, FlutterSmartDialog.observer],
   routes: [
     // メインの検索画面
-    GoRoute(
-      path: RoutePath.init,
-      builder: (context, state) => MainPage(),
-    ),
+    GoRoute(path: RoutePath.init, builder: (context, state) => MainPage()),
     // SwipeBack
     GoRoute(
       path: RoutePath.swipebackMenu,
       pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: SwipeBackMenuScreen(),
-        );
+        return CupertinoPage(key: state.pageKey, child: SwipeBackMenuScreen());
       },
       // 子ルートをここに追加
       routes: [
@@ -95,10 +118,7 @@ final router = GoRouter(
     GoRoute(
       path: RoutePath.filepickerMenu,
       pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: FilePickerMenuScreen(),
-        );
+        return CupertinoPage(key: state.pageKey, child: FilePickerMenuScreen());
       },
       // 子ルートをここに追加
       routes: [
@@ -125,294 +145,287 @@ final router = GoRouter(
 
     // DialogMenuScreen(),
     GoRoute(
-        path: RoutePath.dialogMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DialogMenuScreen(),
-          );
-        },
-        routes: [
-          // DialogAlertExampleScreen(),
-          GoRoute(
-              name: RoutePath.dialogAlertExample,
-              path: RoutePath.dialogAlertExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: DialogAlertExampleScreen(),
-                );
-              }),
+      path: RoutePath.dialogMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: DialogMenuScreen());
+      },
+      routes: [
+        // DialogAlertExampleScreen(),
+        GoRoute(
+          name: RoutePath.dialogAlertExample,
+          path: RoutePath.dialogAlertExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: DialogAlertExampleScreen(),
+            );
+          },
+        ),
 
-          // DialogOverlayExampleScreen(),
-          GoRoute(
-              name: RoutePath.dialogOverlayExample,
-              path: RoutePath.dialogOverlayExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: DialogOverlayExampleScreen(),
-                );
-              }),
+        // DialogOverlayExampleScreen(),
+        GoRoute(
+          name: RoutePath.dialogOverlayExample,
+          path: RoutePath.dialogOverlayExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: DialogOverlayExampleScreen(),
+            );
+          },
+        ),
 
-          // DialogOverlayCustomScreen(),
-          GoRoute(
-              name: RoutePath.dialogOverlayCustom,
-              path: RoutePath.dialogOverlayCustom,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: DialogOverlayCustomScreen(),
-                );
-              }),
+        // DialogOverlayCustomScreen(),
+        GoRoute(
+          name: RoutePath.dialogOverlayCustom,
+          path: RoutePath.dialogOverlayCustom,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: DialogOverlayCustomScreen(),
+            );
+          },
+        ),
 
-          // DialogStackExampleScreen(),
-          GoRoute(
-              name: RoutePath.dialogStackExample,
-              path: RoutePath.dialogStackExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: DialogStackExampleScreen(),
-                );
-              }),
-        ]),
+        // DialogStackExampleScreen(),
+        GoRoute(
+          name: RoutePath.dialogStackExample,
+          path: RoutePath.dialogStackExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: DialogStackExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // VideoMenuScreen(),
     GoRoute(
-        path: RoutePath.videoMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: VideoMenuScreen(),
-          );
-        },
-        routes: [
-          GoRoute(
-              name: RoutePath.videoPlayerExample,
-              path: RoutePath.videoPlayerExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: VideoPlayerExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.videoMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: VideoMenuScreen());
+      },
+      routes: [
+        GoRoute(
+          name: RoutePath.videoPlayerExample,
+          path: RoutePath.videoPlayerExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: VideoPlayerExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
     // SlideMenuScreen(),
     GoRoute(
-        path: RoutePath.slideMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: SlideMenuScreen(),
-          );
-        },
-        routes: [
-          // SlideMenuSimpleExampleScreen(),
-          GoRoute(
-              name: RoutePath.slideSimpleExample,
-              path: RoutePath.slideSimpleExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: SlideMenuSimpleExampleScreen(),
-                );
-              }),
-          // SlideMenuDrawerExampleScreen(),
-          GoRoute(
-              name: RoutePath.slideDrawerExample,
-              path: RoutePath.slideDrawerExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: SlideMenuDrawerExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.slideMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: SlideMenuScreen());
+      },
+      routes: [
+        // SlideMenuSimpleExampleScreen(),
+        GoRoute(
+          name: RoutePath.slideSimpleExample,
+          path: RoutePath.slideSimpleExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: SlideMenuSimpleExampleScreen(),
+            );
+          },
+        ),
+        // SlideMenuDrawerExampleScreen(),
+        GoRoute(
+          name: RoutePath.slideDrawerExample,
+          path: RoutePath.slideDrawerExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: SlideMenuDrawerExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
-// ModalMenuScreen(),
+    // ModalMenuScreen(),
     GoRoute(
-        path: RoutePath.modalMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: ModalMenuScreen(),
-          );
-        },
-        routes: [
-          // ModalSimpleExampleScreen(),
-          GoRoute(
-              name: RoutePath.modalSimpleExample,
-              path: RoutePath.modalSimpleExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: ModalSimpleExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.modalMenu,
+      /*pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: ModalMenuScreen());
+      },  */
+      pageBuilder: (context, state) =>
+          _bottomSlide(ModalSimpleExampleScreen(), state),
+      routes: [
+        // ModalSimpleExampleScreen(),
+        GoRoute(
+          name: RoutePath.modalSimpleExample,
+          path: RoutePath.modalSimpleExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: ModalSimpleExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // MapMenuScreen(),
     GoRoute(
-        path: RoutePath.mapMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: MapMenuScreen(),
-          );
-        },
-        routes: [
-          // MapExampleScreen(),
-          GoRoute(
-              path: RoutePath.mapExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: MapExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.mapMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: MapMenuScreen());
+      },
+      routes: [
+        // MapExampleScreen(),
+        GoRoute(
+          path: RoutePath.mapExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(key: state.pageKey, child: MapExampleScreen());
+          },
+        ),
+      ],
+    ),
 
     // BarMenuScreen(),
     GoRoute(
-        path: RoutePath.barMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: BarMenuScreen(),
-          );
-        },
-        routes: [
-          // AppBarExampleScreen(),
-          GoRoute(
-              path: RoutePath.appBarExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: AppBarExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.barMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: BarMenuScreen());
+      },
+      routes: [
+        // AppBarExampleScreen(),
+        GoRoute(
+          path: RoutePath.appBarExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: AppBarExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // AlignmentMenuScreen(),
     GoRoute(
-        path: RoutePath.alignmentMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: AlignmentMenuScreen(),
-          );
-        },
-        routes: [
-          // AlignmentExampleScreen(),
-          GoRoute(
-              path: RoutePath.alignmentExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: AlignmentExampleScreen(),
-                );
-              }),
-          // AlignmentColumnExampleScreen(),
-          GoRoute(
-              path: RoutePath.alignmentColumnExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: AlignmentColumnExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.alignmentMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: AlignmentMenuScreen());
+      },
+      routes: [
+        // AlignmentExampleScreen(),
+        GoRoute(
+          path: RoutePath.alignmentExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: AlignmentExampleScreen(),
+            );
+          },
+        ),
+        // AlignmentColumnExampleScreen(),
+        GoRoute(
+          path: RoutePath.alignmentColumnExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: AlignmentColumnExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // SharedMenuScreen(),
     GoRoute(
-        path: RoutePath.sharedMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: SharedMenuScreen(),
-          );
-        },
-        routes: [
-          // SharedSimpleExampleScreen(),
-          GoRoute(
-              path: RoutePath.sharedSimpleExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: SharedSimpleExampleScreen(),
-                );
-              }),
-          // SharedUserExampleScreen(),
-          GoRoute(
-              path: RoutePath.sharedUserExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: SharedUserExampleScreen(),
-                );
-              }),
-        ]),
+      path: RoutePath.sharedMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: SharedMenuScreen());
+      },
+      routes: [
+        // SharedSimpleExampleScreen(),
+        GoRoute(
+          path: RoutePath.sharedSimpleExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: SharedSimpleExampleScreen(),
+            );
+          },
+        ),
+        // SharedUserExampleScreen(),
+        GoRoute(
+          path: RoutePath.sharedUserExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: SharedUserExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // TabMenuScreen(),
     GoRoute(
-        path: RoutePath.tabMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: TabMenuScreen(),
-          );
-        },
-        routes: [
-          // TabExampleScreen(),
-          GoRoute(
-              path: RoutePath.tabExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: TabExampleScreen(),
-                );
-              }),
+      path: RoutePath.tabMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: TabMenuScreen());
+      },
+      routes: [
+        // TabExampleScreen(),
+        GoRoute(
+          path: RoutePath.tabExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(key: state.pageKey, child: TabExampleScreen());
+          },
+        ),
 
-          // TabControllerExampleScreen(),
-          GoRoute(
-              path: RoutePath.tabControllerExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: TabControllerExampleScreen(),
-                );
-              }),
+        // TabControllerExampleScreen(),
+        GoRoute(
+          path: RoutePath.tabControllerExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: TabControllerExampleScreen(),
+            );
+          },
+        ),
 
-          // TabLibraryExampleScreen(),
-          GoRoute(
-              path: RoutePath.tabLibraryExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: TabLibraryExampleScreen(),
-                );
-              }),
+        // TabLibraryExampleScreen(),
+        GoRoute(
+          path: RoutePath.tabLibraryExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: TabLibraryExampleScreen(),
+            );
+          },
+        ),
 
-          // TabIndicatorExampleScreen(),
-          GoRoute(
-              path: RoutePath.tabIndicatorExample,
-              pageBuilder: (context, state) {
-                return CupertinoPage(
-                  key: state.pageKey,
-                  child: TabIndicatorExampleScreen(),
-                );
-              }),
-        ]),
+        // TabIndicatorExampleScreen(),
+        GoRoute(
+          path: RoutePath.tabIndicatorExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: TabIndicatorExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // DatePickerMenuScreen
     GoRoute(
       path: RoutePath.datePickerMenu,
       pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: DatePickerMenuScreen(),
-        );
+        return CupertinoPage(key: state.pageKey, child: DatePickerMenuScreen());
       },
       routes: [
         GoRoute(
@@ -437,34 +450,29 @@ final router = GoRouter(
     ),
     // IndexstackMenuScreen
     GoRoute(
-        path: RoutePath.indexstackMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: IndexstackMenuScreen(),
-          );
-        },
-        routes: [
-          GoRoute(
-            path: RoutePath.indexstackExample, // 注意：先頭の '/' は不要です
-            //path: '/indexstackExample',
-            pageBuilder: (context, state) {
-              return CupertinoPage(
-                key: state.pageKey,
-                child: IndexstackExampleScreen(),
-              );
-            },
-          ),
-        ]),
+      path: RoutePath.indexstackMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: IndexstackMenuScreen());
+      },
+      routes: [
+        GoRoute(
+          path: RoutePath.indexstackExample, // 注意：先頭の '/' は不要です
+          //path: '/indexstackExample',
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: IndexstackExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
 
     // ScreenMenuScreen
     GoRoute(
       path: RoutePath.screenMenu,
       pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: ScreenMenuScreen(),
-        );
+        return CupertinoPage(key: state.pageKey, child: ScreenMenuScreen());
       },
       routes: [
         GoRoute(
@@ -491,10 +499,7 @@ final router = GoRouter(
     GoRoute(
       path: RoutePath.listMenu,
       pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: ListMenuScreen(),
-        );
+        return CupertinoPage(key: state.pageKey, child: ListMenuScreen());
       },
       routes: [
         GoRoute(
@@ -521,10 +526,7 @@ final router = GoRouter(
     GoRoute(
       path: RoutePath.clipovalMenu,
       pageBuilder: (context, state) {
-        return CupertinoPage(
-          key: state.pageKey,
-          child: ClipovalMenuScreen(),
-        );
+        return CupertinoPage(key: state.pageKey, child: ClipovalMenuScreen());
       },
       routes: [
         GoRoute(
@@ -558,67 +560,66 @@ final router = GoRouter(
           path: RoutePath.networkImageExample,
           pageBuilder: (context, state) {
             return CupertinoPage(
-                key: state.pageKey, child: NetworkImageExampleScreen());
+              key: state.pageKey,
+              child: NetworkImageExampleScreen(),
+            );
           },
         ),
         GoRoute(
           path: RoutePath.imageCacheExample,
           pageBuilder: (context, state) {
             return CupertinoPage(
-                key: state.pageKey, child: ImageCacheExampleScreen());
+              key: state.pageKey,
+              child: ImageCacheExampleScreen(),
+            );
           },
         ),
       ],
     ),
     // OverlayMenuScreen
     GoRoute(
-        path: RoutePath.overlayMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: OverlayMenuScreen(),
-          );
-        },
-        routes: [
-          GoRoute(
-            path: RoutePath.overlayExample,
-            pageBuilder: (context, state) {
-              return CupertinoPage(
-                key: state.pageKey,
-                child: OverlayExampleScreen(),
-              );
-            },
-          ),
-          GoRoute(
-            path: RoutePath.overlayTapExample,
-            pageBuilder: (context, state) {
-              return CupertinoPage(
-                key: state.pageKey,
-                child: OverlayTapExampleScreen(),
-              );
-            },
-          ),
-        ]),
+      path: RoutePath.overlayMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: OverlayMenuScreen());
+      },
+      routes: [
+        GoRoute(
+          path: RoutePath.overlayExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: OverlayExampleScreen(),
+            );
+          },
+        ),
+        GoRoute(
+          path: RoutePath.overlayTapExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: OverlayTapExampleScreen(),
+            );
+          },
+        ),
+      ],
+    ),
     // DatabaseMenuScreen
     GoRoute(
-        path: RoutePath.databaseMenu,
-        pageBuilder: (context, state) {
-          return CupertinoPage(
-            key: state.pageKey,
-            child: DatabaseMenuScreen(),
-          );
-        },
-        routes: [
-          GoRoute(
-            path: RoutePath.databaseExample,
-            pageBuilder: (context, state) {
-              return CupertinoPage(
-                key: state.pageKey,
-                child: DatabaseExampleScreen(),
-              );
-            },
-          ),
-          /*GoRoute(
+      path: RoutePath.databaseMenu,
+      pageBuilder: (context, state) {
+        return CupertinoPage(key: state.pageKey, child: DatabaseMenuScreen());
+      },
+      routes: [
+        GoRoute(
+          path: RoutePath.databaseExample,
+          pageBuilder: (context, state) {
+            return CupertinoPage(
+              key: state.pageKey,
+              child: DatabaseExampleScreen(),
+            );
+          },
+        ),
+        /*GoRoute(
             path: RoutePath.databaseSharedExample,
             pageBuilder: (context, state) {
               return CupertinoPage(
@@ -627,6 +628,7 @@ final router = GoRouter(
               );
             },
           ),*/
-        ]),
+      ],
+    ),
   ],
 );

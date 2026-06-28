@@ -1,29 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/widget_circular_progress.dart';
-import '../my_navigator.dart';
 
 abstract class BaseStatefulWidget extends StatefulWidget {
-  final ScreenArgs? args;
-
-  //BaseStatefulWidget({this.args});
-  const BaseStatefulWidget({super.key, this.args});
-
-  // TODO abstractにしたい abstractにすると全体的に修正が必要になるので、いったんダミー値を返すようにする
-  String getArgsKey() {
-    return 'DUMMY';
-  }
-
-  @protected
-  T? getArgs<T>() {
-    if (args == null) return null;
-    return _parseArgs(args!);
-  }
-
-  T? _parseArgs<T>(ScreenArgs screenArgs) {
-    final key = getArgsKey();
-    if (key == 'DUMMY') throw UnimplementedError('getArgsKey()でargsをセットすること');
-    return screenArgs.get(key) as T?;
-  }
+  const BaseStatefulWidget({super.key});
 }
 
 abstract class BaseState<T extends BaseStatefulWidget> extends State<T>

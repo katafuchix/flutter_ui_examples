@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../base/base_stateful_widget.dart';
 
 class SizeConfig {
   static MediaQueryData? _mediaQueryData;

@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedSimpleExampleScreenResult {
-  final String message;
-  SharedSimpleExampleScreenResult(this.message);
-}
 
 class SharedSimpleExampleScreen extends BaseStatefulWidget {
   @override

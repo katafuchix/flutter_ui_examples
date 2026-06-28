@@ -4,10 +4,6 @@ import '../base/base_stateful_widget.dart';
 //import '../components/snack_bar.dart';
 //import '../app.dart';
 
-class MapExampleScreenResult {
-  final String message;
-  MapExampleScreenResult(this.message);
-}
 
 class MapExampleScreen extends BaseStatefulWidget {
   @override

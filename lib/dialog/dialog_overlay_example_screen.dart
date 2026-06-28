@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-class DialogOverlayExampleScreenResult {
-  final String message;
-
-  DialogOverlayExampleScreenResult(this.message);
-}
 
 class DialogOverlayExampleScreen extends StatefulWidget {
   const DialogOverlayExampleScreen({super.key});

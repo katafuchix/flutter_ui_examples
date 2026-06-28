@@ -3,11 +3,6 @@ import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
 import '../util/ui_utils.dart';
 
-class VideoMenuScreenResult {
-  final String message;
-
-  VideoMenuScreenResult(this.message);
-}
 
 class VideoMenuScreen extends BaseStatefulWidget {
   const VideoMenuScreen({super.key});

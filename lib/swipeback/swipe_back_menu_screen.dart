@@ -4,11 +4,6 @@ import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
 import 'swipe_back_handler.dart';
 
-class SwipeBackScreenResult {
-  final String message;
-
-  SwipeBackScreenResult(this.message);
-}
 
 class SwipeBackMenuScreen extends BaseStatefulWidget {
   const SwipeBackMenuScreen({super.key});

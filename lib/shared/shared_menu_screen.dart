@@ -3,11 +3,6 @@ import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
 import '../util/ui_utils.dart';
 
-class SharedMenuScreenResult {
-  final String message;
-
-  SharedMenuScreenResult(this.message);
-}
 
 class SharedMenuScreen extends BaseStatefulWidget {
   const SharedMenuScreen({super.key});

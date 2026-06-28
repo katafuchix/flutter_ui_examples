@@ -3,11 +3,6 @@ import '../base/base_stateful_widget.dart';
 import '../core/route_path.dart';
 import '../util/ui_utils.dart';
 
-class DialogMenuScreenResult {
-  final String message;
-
-  DialogMenuScreenResult(this.message);
-}
 
 class DialogMenuScreen extends BaseStatefulWidget {
   const DialogMenuScreen({super.key});

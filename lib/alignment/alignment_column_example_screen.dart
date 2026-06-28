@@ -4,10 +4,6 @@ import '../base/base_stateful_widget.dart';
 //import '../components/snack_bar.dart';
 //import '../app.dart';
 
-class AlignmentColumnExampleScreenResult {
-  final String message;
-  AlignmentColumnExampleScreenResult(this.message);
-}
 
 class AlignmentColumnExampleScreen extends BaseStatefulWidget {
   @override

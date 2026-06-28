@@ -3,11 +3,6 @@ import '../base/base_stateful_widget.dart';
 import '../components/texts.dart';
 import '../config/colors.dart';
 
-class AppBarExampleScreenResult {
-  final String message;
-
-  AppBarExampleScreenResult(this.message);
-}
 
 class AppBarExampleScreen extends BaseStatefulWidget {
   @override

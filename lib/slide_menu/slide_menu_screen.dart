@@ -3,11 +3,6 @@ import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
 import '../util/ui_utils.dart';
 
-class SlideMenuScreenResult {
-  final String message;
-
-  SlideMenuScreenResult(this.message);
-}
 
 class SlideMenuScreen extends BaseStatefulWidget {
   const SlideMenuScreen({super.key});

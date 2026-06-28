@@ -3,11 +3,6 @@ import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
 import '../util/ui_utils.dart';
 
-class TabMenuScreenResult {
-  final String message;
-
-  TabMenuScreenResult(this.message);
-}
 
 class TabMenuScreen extends BaseStatefulWidget {
   const TabMenuScreen({super.key});

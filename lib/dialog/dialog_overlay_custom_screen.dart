@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import '../components/texts.dart';
 import '../config/colors.dart';
 
-class DialogOverlayCustomScreenResult {
-  final String message;
-
-  DialogOverlayCustomScreenResult(this.message);
-}
 
 class DialogOverlayCustomScreen extends StatefulWidget {
   const DialogOverlayCustomScreen({super.key});

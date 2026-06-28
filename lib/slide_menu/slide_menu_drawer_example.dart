@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
 
-class SlideMenuDrawerExampleScreenResult {
-  final String message;
-  SlideMenuDrawerExampleScreenResult(this.message);
-}
 
 class SlideMenuDrawerExampleScreen extends BaseStatefulWidget {
   @override

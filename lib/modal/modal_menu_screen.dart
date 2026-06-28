@@ -3,11 +3,6 @@ import '../core/route_path.dart';
 import '../base/base_stateful_widget.dart';
 import '../util/ui_utils.dart';
 
-class ModalMenuScreenResult {
-  final String message;
-
-  ModalMenuScreenResult(this.message);
-}
 
 class ModalMenuScreen extends BaseStatefulWidget {
   const ModalMenuScreen({super.key});

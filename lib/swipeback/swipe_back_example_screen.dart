@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_ui_examples/swipeback/swipe_back_handler.dart';
 import '../base/base_stateful_widget.dart';
 
-class SwipeBackExampleScreenResult {
-  final String message;
-
-  SwipeBackExampleScreenResult(this.message);
-}
 
 class SwipeBackExampleScreen extends BaseStatefulWidget {
   @override

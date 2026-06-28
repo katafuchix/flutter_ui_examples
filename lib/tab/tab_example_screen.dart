@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import '../base/base_stateful_widget.dart';
 
-class TabExampleScreenResult {
-  final String message;
-  TabExampleScreenResult(this.message);
-}
 
 class TabExampleScreen extends BaseStatefulWidget {
   @override
