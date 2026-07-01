@@ -260,8 +260,7 @@ final router = GoRouter(
       /*pageBuilder: (context, state) {
         return CupertinoPage(key: state.pageKey, child: ModalMenuScreen());
       },  */
-      pageBuilder: (context, state) =>
-          _bottomSlide(ModalSimpleExampleScreen(), state),
+      pageBuilder: (context, state) => _bottomSlide(ModalMenuScreen(), state),
       routes: [
         // ModalSimpleExampleScreen(),
         GoRoute(

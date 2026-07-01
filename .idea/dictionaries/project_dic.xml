@@ -14,6 +14,7 @@
       <w>dialog</w>
       <w>fanletter</w>
       <w>filepicker</w>
+      <w>fluttertoast</w>
       <w>freezed</w>
       <w>historypage</w>
       <w>imageloader</w>
@@ -27,6 +28,7 @@
       <w>slidable</w>
       <w>swipeback</w>
       <w>talkroom</w>
+      <w>toastification</w>
       <w>webview</w>
     </words>
   </dictionary>

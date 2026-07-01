@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import '../base/base_stateful_widget.dart';
 import 'package:toastification/toastification.dart';
 
